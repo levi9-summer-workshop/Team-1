@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-  <component name="GradleLocalSettings">
-=======
   <component name="ChangeListManager">
     <list default="true" id="e38c8b37-075c-4c1d-92ab-4056d1d8287b" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -43,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data.sql" pinned="false" current-in-tab="true">
+      <file leaf-file-name="data.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/data.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -78,15 +75,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UserRepository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/rs/levi9/team1/survey/repository/UserRepository.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -112,25 +100,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SurveyUserService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SurveyUserService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/rs/levi9/team1/survey/service/SurveyUserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
+            <state relative-caret-position="481">
               <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1986#1987#0" expanded="true" />
                 <element signature="e#2033#2034#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="64" selection-start-line="4" selection-start-column="64" selection-end-line="4" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -463,17 +442,15 @@
         </entry>
       </map>
     </option>
->>>>>>> 455bceaa73e5aadcc0c40777dce2e6128bc8088d
     <option name="projectSyncType">
       <map>
-        <entry key="$PROJECT_DIR$/../../../backend-day-2/library/tech9/day2/step3" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../../../project/backend-day-2" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../../../project/backend-day-2/library/tech9/day2/step3" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+        <entry key="$PROJECT_DIR$/../../backend-day-2/library/tech9/day2/step3" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../project/backend-day-2" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../project/backend-day-2/library/tech9/day2/step3" value="PREVIEW" />
       </map>
     </option>
   </component>
-<<<<<<< HEAD
-=======
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -492,15 +469,12 @@
       </list>
     </option>
   </component>
->>>>>>> 455bceaa73e5aadcc0c40777dce2e6128bc8088d
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="260" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
-<<<<<<< HEAD
-=======
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -512,6 +486,11 @@
             <path>
               <item name="survey" type="b2602c69:ProjectViewProjectNode" />
               <item name="online-survey-creator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="survey" type="b2602c69:ProjectViewProjectNode" />
+              <item name="online-survey-creator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="survey" type="b2602c69:ProjectViewProjectNode" />
@@ -646,13 +625,36 @@
       <pane id="Scope" />
     </panes>
   </component>
->>>>>>> 455bceaa73e5aadcc0c40777dce2e6128bc8088d
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
+    <configuration name="SurveyApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rs.levi9.team1.survey.SurveyApplication" />
+      <module name="survey_main" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rs.levi9.team1.survey.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -694,8 +696,6 @@
       <properties />
       <listeners />
     </configuration>
-<<<<<<< HEAD
-=======
     <recent_temporary>
       <list>
         <item itemvalue="Application.SurveyApplication" />
@@ -721,7 +721,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5005208" side_tool="true" weight="0.32943678" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -738,7 +738,7 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32943678" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947917" visible="true" weight="0.32943678" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.321875" />
@@ -753,13 +753,10 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
->>>>>>> 455bceaa73e5aadcc0c40777dce2e6128bc8088d
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-<<<<<<< HEAD
-=======
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/levi9/team1/survey/domain/SurveyUser.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -967,13 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/levi9/team1/survey/domain/AuthenticatedUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/levi9/team1/survey/service/UserService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/levi9/team1/survey/domain/SurveyUser.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -995,18 +985,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/levi9/team1/survey/service/SurveyUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1986#1987#0" expanded="true" />
-            <element signature="e#2033#2034#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/levi9/team1/survey/web/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -1018,12 +996,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/levi9/team1/survey/domain/AuthenticatedUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="64" selection-start-line="4" selection-start-column="64" selection-end-line="4" selection-end-column="64" />
+        <state relative-caret-position="136">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/data.sql">
       <provider selected="true" editor-type-id="text-editor">
@@ -1032,8 +1013,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="55" lean-forward="true" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/levi9/team1/survey/service/SurveyUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1986#1987#0" expanded="true" />
+            <element signature="e#2033#2034#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
->>>>>>> 455bceaa73e5aadcc0c40777dce2e6128bc8088d
   <component name="masterDetails">
     <states>
       <state key="ProjectJDKs.UI">
