@@ -313,7 +313,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="260" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -332,51 +332,6 @@
             <path>
               <item name="survey" type="b2602c69:ProjectViewProjectNode" />
               <item name="online-survey-creator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="survey" type="b2602c69:ProjectViewProjectNode" />
-              <item name="online-survey-creator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="survey" type="b2602c69:ProjectViewProjectNode" />
-              <item name="online-survey-creator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="survey" type="b2602c69:ProjectViewProjectNode" />
-              <item name="online-survey-creator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="survey" type="b2602c69:ProjectViewProjectNode" />
-              <item name="online-survey-creator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="survey" type="b2602c69:ProjectViewProjectNode" />
-              <item name="online-survey-creator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-              <item name="levi9" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="survey" type="b2602c69:ProjectViewProjectNode" />
-              <item name="online-survey-creator" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-              <item name="levi9" type="462c0819:PsiDirectoryNode" />
-              <item name="team1" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -473,7 +428,7 @@
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.321875" />
       <window_info anchor="bottom" id="Build" visible="true" weight="0.32943678" />
       <window_info anchor="right" id="Gradle" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
