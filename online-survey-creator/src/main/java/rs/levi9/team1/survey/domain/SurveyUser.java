@@ -5,7 +5,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "survey_user")
-public class User extends BaseEntity {
+public class SurveyUser extends BaseEntity {
 
     @Column(nullable = false)
     private String username;
