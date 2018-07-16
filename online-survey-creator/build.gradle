@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+group 'rs.levi9.team1'
+version '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
