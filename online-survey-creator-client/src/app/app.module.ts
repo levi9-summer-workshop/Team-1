@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './login/auth-service.service';
+import { AuthGuard } from './auth-guard.service';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AuthService } from './login/auth-service.service';
     FormsModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
