@@ -6,5 +6,6 @@ import rs.levi9.team1.survey.domain.SurveyUser;
 
 @Repository
 public interface UserRepository extends JpaRepository<SurveyUser, Long> {
-    public SurveyUser findByUsername(String username);
+    SurveyUser findByUsername(String username);
+    SurveyUser findById(Long id);
 } // end interface UserRepository

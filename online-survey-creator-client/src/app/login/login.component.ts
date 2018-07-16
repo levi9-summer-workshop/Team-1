@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './auth-service.service';
 
 @Component({
-  selector: 'library-login',
+  selector: 'survey-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
         () => this.router.navigate(['/home']),
         (error) => {
           this.error = error;
-          // console.error(error);
+          console.error(error);
         }
       );
   }
