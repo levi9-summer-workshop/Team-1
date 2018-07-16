@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
   <div class="container">
-    <a class="navbar-brand" routerLink="/">Survey</a>
+    <a class="navbar-brand" routerLink="/">Online Survey Creator</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,12 +11,19 @@
             <a class="nav-link" routerLink="/home">Home</a>
           </li>
         <!-- </ng-template>         -->
-        <!-- <ng-template [ngIf]="authService.hasRoleAdmin()">                     -->
+        <!-- <ng-template [ngIf]="authService.isAuthenticated()"> -->
           <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="/categories">Categories</a>
+            <a class="nav-link" routerLink="/forum">Forum</a>
           </li>
+        <!-- </ng-template>         -->
+        <!-- <ng-template [ngIf]="authService.hasRoleAdmin()"> -->
           <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="/books">Books</a>
+            <a class="nav-link" routerLink="/admin">Admin</a>
+          </li>
+           <!-- </ng-template>         -->
+          <!-- <ng-template [ngIf]="authService.isAuthenticated()"> -->
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/user">{{user}}'s profile</a>
           </li>
         <!-- </ng-template> -->
       </ul>
