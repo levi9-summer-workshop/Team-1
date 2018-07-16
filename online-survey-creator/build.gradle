@@ -2,10 +2,20 @@ plugins {
     id 'org.springframework.boot' version '1.5.3.RELEASE'
 }
 
+apply plugin: 'java'
+
 group 'rs.levi9.team1'
-version '0.0.1-SNAPSHOT'
+
+jar {
+    version = '0.0.1-SNAPSHOT'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.5'
+}
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
