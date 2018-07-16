@@ -14,6 +14,7 @@ import rs.levi9.team1.survey.domain.SurveyUser;
 import rs.levi9.team1.survey.repository.UserRepository;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Transactional
@@ -46,5 +47,9 @@ public class SurveyUserService implements UserDetailsService {
         } // end for loop
         return authorities;
     } // end getAuthorities
+
+    public List<SurveyUser> findAll() {
+        return userRepository.findAll();
+    }
 
 } // end class UserService
