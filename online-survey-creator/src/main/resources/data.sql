@@ -1,5 +1,6 @@
 INSERT INTO `survey_creator`.`role`(`type`) VALUES ('ROLE_ADMIN');
 INSERT INTO `survey_creator`.`role`(`type`) VALUES ('ROLE_USER');
+INSERT INTO `survey_creator`.`role`(`type`) VALUES ('ROLE_BLOCKED');
 
 INSERT INTO `survey_creator`.`survey_user`(`password`,`username`) VALUES ('admin','admin');
 INSERT INTO `survey_creator`.`survey_user`(`password`,`username`) VALUES ('user','user');

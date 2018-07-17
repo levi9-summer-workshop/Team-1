@@ -1,13 +1,11 @@
 package rs.levi9.team1.survey.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import rs.levi9.team1.survey.domain.AuthenticatedUser;
 import rs.levi9.team1.survey.domain.SurveyUser;
-import rs.levi9.team1.survey.repository.UserRepository;
 import rs.levi9.team1.survey.service.SurveyUserService;
 
 import java.util.ArrayList;

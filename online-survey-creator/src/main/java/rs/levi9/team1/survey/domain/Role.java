@@ -19,7 +19,7 @@ public class Role extends BaseEntity {
     } // end setType
 
     public enum RoleType {
-        ROLE_USER, ROLE_ADMIN
+        ROLE_USER, ROLE_ADMIN, ROLE_BLOCKED
     }
 
 } // end class Role
