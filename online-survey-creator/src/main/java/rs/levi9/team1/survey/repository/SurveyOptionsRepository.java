@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import rs.levi9.team1.survey.domain.SurveyOptions;
 
 @Repository
-public interface SurveyOptionRepository extends JpaRepository<SurveyOptions, Long> {
+public interface SurveyOptionsRepository extends JpaRepository<SurveyOptions, Long> {
 }

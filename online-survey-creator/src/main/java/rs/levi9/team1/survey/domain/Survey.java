@@ -20,11 +20,15 @@ public class Survey extends BaseEntity {
     @JoinColumn(name = "survey_user_id")
     private SurveyUser surveyUser;
 
-    @NotNull
-    @Column(nullable = false)
-    private boolean isPublic = true;    // true = visible to all, false = visible to all registered users
+    @Enumerated(EnumType.STRING)
+    private PrivacyType privacyType;
+
+    public enum PrivacyType {
+        PUBLIC, RESTRICTED
+    }
 
     @Future
+    @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date expiryDate;
 
@@ -52,12 +56,12 @@ public class Survey extends BaseEntity {
         this.surveyUser = surveyUser;
     }
 
-    public boolean isPublic() {
-        return isPublic;
+    public PrivacyType getPrivacyType() {
+        return privacyType;
     }
 
-    public void setPublic(boolean aPublic) {
-        isPublic = aPublic;
+    public void setPrivacyType(PrivacyType privacyType) {
+        this.privacyType = privacyType;
     }
 
     public Date getExpiryDate() {

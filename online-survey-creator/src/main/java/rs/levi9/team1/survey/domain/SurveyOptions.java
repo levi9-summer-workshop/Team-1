@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "survey_option")
+@Table(name = "survey_options")
 public class SurveyOptions extends BaseEntity {
 
     @NotNull
