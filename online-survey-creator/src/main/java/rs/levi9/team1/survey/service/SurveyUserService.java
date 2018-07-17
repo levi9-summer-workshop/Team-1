@@ -55,6 +55,18 @@ public class SurveyUserService implements UserDetailsService {
 
     public List<SurveyUser> findAll() {
         return userRepository.findAll();
-    }
+    } // end findAll
+
+    public SurveyUser findOne(Long id) {
+        return userRepository.findOne(id);
+    } // end findOne
+
+    public SurveyUser save(SurveyUser surveyUser) {
+        return userRepository.save(surveyUser);
+    } // end save
+
+    public void delete(Long id) {
+        userRepository.delete(id);
+    } // end delete
 
 } // end class UserService

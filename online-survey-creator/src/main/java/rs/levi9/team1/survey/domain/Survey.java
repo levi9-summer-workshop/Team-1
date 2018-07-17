@@ -4,7 +4,6 @@ import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Survey extends BaseEntity {
@@ -23,7 +22,7 @@ public class Survey extends BaseEntity {
 
     @NotNull
     @Column(nullable = false)
-    private boolean isPublic;    // true = visible to all, false = visible to all registered users
+    private boolean isPublic = true;    // true = visible to all, false = visible to all registered users
 
     @Future
     @Column(nullable = false)

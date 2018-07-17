@@ -15,6 +15,8 @@ public class SurveyOptions extends BaseEntity {
     @JoinColumn(name = "survey_id")
     private Survey survey;
 
+    private int result = 0;
+
     public String getAnswer() {
         return answer;
     }
