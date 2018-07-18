@@ -59,11 +59,11 @@ public class Survey extends BaseEntity {
         this.privacyType = privacyType;
     }
 
-    public SurveyStatus getStatusType() {
+    public SurveyStatus getSurveyStatus() {
         return surveyStatus;
     }
 
-    public void setStatusType(SurveyStatus surveyStatus) {
+    public void setSurveyStatus(SurveyStatus surveyStatus) {
         this.surveyStatus = surveyStatus;
     }
 
