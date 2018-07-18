@@ -10,10 +10,6 @@ public class Survey extends BaseEntity {
 
     @NotNull
     @Column(nullable = false)
-    private String question;
-
-    @NotNull
-    @Column(nullable = false)
     private String description;
 
     @ManyToOne
@@ -45,14 +41,6 @@ public class Survey extends BaseEntity {
 
     public enum SurveyStatus {
         OPEN, CLOSED
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
     }
 
     public String getDescription() {
