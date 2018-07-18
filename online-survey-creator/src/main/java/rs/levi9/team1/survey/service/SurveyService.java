@@ -3,6 +3,7 @@ package rs.levi9.team1.survey.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import rs.levi9.team1.survey.domain.Survey;
 import rs.levi9.team1.survey.repository.SurveyRepository;
 
 import java.util.List;
