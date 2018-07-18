@@ -17,9 +17,14 @@ export class UsersService {
     return this.httpClient.get<SurveyUser[]>(this.API, { headers: this.authService.getAuthHeaders() });
   }
 
-   // Delete user by usename and return Observable
-   deleteUser(username: String) {
-    return this.httpClient.delete(this.API + '/' + (username), { headers: this.authService.getAuthHeaders() });
+   // Delete user by id and return Observable
+   deleteUser(userId: number) {
+    return this.httpClient.delete(this.API + '/' + (userId), { headers: this.authService.getAuthHeaders() });
+  }
+
+  //Block user 
+  blockUser(user: SurveyUser) {
+    return this.httpClient.put(this.API + '/' + (user.id), { headers: this.authService.getAuthHeaders() });
   }
 }
 

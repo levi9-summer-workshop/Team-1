@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Survey extends BaseEntity {
@@ -30,10 +31,27 @@ public class Survey extends BaseEntity {
         OPEN, CLOSED
     }
 
+    public Survey() {
+
+    }
+
+    public Survey(String description, SurveyUser surveyUser, Date expiryDate, List<SurveyOptions> surveyOptionsList) {
+        this.description = description;
+        this.surveyUser = surveyUser;
+        this.privacyType = PrivacyType.PUBLIC;
+        this.surveyStatus = SurveyStatus.OPEN;
+        this.expiryDate = expiryDate;
+        this.surveyOptionsList = surveyOptionsList;
+    }
+
     @Future
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date expiryDate;
+
+    @OneToMany
+    @JoinColumn(name = "survey_options_id")
+    private List<SurveyOptions> surveyOptionsList;
 
     public String getDescription() {
         return description;
@@ -73,5 +91,13 @@ public class Survey extends BaseEntity {
 
     public void setExpiryDate(Date expiryDate) {
         this.expiryDate = expiryDate;
+    }
+
+    public List<SurveyOptions> getSurveyOptionsList() {
+        return surveyOptionsList;
+    }
+
+    public void setSurveyOptionsList(List<SurveyOptions> surveyOptionsList) {
+        this.surveyOptionsList = surveyOptionsList;
     }
 }

@@ -25,7 +25,7 @@
                   </td>
                   <td class="text-center align-middle">
                     <button type="button" class="btn btn-outline-secondary" (click)="onUserBlock(user)" data-toggle="modal" data-target="#blockUserModal">
-                      Block
+                        Block
                     </button>
                   </td>
               </tr>
@@ -77,7 +77,7 @@
         </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" #c>Close</button>
-                    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Yes!</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" (click) = "onUserBlockSubmit()">Submit</button>
                 </div>
             
         </div>

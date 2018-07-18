@@ -49,4 +49,15 @@ public class SurveyController {
 
         return new ResponseEntity(survey, HttpStatus.OK);
     }
+
+    @RequestMapping(path = "/surveys/user/{id}", method = RequestMethod.GET)
+    public ResponseEntity findAllBySurveyUserId(@PathVariable("id") Long id) {
+        List<Survey> surveyList = surveyService.findAllBySurveyUserId(id);
+        if (surveyList == null) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<List<Survey>>(surveyList, HttpStatus.OK);
+    } // end findAllBySurveyUserId
+
 }

@@ -10,39 +10,34 @@
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" routerLink="/home">Home</a>
           </li>
-        <!-- </ng-template>         -->
-        <!-- <ng-template [ngIf]="authService.isAuthenticated()"> -->
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="/forum">Forum</a>
-          </li>
-        <!-- </ng-template>         -->
-        <!-- <ng-template [ngIf]="authService.hasRoleAdmin()"> -->
+        <!-- </ng-template> -->
+        <ng-template [ngIf]="authService.hasRoleAdmin()">
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" routerLink="/admin">Admin</a>
           </li>
-           <!-- </ng-template>         -->
-          <ng-template [ngIf]="authService.isAuthenticated()">
+           </ng-template>        
+          <ng-template [ngIf]="authService.isAuthenticated() && authService.hasRoleAdmin() == false">
           <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="/user">Users</a>
+            <a class="nav-link" routerLink="/user">My Surveys</a>
           </li>
         </ng-template>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <!-- <ng-template [ngIf]="!authService.isAuthenticated()"> -->
+        <ng-template [ngIf]="!authService.isAuthenticated()">
           <li class="nav-item">
             <a class="nav-link" routerLink="/login">Login</a>
           </li>
-        <!-- </ng-template> -->
-        <!-- <ng-template [ngIf]="authService.isAuthenticated()"> -->
+        </ng-template>
+        <ng-template [ngIf]="authService.isAuthenticated()">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <!-- {{ authService.getUsername() }} -->
+              {{ authService.getUsername() }}
             </a>
             <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" (click)="authService.logout()" routerLink="/">Logout</a>
             </div>
           </li>
-        <!-- </ng-template> -->
+        </ng-template>
       </ul>
     </div>
   </div>

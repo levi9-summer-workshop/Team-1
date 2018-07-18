@@ -10,7 +10,7 @@ import { UsersComponent } from '../users/users.component';
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data: { expectedRole: 'user'} },
-  { path: 'user', component: UsersComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
+  { path: 'admin', component: UsersComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
   //{ path: 'books', component: BooksComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
   { path: 'login', component: LoginComponent }
 ];
