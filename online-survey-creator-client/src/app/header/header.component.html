@@ -6,7 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <!-- <ng-template [ngIf]="authService.isAuthenticated()"> -->
+         <!-- <ng-template [ngIf]="authService.isAuthenticated()">  -->
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" routerLink="/home">Home</a>
           </li>
@@ -21,11 +21,11 @@
             <a class="nav-link" routerLink="/admin">Admin</a>
           </li>
            <!-- </ng-template>         -->
-          <!-- <ng-template [ngIf]="authService.isAuthenticated()"> -->
+          <ng-template [ngIf]="authService.isAuthenticated()">
           <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="/user">{{user}}'s profile</a>
+            <a class="nav-link" routerLink="/user">Users</a>
           </li>
-        <!-- </ng-template> -->
+        </ng-template>
       </ul>
       <ul class="navbar-nav ml-auto">
         <!-- <ng-template [ngIf]="!authService.isAuthenticated()"> -->
