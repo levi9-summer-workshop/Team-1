@@ -12,9 +12,6 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './login/auth-service.service';
 import { AuthGuard } from './auth-guard.service';
-import { UsersComponent } from './users/users.component';
-import { UsersService } from './users/users-service.service';
-import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 @NgModule({
@@ -23,9 +20,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     HomeComponent,
     FooterComponent,
     HeaderComponent,
-    LoginComponent,
-    UsersComponent,
-    SignUpComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +30,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   ],
   providers: [
     AuthService,
-    AuthGuard,
-    UsersService
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

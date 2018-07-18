@@ -4,6 +4,8 @@ plugins {
 
 apply plugin: 'java'
 
+group 'rs.levi9.team1'
+
 jar {
     version = '0.0.1-SNAPSHOT'
 }
