@@ -32,6 +32,21 @@ public class Survey extends BaseEntity {
     @Column(nullable = false)
     private Date expiryDate;
 
+    public SurveyStatus getSurveyStatus() {
+        return surveyStatus;
+    }
+
+    public void setSurveyStatus(SurveyStatus surveyStatus) {
+        this.surveyStatus = surveyStatus;
+    }
+
+    @Enumerated(EnumType.STRING)
+    private SurveyStatus surveyStatus;
+
+    public enum SurveyStatus {
+        OPEN, CLOSED
+    }
+
     public String getQuestion() {
         return question;
     }
