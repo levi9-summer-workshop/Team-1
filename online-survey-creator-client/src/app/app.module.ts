@@ -15,6 +15,7 @@ import { AuthGuard } from './auth-guard.service';
 import { UsersComponent } from './users/users.component';
 import { UsersService } from './users/users-service.service';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { SurveyListHomeComponent } from './home/survey-list-home/survey-list-home.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     HeaderComponent,
     LoginComponent,
     UsersComponent,
-    SignUpComponent
+    SignUpComponent,
+    SurveyListHomeComponent
   ],
   imports: [
     BrowserModule,
