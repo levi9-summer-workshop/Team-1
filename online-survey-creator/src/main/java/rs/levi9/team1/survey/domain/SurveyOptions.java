@@ -13,7 +13,7 @@ public class SurveyOptions extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "survey_id")
-    private Survey survey;
+    private rs.levi9.team1.survey.domain.Survey survey;
 
     private int result = 0;
 
