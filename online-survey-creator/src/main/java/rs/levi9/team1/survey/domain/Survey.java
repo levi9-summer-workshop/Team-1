@@ -23,25 +23,17 @@ public class Survey extends BaseEntity {
         PUBLIC, RESTRICTED
     }
 
-    @Future
-    @Temporal(TemporalType.DATE)
-    @Column(nullable = false)
-    private Date expiryDate;
-
-    public SurveyStatus getSurveyStatus() {
-        return surveyStatus;
-    }
-
-    public void setSurveyStatus(SurveyStatus surveyStatus) {
-        this.surveyStatus = surveyStatus;
-    }
-
     @Enumerated(EnumType.STRING)
     private SurveyStatus surveyStatus;
 
     public enum SurveyStatus {
         OPEN, CLOSED
     }
+
+    @Future
+    @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
+    private Date expiryDate;
 
     public String getDescription() {
         return description;
@@ -65,6 +57,14 @@ public class Survey extends BaseEntity {
 
     public void setPrivacyType(PrivacyType privacyType) {
         this.privacyType = privacyType;
+    }
+
+    public SurveyStatus getSurveyStatus() {
+        return surveyStatus;
+    }
+
+    public void setSurveyStatus(SurveyStatus surveyStatus) {
+        this.surveyStatus = surveyStatus;
     }
 
     public Date getExpiryDate() {
