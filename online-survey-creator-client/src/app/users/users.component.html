@@ -19,14 +19,19 @@
                   <td class="text-center align-middle">{{ user.password }}</td>
                   
                   <td class="text-center align-middle">
-                    <button type="button" class="btn btn-danger" (click)="onUserDelete(user)" data-toggle="modal" data-target="#deleteUserModal">
-                      Delete
-                    </button>
+                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" [attr.title]='ifUserIsAdmin(user)?"Cannot delete admin account!":null'>
+                        <button type="button" class="btn btn-danger" [disabled]="ifUserIsAdmin(user)" (click)="onUserDelete(user)" data-toggle="modal" data-target="#deleteUserModal">
+                            Delete
+                        </button>
+                    </span>
                   </td>
+                  <!-- <ng-template [ngIf]="authService.isAuthenticated() && authService.hasRoleAdmin()"> -->
                   <td class="text-center align-middle">
-                    <button type="button" *ngIf="!user.isBlocked" class="btn btn-outline-secondary" (click)="onUserBlock(user)" data-toggle="modal" data-target="#blockUserModal">
-                        {{button}}
-                    </button>
+                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" [attr.title]='ifUserIsAdmin(user)?"Cannot block admin account!":null'>
+                        <button type="button" class="btn btn-outline-secondary" [disabled]="ifUserIsAdmin(user)" (click)="onUserBlock(user)" data-toggle="modal" data-target="#blockUserModal">
+                            {{user.blocked ? "Unblock" : "Block"}}
+                        </button>
+                    </span>
                   </td>
               </tr>
           </tbody>

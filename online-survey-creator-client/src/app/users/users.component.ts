@@ -5,6 +5,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { UsersService } from './users-service.service';
 import { SurveyUser } from './survey-user';
+import { AuthService } from '../login/auth-service.service';
 
 @Component({
   selector: 'survey-users',
@@ -15,12 +16,11 @@ export class UsersComponent implements OnInit {
     users$: Observable<SurveyUser[]>;
     selectedUser: SurveyUser = { id: null, username: null, password: null, email: null, blocked: null };
     error: { name: string};
-    button: string = "Block";
+    button: string;
 
-  constructor(private userService: UsersService) { }
+  constructor(private userService: UsersService, private authService: AuthService) { }
 
   ngOnInit() {
-
     this.users$ = this.userService.getUsers();
     this.userService.getUsers().subscribe();
   }
@@ -43,12 +43,12 @@ export class UsersComponent implements OnInit {
   onUserBlock(user: SurveyUser) {
     this.selectedUser = user;
     this.selectedUser = JSON.parse(JSON.stringify(this.selectedUser));
-    console.log(this.selectedUser);
+    // console.log(this.selectedUser);
   }
 
   onUserBlockSubmit() {    
     this.selectedUser.blocked = !this.selectedUser.blocked;
-    console.log(this.selectedUser);
+    // console.log(this.selectedUser);
       this.userService.saveUser(this.selectedUser)
       .subscribe(
         () => {
@@ -58,13 +58,11 @@ export class UsersComponent implements OnInit {
       );
   }
 
-  isBlocked() {
-    if(this.selectedUser.blocked) {
-      this.button = "Unblock";
+  ifUserIsAdmin(userToBlock: SurveyUser): boolean {
+    if(this.authService.isAuthenticated && this.authService.hasRoleAdmin && this.authService.user.username == userToBlock.username) {
+      return true;
     }
-    else {
-      this.button = "Block";
-    }
+    return false;
   }
 
 }
