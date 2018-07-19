@@ -61,9 +61,9 @@ public class UserController {
     } // end delete
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(path = "users", method = RequestMethod.PUT)
     public SurveyUser update(@Valid @RequestBody SurveyUser surveyUser) {
-        return surveyUserService.save(surveyUser);
+       return surveyUserService.save(surveyUser);
     } // end update
 
 } // end UserController
