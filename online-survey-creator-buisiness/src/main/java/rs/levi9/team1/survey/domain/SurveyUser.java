@@ -11,10 +11,10 @@ import java.util.stream.Stream;
 @Entity
 public class SurveyUser extends BaseEntity {
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String username;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String email;
 
     @Column(nullable = false)
