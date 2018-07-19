@@ -24,8 +24,8 @@
                     </button>
                   </td>
                   <td class="text-center align-middle">
-                    <button type="button" class="btn btn-outline-secondary" (click)="onUserBlock(user)" data-toggle="modal" data-target="#blockUserModal">
-                        Block
+                    <button type="button" *ngIf="user.isBlocked()" class="btn btn-outline-secondary" (click)="onUserBlock(user)" data-toggle="modal" data-target="#blockUserModal">
+                        {{button}}
                     </button>
                   </td>
               </tr>

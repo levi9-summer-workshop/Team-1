@@ -13,8 +13,9 @@ import { SurveyUser } from './survey-user';
 })
 export class UsersComponent implements OnInit {
     users$: Observable<SurveyUser[]>;
-    selectedUser: SurveyUser = { id: null, username: null, password: null, userStatus: null };
+    selectedUser: SurveyUser = { id: null, username: null, password: null, blocked: null };
     error: { name: string};
+    button: string = "Block";
 
   constructor(private userService: UsersService) { }
 
@@ -52,11 +53,20 @@ export class UsersComponent implements OnInit {
       .subscribe(
         () => {
         this.users$ = this.userService.getUsers();
-        // this.selectedUser = new SurveyUser(this.selectedUser.id, this.selectedUser.username, this.selectedUser.password, this.selectedUser.userStatus);
+        this.selectedUser = new SurveyUser(this.selectedUser.id, this.selectedUser.username, this.selectedUser.password, !this.selectedUser.blocked);
         },
         (error) => console.error(error)       
       );
       
+  }
+
+  isBlocked(user: SurveyUser) {
+    if(this.selectedUser.blocked) {
+      this.button = "Unblock";
+    }
+    else {
+      this.button = "Block";
+    }
   }
 
 }
