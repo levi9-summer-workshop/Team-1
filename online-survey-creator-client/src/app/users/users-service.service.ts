@@ -22,9 +22,17 @@ export class UsersService {
     return this.httpClient.delete(this.API + '/' + (userId), { headers: this.authService.getAuthHeaders() });
   }
 
-  //Block user 
+  // Block user 
   blockUser(user: SurveyUser) {
-    return this.httpClient.put(this.API + '/' + (user.id), { headers: this.authService.getAuthHeaders() });
+    return this.httpClient.put(this.API + '/', { headers: this.authService.getAuthHeaders() });
   }
+
+  // Save user
+  saveUser(user: SurveyUser): Observable<any> {
+    if (user.id) {
+      return this.httpClient.put(this.API, user, { headers: this.authService.getAuthHeaders() });
+  }
+}
+
 }
 

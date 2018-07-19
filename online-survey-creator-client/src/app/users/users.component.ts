@@ -5,6 +5,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { UsersService } from './users-service.service';
 import { SurveyUser } from './survey-user';
+import { AuthService } from '../login/auth-service.service';
 
 @Component({
   selector: 'survey-users',
@@ -13,13 +14,13 @@ import { SurveyUser } from './survey-user';
 })
 export class UsersComponent implements OnInit {
     users$: Observable<SurveyUser[]>;
-    selectedUser: SurveyUser = { id: null, username: null, password: null, userStatus: null };
+    selectedUser: SurveyUser = { id: null, username: null, password: null, email: null, blocked: null };
     error: { name: string};
+    button: string;
 
-  constructor(private userService: UsersService) { }
+  constructor(private userService: UsersService, private authService: AuthService) { }
 
   ngOnInit() {
-
     this.users$ = this.userService.getUsers();
     this.userService.getUsers().subscribe();
   }
@@ -33,7 +34,7 @@ export class UsersComponent implements OnInit {
       .subscribe(
         () => {
           this.users$ = this.userService.getUsers();
-          this.selectedUser = new SurveyUser(null, null, null, null);
+          this.selectedUser = new SurveyUser(null, null, null, null, null);
         },
         (error) => console.error(error)
       );
@@ -41,22 +42,27 @@ export class UsersComponent implements OnInit {
 
   onUserBlock(user: SurveyUser) {
     this.selectedUser = user;
-    // this.selectedUser.userStatus.push('ROLE_BLOCKED');
     this.selectedUser = JSON.parse(JSON.stringify(this.selectedUser));
-    console.log(this.selectedUser);
+    // console.log(this.selectedUser);
   }
 
-  onUserBlockSubmit() {
-    
-    this.userService.blockUser(this.selectedUser)
+  onUserBlockSubmit() {    
+    this.selectedUser.blocked = !this.selectedUser.blocked;
+    // console.log(this.selectedUser);
+      this.userService.saveUser(this.selectedUser)
       .subscribe(
         () => {
-        this.users$ = this.userService.getUsers();
-        // this.selectedUser = new SurveyUser(this.selectedUser.id, this.selectedUser.username, this.selectedUser.password, this.selectedUser.userStatus);
+          this.users$ = this.userService.getUsers();
         },
-        (error) => console.error(error)       
+          (error) => console.error(error)       
       );
-      
+  }
+
+  ifUserIsAdmin(userToBlock: SurveyUser): boolean {
+    if(this.authService.isAuthenticated && this.authService.hasRoleAdmin && this.authService.user.username == userToBlock.username) {
+      return true;
+    }
+    return false;
   }
 
 }
