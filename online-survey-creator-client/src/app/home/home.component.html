@@ -7,8 +7,8 @@
         </p>
         <div class="text-center">
         <span style="display: inline; ">
-        <button type="button" class="btn btn-primary">Sign in</button>
-        <button type="button" class="btn btn-primary">Sign up</button>
+        <button type="button" class="btn btn-primary" (click) = "redirect('/login')">Sign in</button>
+        <button type="button" class="btn btn-primary" (click) = "redirect('/signup')">Sign up</button>
         </span></div>
 
   </div>
@@ -22,7 +22,7 @@
           <h5 class="card-title">Create new survey now</h5>
           <p class="card-text">Ready to build your first survey? It's free, easy and effortless.</p>
           <!-- <a href="#" class="btn btn-primary">Create survey</a> -->
-          <button type="button" class="btn btn-primary">Create Survey</button>
+          <button type="button" class="btn btn-primary" (click) = "redirect('/newsurvey')">Create Survey</button>
         </div>
       </div>
 

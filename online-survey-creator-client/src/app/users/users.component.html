@@ -20,7 +20,7 @@
                   
                   <td class="text-center align-middle">
                     <span class="d-inline-block" tabindex="0" data-toggle="tooltip" [attr.title]='ifUserIsAdmin(user)?"Cannot delete admin account!":null'>
-                        <button type="button" class="btn btn-danger" [disabled]="ifUserIsAdmin(user)" (click)="onUserDelete(user)" data-toggle="modal" data-target="#deleteUserModal">
+                        <button type="button" class="btn btn-danger" [disabled]="ifUserIsAdmin(user)" (click) ="onUserDelete(user)" data-toggle="modal" data-target="#deleteUserModal">
                             Delete
                         </button>
                     </span>
