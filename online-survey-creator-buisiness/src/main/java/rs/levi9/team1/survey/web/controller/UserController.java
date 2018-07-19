@@ -60,10 +60,10 @@ public class UserController {
         return new ResponseEntity(HttpStatus.OK);
     } // end delete
 
-//    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    @RequestMapping(method = RequestMethod.PUT)
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "users", method = RequestMethod.PUT)
     public SurveyUser update(@Valid @RequestBody SurveyUser surveyUser) {
-        return surveyUserService.save(surveyUser);
+       return surveyUserService.save(surveyUser);
     } // end update
 
 } // end UserController

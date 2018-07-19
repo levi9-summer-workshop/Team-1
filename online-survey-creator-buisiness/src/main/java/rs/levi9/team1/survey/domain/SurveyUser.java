@@ -21,7 +21,7 @@ public class SurveyUser extends BaseEntity {
     private String password;
 
     @NotNull
-    private Boolean isBlocked = false;
+    private Boolean blocked = false;
 
     @OneToMany(mappedBy = "surveyUser", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Survey> surveys = new ArrayList<>();
@@ -34,11 +34,11 @@ public class SurveyUser extends BaseEntity {
     public SurveyUser() {
     }
 
-    public SurveyUser(String username, String email, String password, Boolean isBlocked, List<Survey> surveys, Set<Role> roles) {
+    public SurveyUser(String username, String email, String password, Boolean blocked, List<Survey> surveys, Set<Role> roles) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.isBlocked = isBlocked;
+        this.blocked = blocked;
         this.surveys = surveys;
         this.roles = roles;
     }
@@ -60,11 +60,11 @@ public class SurveyUser extends BaseEntity {
     }
 
     public Boolean getBlocked() {
-        return isBlocked;
+        return blocked;
     }
 
-    public void setIsBlocked(Boolean isBlocked) {
-        this.isBlocked = isBlocked;
+    public void setBlocked(Boolean blocked) {
+        this.blocked = blocked;
     }
 
     public Set<Role> getRoles() {
