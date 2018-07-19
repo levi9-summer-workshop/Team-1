@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { AuthService, User } from '../login/auth-service.service';
-import { Observable } from '../../../node_modules/rxjs';
-import { SurveyUser } from './survey-user';
+import { Observable } from 'rxjs';
+import { SurveyUser } from '../users/survey-user.model';
 
 @Injectable()
 export class UsersService {
@@ -22,9 +22,17 @@ export class UsersService {
     return this.httpClient.delete(this.API + '/' + (userId), { headers: this.authService.getAuthHeaders() });
   }
 
-  //Block user 
+  // Block user 
   blockUser(user: SurveyUser) {
-    return this.httpClient.put(this.API + '/' + (user.id), { headers: this.authService.getAuthHeaders() });
+    return this.httpClient.put(this.API + '/', { headers: this.authService.getAuthHeaders() });
   }
+
+  // Save user
+  saveUser(user: SurveyUser): Observable<any> {
+    if (user.id) {
+      return this.httpClient.put(this.API, user, { headers: this.authService.getAuthHeaders() });
+  }
+}
+
 }
 

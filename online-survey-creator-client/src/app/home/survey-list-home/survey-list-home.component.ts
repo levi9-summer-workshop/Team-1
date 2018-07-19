@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from '../../../../node_modules/rxjs';
 
 @Component({
   selector: 'survey-survey-list-home',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./survey-list-home.component.css']
 })
 export class SurveyListHomeComponent implements OnInit {
+
+ // surveys$: Observable<Survey>[];
 
   constructor() { }
 

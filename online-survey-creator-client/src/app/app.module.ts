@@ -16,6 +16,9 @@ import { UsersComponent } from './users/users.component';
 import { UsersService } from './users/users-service.service';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SurveyListHomeComponent } from './home/survey-list-home/survey-list-home.component';
+import { SurveyComponent } from './survey/survey.component';
+import { QuestionComponent } from './question/question.component';
+import { AnswerComponent } from './answer/answer.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { SurveyListHomeComponent } from './home/survey-list-home/survey-list-hom
     LoginComponent,
     UsersComponent,
     SignUpComponent,
-    SurveyListHomeComponent
+    SurveyListHomeComponent,
+    SurveyComponent,
+    QuestionComponent,
+    AnswerComponent
   ],
   imports: [
     BrowserModule,

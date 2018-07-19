@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../login/auth-service.service';
+import { SurveyUser } from '../users/survey-user.model';
 
 @Component({
   selector: 'survey-header',
@@ -8,11 +9,13 @@ import { AuthService } from '../login/auth-service.service';
 })
 export class HeaderComponent implements OnInit {
 
-  user: string = 'username';
+  surveyUser: SurveyUser;
+  currentUser: string;
 
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
-  }
+  
+    }
 
 }
