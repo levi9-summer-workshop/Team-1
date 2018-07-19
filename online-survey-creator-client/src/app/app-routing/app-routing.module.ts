@@ -6,13 +6,14 @@ import { LoginComponent } from '../login/login.component';
 import { AuthGuard } from '../auth-guard.service';
 import { UsersComponent } from '../users/users.component';
 import { QuestionComponent } from '../question/question.component';
+import { SurveyComponent } from '../survey/survey.component';
 
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data: { expectedRole: 'user'} },
   { path: 'admin', component: UsersComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
-  { path: 'newsurvey', component: QuestionComponent },
+  { path: 'newsurvey', component: SurveyComponent },
   //{ path: 'books', component: BooksComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
   { path: 'login', component: LoginComponent }
 ];
