@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import rs.levi9.team1.survey.domain.AuthenticatedUser;
 import rs.levi9.team1.survey.domain.SurveyUser;
+import rs.levi9.team1.survey.repository.UserRepository;
 import rs.levi9.team1.survey.service.SurveyUserService;
 
 import javax.validation.Valid;
@@ -16,11 +17,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("users")
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     @Autowired
     private SurveyUserService surveyUserService;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @RequestMapping("user")
     public AuthenticatedUser getUser(Authentication authentication) {
@@ -33,35 +38,42 @@ public class UserController {
     } // end getUser
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @RequestMapping(path = "users", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<SurveyUser> findAll() {
             return surveyUserService.findAll();
     } // end findAll
 
-    @RequestMapping(path = "/users/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "{id}", method = RequestMethod.GET)
     public ResponseEntity findOne(@PathVariable("id") Long id) {
         SurveyUser surveyUser = surveyUserService.findOne(id);
         if (surveyUser == null) {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity("User is already in use!!!",HttpStatus.NOT_FOUND);
         } // end if
 
         return new ResponseEntity(surveyUser, HttpStatus.OK);
     } // end findOne
 
     @RequestMapping(method = RequestMethod.POST)
-    public SurveyUser save(@Valid @RequestBody SurveyUser surveyUser) {
-        return surveyUserService.save(surveyUser);
+    public ResponseEntity save(@Valid @RequestBody SurveyUser surveyUser) {
+        SurveyUser userToSave = surveyUserService.findByUsernameOrEmail(surveyUser.getUsername(), surveyUser.getEmail());
+        if(userToSave == null) {
+            userToSave = surveyUser;
+            surveyUserService.save(userToSave);
+            return new ResponseEntity(userToSave, HttpStatus.OK);
+        } else {
+            return new ResponseEntity("User is already in use!!!", HttpStatus.IM_USED);
+        }
     } // end save
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @RequestMapping(path = "/users/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "{id}", method = RequestMethod.DELETE)
     public ResponseEntity delete(@PathVariable("id") Long id) {
         surveyUserService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
     } // end delete
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    @RequestMapping(path = "users", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     public SurveyUser update(@Valid @RequestBody SurveyUser surveyUser) {
        return surveyUserService.save(surveyUser);
     } // end update

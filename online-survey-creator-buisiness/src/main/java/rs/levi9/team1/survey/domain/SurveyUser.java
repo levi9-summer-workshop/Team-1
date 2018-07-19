@@ -1,10 +1,7 @@
 package rs.levi9.team1.survey.domain;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -20,16 +17,15 @@ public class SurveyUser extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
-    @NotNull
     private Boolean blocked = false;
 
     @OneToMany(mappedBy = "surveyUser", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Survey> surveys = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = Stream.of(new Role(Role.RoleType.ROLE_USER)).collect(Collectors.toSet());
+    private Set<Role> roles = new HashSet<>(Arrays.asList(new Role(Role.RoleType.ROLE_USER)));
 
     public SurveyUser() {
     }
