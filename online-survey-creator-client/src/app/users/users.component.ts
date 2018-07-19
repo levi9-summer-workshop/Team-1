@@ -4,7 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { UsersService } from './users-service.service';
-import { SurveyUser } from './survey-user';
+import { SurveyUser } from '../users/survey-user.model';
 import { AuthService } from '../login/auth-service.service';
 
 @Component({

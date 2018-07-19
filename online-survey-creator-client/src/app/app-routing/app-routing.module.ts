@@ -7,6 +7,7 @@ import { AuthGuard } from '../auth-guard.service';
 import { UsersComponent } from '../users/users.component';
 import { QuestionComponent } from '../question/question.component';
 import { SignUpComponent } from '../sign-up/sign-up.component';
+import { SurveyComponent } from '../survey/survey.component';
 
 
 const appRoutes: Routes = [
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent}
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes, { useHash: true })],
   exports: [RouterModule]

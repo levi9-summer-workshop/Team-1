@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { AuthService, User } from '../login/auth-service.service';
-import { Observable } from '../../../node_modules/rxjs';
-import { SurveyUser } from './survey-user';
+import { Observable } from 'rxjs';
+import { SurveyUser } from '../users/survey-user.model';
 
 @Injectable()
 export class UsersService {

@@ -11,14 +11,14 @@
             <a class="nav-link" routerLink="/home">Home</a>
           </li>
         <!-- </ng-template> -->
-        <ng-template [ngIf]="authService.hasRoleAdmin()">
+        <ng-template [ngIf]="authService.isAuthenticated() && authService.hasRoleAdmin()">
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" routerLink="/admin">Admin</a>
           </li>
            </ng-template>        
           <ng-template [ngIf]="authService.isAuthenticated() && authService.hasRoleAdmin() == false">
           <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="/user">My Surveys</a>
+            <a class="nav-link" routerLink="/user">{{authService.getUsername()}}'s Surveys</a>
           </li>
         </ng-template>
       </ul>
@@ -34,7 +34,7 @@
               {{ authService.getUsername() }}
             </a>
             <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" (click)="authService.logout()" routerLink="/">Logout</a>
+              <a class="dropdown-item" (click)="authService.logout()" routerLink="/home">Logout</a>
             </div>
           </li>
         </ng-template>
