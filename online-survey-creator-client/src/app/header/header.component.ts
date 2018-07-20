@@ -9,8 +9,8 @@ import { SurveyUser } from '../users/survey-user.model';
 })
 export class HeaderComponent implements OnInit {
 
-  surveyUser: SurveyUser;
-  currentUser: string;
+  // surveyUser: SurveyUser;
+  // currentUser: string;
 
   constructor(public authService: AuthService) { }
 

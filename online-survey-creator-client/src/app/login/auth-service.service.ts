@@ -4,7 +4,7 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 import { Router } from '@angular/router';
-import 'rxjs'; // tslint:disable-line
+import 'rxjs/Rx'; // tslint:disable-line
 export interface User {
   username: string;
   roles: string[];
