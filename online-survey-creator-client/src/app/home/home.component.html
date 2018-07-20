@@ -17,24 +17,17 @@
     <div class="col-lg-9">
       <survey-survey-list-home></survey-survey-list-home>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-3" [hidden] = "authService.isAuthenticated()">
       <div class="card">
-        <div class="card-body" [hidden] = "authService.isAuthenticated()">
+        <div class="card-body" >
           <h5 class="card-title">Create new survey now</h5>
           <p class="card-text">Ready to build your first survey? It's free, easy and effortless.</p>
           <!-- <a href="#" class="btn btn-primary">Create survey</a> -->
-          <span [attr.title]='authService.isAuthenticated() ? null : "You must be logged in to create survey!"'>
-          <button type="button" class="btn btn-primary" [disabled] = "authService.isAuthenticated() == false" (click) = "redirect('/newsurvey')">Create Survey</button>
-        </span>
+          <!-- <span [attr.title]='authService.isAuthenticated() ? null : "You must be logged in to create survey!"'> -->
+          <button type="button" class="btn btn-primary" [hidden] = "authService.isAuthenticated()" (click) = "redirect('/signup')">Sign up</button>
+        <!-- </span> -->
         </div>
-      </div>
-
-      <form role="search">
-          <div class="search-control">
-              <input type="search" id="survey-search" name="q"placeholder="Search...">
-              <button>Search</button>
-          </div>
-      </form>
+      </div>      
 
     </div>
 </div>

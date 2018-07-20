@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Survey } from '../../survey/survey.model';
 
 @Component({
   selector: 'survey-survey-list-home',
