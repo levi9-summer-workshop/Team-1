@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface SurveyRepository extends JpaRepository<Survey, Long> {
-    List<Survey> findAllBySurveyUserId(Long id);
+//    List<Survey> findAllBySurveyUserId(Long id);
 }

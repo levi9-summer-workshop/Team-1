@@ -12,7 +12,7 @@ public class SurveyAnswer extends BaseEntity {
     private String text;
 
     @ManyToOne
-    @JoinColumn(name = "fk_survey_question")
+    @JoinColumn(name = "fk_question")
     private SurveyQuestion surveyQuestion;
 
     public SurveyAnswer() {
