@@ -19,8 +19,8 @@ export class SurveyService {
   constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
   // Return Observable that wraps array of Books
-  getSurveys(): Observable<Survey[]> {
-    return this.httpClient.get<Survey[]>(this.API, { headers: this.authService.getAuthHeaders() });
+  getSurveys(headers: HttpHeaders): Observable<Survey[]> {
+    return this.httpClient.get<Survey[]>(this.API, { headers: headers });
   }
 
 }
