@@ -37,12 +37,13 @@ public class UserController {
         return user;
     } // end getUser
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @RequestMapping(method = RequestMethod.GET)
     public List<SurveyUser> findAll() {
             return surveyUserService.findAll();
     } // end findAll
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @RequestMapping(path = "{id}", method = RequestMethod.GET)
     public ResponseEntity findOne(@PathVariable("id") Long id) {
         SurveyUser surveyUser = surveyUserService.findOne(id);
@@ -54,7 +55,7 @@ public class UserController {
     } // end findOne
 
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity save(@Valid @RequestBody SurveyUser surveyUser) {
         SurveyUser userToSave = surveyUserService.findByUsernameOrEmail(surveyUser.getUsername(), surveyUser.getEmail());
