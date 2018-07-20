@@ -30,7 +30,13 @@ export class SignUpComponent implements OnInit {
       authorization: 'Basic ' + base64Credential
     });
     this.surveyUserService.registerUser(userToSave, headers).subscribe(
-         any => this.router.navigate(['/home'])
+         any => {
+           this.authService.login(userToSave.username, userToSave.password)
+            .subscribe(any =>{
+              this.router.navigate(["/home"]),
+              (error) => this.error = error
+            })
+        }
     );
   }
 }

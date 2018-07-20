@@ -2,8 +2,6 @@ package rs.levi9.team1.survey.domain;
 
 import javax.persistence.*;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Entity
 public class SurveyUser extends BaseEntity {
@@ -19,8 +17,9 @@ public class SurveyUser extends BaseEntity {
 
     private Boolean blocked = false;
 
-    @OneToMany(mappedBy = "surveyUser", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Survey> surveys = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER) //mappedBy = "surveyUser",
+//    @JoinColumn(name = "fk_survey_user")
+//    private List<Survey> surveys = new ArrayList<>();
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(joinColumns = @JoinColumn(name = "user_id"),
@@ -35,7 +34,7 @@ public class SurveyUser extends BaseEntity {
         this.email = email;
         this.password = password;
         this.blocked = blocked;
-        this.surveys = surveys;
+//        this.surveys = surveys;
         this.roles = roles;
     }
 
@@ -79,11 +78,11 @@ public class SurveyUser extends BaseEntity {
         this.email = email;
     }
 
-    public List<Survey> getSurveys() {
-        return surveys;
-    }
+//    public List<Survey> getSurveys() {
+//        return surveys;
+//    }
 
-    public void setSurveys(List<Survey> surveys) {
-        this.surveys = surveys;
-    }
+//    public void setSurveys(List<Survey> surveys) {
+//        this.surveys = surveys;
+//    }
 }
