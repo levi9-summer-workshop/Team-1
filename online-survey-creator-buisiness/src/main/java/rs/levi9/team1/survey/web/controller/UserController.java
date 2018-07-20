@@ -53,6 +53,8 @@ public class UserController {
         return new ResponseEntity(surveyUser, HttpStatus.OK);
     } // end findOne
 
+
+    @PreAuthorize("hasRole('ROLE_USER')")
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity save(@Valid @RequestBody SurveyUser surveyUser) {
         SurveyUser userToSave = surveyUserService.findByUsernameOrEmail(surveyUser.getUsername(), surveyUser.getEmail());
