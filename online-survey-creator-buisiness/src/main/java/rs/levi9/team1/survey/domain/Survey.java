@@ -15,19 +15,19 @@ public class Survey extends BaseEntity {
     @Column(nullable = false)
     private String surveyDescription;
 
-    @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<SurveyQuestion> surveyQuestions = new HashSet<>();
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER) //mappedBy = "survey",
+//    @JoinColumn(name = "fk_survey")
+//    private Set<SurveyQuestion> surveyQuestions = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "fk_survey_user")
     private SurveyUser surveyUser;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @PrimaryKeyJoinColumn
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_survey_privacy")
     private SurveyPrivacy surveyPrivacy = new SurveyPrivacy(SurveyPrivacy.PrivacyType.PUBLIC);
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @PrimaryKeyJoinColumn
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_survey_status")
     private SurveyStatus surveyStatus = new SurveyStatus(SurveyStatus.SurveyStatusType.OPEN);
 
@@ -39,14 +39,14 @@ public class Survey extends BaseEntity {
     public Survey() {
     }
 
-    public Survey(String surveyDescription, Set<SurveyQuestion> surveyQuestions, SurveyUser surveyUser, Date surveyExpireDate) {
-        this.surveyDescription = surveyDescription;
-        this.surveyQuestions = surveyQuestions;
-        this.surveyUser = surveyUser;
-        this.surveyPrivacy = surveyPrivacy;
-        this.surveyStatus = surveyStatus;
-        this.surveyExpireDate = surveyExpireDate;
-    }
+//    public Survey(String surveyDescription, Set<SurveyQuestion> surveyQuestions, SurveyUser surveyUser, Date surveyExpireDate) {
+//        this.surveyDescription = surveyDescription;
+////        this.surveyQuestions = surveyQuestions;
+//        this.surveyUser = surveyUser;
+//        this.surveyPrivacy = surveyPrivacy;
+//        this.surveyStatus = surveyStatus;
+//        this.surveyExpireDate = surveyExpireDate;
+//    }
 
     public String getSurveyDescription() {
         return surveyDescription;
@@ -56,21 +56,14 @@ public class Survey extends BaseEntity {
         this.surveyDescription = surveyDescription;
     }
 
-    public Set<SurveyQuestion> getSurveyQuestions() {
-        return surveyQuestions;
-    }
+//    public Set<SurveyQuestion> getSurveyQuestions() {
+//        return surveyQuestions;
+//    }
+//
+//    public void setSurveyQuestions(Set<SurveyQuestion> surveyQuestions) {
+//        this.surveyQuestions = surveyQuestions;
+//    }
 
-    public void setSurveyQuestions(Set<SurveyQuestion> surveyQuestions) {
-        this.surveyQuestions = surveyQuestions;
-    }
-
-    public SurveyUser getSurveyUser() {
-        return surveyUser;
-    }
-
-    public void setSurveyUser(SurveyUser surveyUser) {
-        this.surveyUser = surveyUser;
-    }
 
     public SurveyPrivacy getSurveyPrivacy() {
         return surveyPrivacy;

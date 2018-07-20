@@ -1,22 +1,30 @@
 <div class="row justify-content-center">
-    <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
+    <div id="signupbox" class="border col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
       <form (ngSubmit)="onSignUp(f)" #f="ngForm">
         <div class="form-group">
-          <label for="username">Username</label>
-          <input class="form-control" type="text" id="username" name="username" ngModel >
+          <label for="username" class="my-sm-3">Username</label>
+          <input class="form-control" type="text" id="username" name="username" required ngModel #username="ngModel" [ngClass] = "{'is-invalid': error?.username || (username.invalid && username.touched) }" >
+          <div class="invalid-feedback" *ngIf="username.invalid && (username.dirty || username.touched)">Please enter your username!</div>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input class="form-control" type="password" id="password" name="password" ngModel>
+          <input class="form-control" type="password" id="password" name="password" required ngModel #password="ngModel" [ngClass] = "{'is-invalid': error?.password || (password.invalid && password.touched) }">
+          <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">Please enter your password!</div>
        </div>
        <div class="form-group">
           <label for="email">E-mail</label>
-          <input class="form-control" type="email" id="email" name="email" ngModel >
+          <input class="form-control" type="email" id="email" name="email" required ngModel email #email="ngModel" [ngClass] = "{ 'is-invalid': error?.email || (email.invalid && email.touched) }">
+          <div class="invalid-feedback" *ngIf="email.invalid">Please enter your email!</div>
         </div>
         <div class="alert alert-danger" *ngIf="error">
           Bad credentials!
         </div>
-        <button class="btn btn-primary" type="submit">Sign Up</button>
+        <span [attr.title]='f.invalid ? "Please provide all required information!" : null '>
+          <button class="my-sm-3 btn btn-primary" type="submit" [disabled]="f.invalid">Sign Up</button>
+        </span>
+        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85% " class="my-sm-3">Already have an account?
+            <a href="http://localhost:4200/#/login" onclick="$('loginbox').hide()" >Sign In Here!</a>
+          </div>
       </form>
     </div>
   </div>

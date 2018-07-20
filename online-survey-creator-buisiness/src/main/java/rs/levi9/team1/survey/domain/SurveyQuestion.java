@@ -11,8 +11,9 @@ public class SurveyQuestion extends BaseEntity {
     @NotNull
     private String text;
 
-    @OneToMany(mappedBy = "surveyQuestion", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<SurveyAnswer> surveyAnswers = new HashSet<>();
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER) //mappedBy = "surveyQuestion",
+//    @JoinColumn(name = "fk_question")
+//    private Set<SurveyAnswer> surveyAnswers = new HashSet<>();
 
     @Enumerated(EnumType.STRING)
     private QuestionType questionType = QuestionType.SINGLE_ANSWER;
@@ -28,12 +29,12 @@ public class SurveyQuestion extends BaseEntity {
     public SurveyQuestion() {
     }
 
-    public SurveyQuestion(String text, Set<SurveyAnswer> surveyAnswers, QuestionType questionType, Survey survey) {
-        this.text = text;
-        this.surveyAnswers = surveyAnswers;
-        this.questionType = questionType;
-        this.survey = survey;
-    }
+//    public SurveyQuestion(String text, Set<SurveyAnswer> surveyAnswers, QuestionType questionType, Survey survey) {
+//        this.text = text;
+////        this.surveyAnswers = surveyAnswers;
+//        this.questionType = questionType;
+////        this.survey = survey;
+//    }
 
     public String getText() {
         return text;
@@ -43,13 +44,13 @@ public class SurveyQuestion extends BaseEntity {
         this.text = text;
     }
 
-    public Set<SurveyAnswer> getSurveyAnswers() {
-        return surveyAnswers;
-    }
+//    public Set<SurveyAnswer> getSurveyAnswers() {
+//        return surveyAnswers;
+//    }
 
-    public void setSurveyAnswers(Set<SurveyAnswer> surveyAnswers) {
-        this.surveyAnswers = surveyAnswers;
-    }
+//    public void setSurveyAnswers(Set<SurveyAnswer> surveyAnswers) {
+//        this.surveyAnswers = surveyAnswers;
+//    }
 
     public QuestionType getQuestionType() {
         return questionType;

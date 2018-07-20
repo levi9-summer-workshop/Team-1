@@ -5,6 +5,7 @@ import {
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 import 'rxjs/Rx'; // tslint:disable-line
+
 export interface User {
   username: string;
   roles: string[];
@@ -24,7 +25,7 @@ export class AuthService {
       authorization: 'Basic ' + base64Credential
     });
     return this.httpClient
-      .get<User>('http://localhost:8080/user', { headers: headers })
+      .get<User>('http://localhost:8080/users/user', { headers: headers })
       .do(user => {
         this.user = user;
         this.headers = headers;
@@ -58,4 +59,6 @@ export class AuthService {
     this.headers = null;
     this.router.navigate(['/login']);
   }
+
+
 }

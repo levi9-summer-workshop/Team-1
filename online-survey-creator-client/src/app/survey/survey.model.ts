@@ -1,18 +1,18 @@
 import { SurveyUser } from "../users/survey-user.model";
 import { Question } from "../question/question.model";
+import { SurveyPrivacy } from "./survey-privacy";
+import { SurveyStatus } from "./survey-status";
 
 export class Survey {
+    public id: number;
     public surveyDescription: string;
-    public surveyUser: SurveyUser;
-    public surveyQuestions: Question[];
-    public surveyPrivacy: string;
-    public surveyStatus: string;
+    public surveyPrivacy: SurveyPrivacy;
+    public surveyStatus: SurveyStatus;
     public surveyExpiryDate: Date;
 
-    constructor ( surveyDescription: string, surveyUser: SurveyUser, surveyQuestions: Question[], surveyPrivacy: string, surveyStatus: string, surveyExpiryDate: Date) {
+    constructor (surveyDescription: string, surveyUser: SurveyUser, surveyExpiryDate: Date, surveyPrivacy?: SurveyPrivacy, surveyStatus?: SurveyStatus, id?: number) {
+        this.id = id;
         this.surveyDescription = surveyDescription;
-        this.surveyUser = surveyUser;
-        this.surveyQuestions = surveyQuestions;
         this.surveyPrivacy = surveyPrivacy;
         this.surveyStatus = surveyStatus;
         this.surveyExpiryDate = surveyExpiryDate;

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from '../../../../node_modules/rxjs';
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Survey } from '../../survey/survey.model';
+import { AuthService } from '../../login/auth-service.service';
+import { Router } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'survey-survey-list-home',
@@ -7,12 +10,19 @@ import { Observable } from '../../../../node_modules/rxjs';
   styleUrls: ['./survey-list-home.component.css']
 })
 export class SurveyListHomeComponent implements OnInit {
-
- // surveys$: Observable<Survey>[];
-
-  constructor() { }
+  @Input() survey: Survey;
+  
+  constructor(public authService: AuthService, public router: Router) { }
 
   ngOnInit() {
   }
+
+  redirect(redirectPath: string) {
+    if(this.authService.isAuthenticated() ) {
+      
+  } else {
+    this.router.navigate([redirectPath]);
+  }
+}
 
 }

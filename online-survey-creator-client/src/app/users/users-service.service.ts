@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AuthService, User } from '../login/auth-service.service';
 import { Observable } from 'rxjs';
@@ -31,7 +31,13 @@ export class UsersService {
   saveUser(user: SurveyUser): Observable<any> {
     if (user.id) {
       return this.httpClient.put(this.API, user, { headers: this.authService.getAuthHeaders() });
+  } else {
+      return  this.httpClient.post(this.API, user, { headers: this.authService.getAuthHeaders() });
   }
+  }
+
+registerUser(user: SurveyUser, headers: HttpHeaders) {
+  return this.httpClient.post(this.API, user, {headers});
 }
 
 }
