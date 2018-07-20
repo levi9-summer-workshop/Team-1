@@ -5,10 +5,11 @@
         <div class="card-body">
           <!-- <h5 class="card-title">Survey tittle{{survey.tittle}}</h5> -->
           <p class="card-text">{{ survey.surveyDescription }}</p>
-          <p class="card-text text-right"><small class="text-muted">Created by: </small><a href="#" class="user-link">user</a> Status: {{ survey.surveyStatus.surveyStatusType }}</p>
+          <p class="card-text text-right"><small class="text-muted">Created by: </small><a href="#" class="user-link">user</a>
+             Status: <span class="text-success">{{ survey.surveyStatus.surveyStatusType + " " + survey.surveyPrivacy.privacyType}} </span></p>
           
           <!-- <button type="button" [ngClass]="{active: selectedCategoryId === null}" class="btn btn-outline-secondary list-group-item" (click)="onCategorySelect(null)">Share</button> -->
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-link">Participate</a>
 
         </div>
         
