@@ -21,6 +21,7 @@ import { QuestionComponent } from './question/question.component';
 import { AnswerComponent } from './answer/answer.component';
 import { AuthGuardAccessDeniedService } from './auth-guard-access-denied.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SurveyService } from './survey/survey-service.service';
 
 
 @NgModule({
@@ -46,9 +47,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   providers: [
     AuthService,
-    AuthGuard,,
+    AuthGuard,
     AuthGuardAccessDeniedService,
-    UsersService
+    UsersService,
+    SurveyService
   ],
   bootstrap: [AppComponent]
 })

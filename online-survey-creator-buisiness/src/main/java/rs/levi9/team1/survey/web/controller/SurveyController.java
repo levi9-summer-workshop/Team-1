@@ -23,7 +23,7 @@ public class SurveyController {
         this.surveyService = surveyService;
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+//    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @RequestMapping(method = RequestMethod.GET)
     public List<Survey> findAllSurveys() {
         return this.surveyService.findAll();

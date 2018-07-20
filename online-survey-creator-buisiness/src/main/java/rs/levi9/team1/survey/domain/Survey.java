@@ -15,9 +15,9 @@ public class Survey extends BaseEntity {
     @Column(nullable = false)
     private String surveyDescription;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER) //mappedBy = "survey",
-    @JoinColumn(name = "fk_survey")
-    private Set<SurveyQuestion> surveyQuestions = new HashSet<>();
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER) //mappedBy = "survey",
+//    @JoinColumn(name = "fk_survey")
+//    private Set<SurveyQuestion> surveyQuestions = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "fk_survey_user")
@@ -39,14 +39,14 @@ public class Survey extends BaseEntity {
     public Survey() {
     }
 
-    public Survey(String surveyDescription, Set<SurveyQuestion> surveyQuestions, SurveyUser surveyUser, Date surveyExpireDate) {
-        this.surveyDescription = surveyDescription;
-        this.surveyQuestions = surveyQuestions;
-        this.surveyUser = surveyUser;
-        this.surveyPrivacy = surveyPrivacy;
-        this.surveyStatus = surveyStatus;
-        this.surveyExpireDate = surveyExpireDate;
-    }
+//    public Survey(String surveyDescription, Set<SurveyQuestion> surveyQuestions, SurveyUser surveyUser, Date surveyExpireDate) {
+//        this.surveyDescription = surveyDescription;
+////        this.surveyQuestions = surveyQuestions;
+//        this.surveyUser = surveyUser;
+//        this.surveyPrivacy = surveyPrivacy;
+//        this.surveyStatus = surveyStatus;
+//        this.surveyExpireDate = surveyExpireDate;
+//    }
 
     public String getSurveyDescription() {
         return surveyDescription;
@@ -56,13 +56,13 @@ public class Survey extends BaseEntity {
         this.surveyDescription = surveyDescription;
     }
 
-    public Set<SurveyQuestion> getSurveyQuestions() {
-        return surveyQuestions;
-    }
-
-    public void setSurveyQuestions(Set<SurveyQuestion> surveyQuestions) {
-        this.surveyQuestions = surveyQuestions;
-    }
+//    public Set<SurveyQuestion> getSurveyQuestions() {
+//        return surveyQuestions;
+//    }
+//
+//    public void setSurveyQuestions(Set<SurveyQuestion> surveyQuestions) {
+//        this.surveyQuestions = surveyQuestions;
+//    }
 
 
     public SurveyPrivacy getSurveyPrivacy() {

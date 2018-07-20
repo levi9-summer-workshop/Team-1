@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Survey } from '../../survey/survey.model';
 
 @Component({
   selector: 'survey-survey-list-home',
@@ -7,9 +8,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./survey-list-home.component.css']
 })
 export class SurveyListHomeComponent implements OnInit {
-
- // surveys$: Observable<Survey>[];
-
+  @Input() survey: Survey;
+  
   constructor() { }
 
   ngOnInit() {

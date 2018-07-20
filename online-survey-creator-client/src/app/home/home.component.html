@@ -15,7 +15,7 @@
     </div>
   </div> 
     <div class="col-lg-9">
-      <survey-survey-list-home></survey-survey-list-home>
+      <survey-survey-list-home *ngFor="let survey of (surveys$ | async)" [survey]="survey"></survey-survey-list-home>
     </div>
     <div class="col-lg-3">
       <div class="card">
@@ -29,12 +29,12 @@
         </div>
       </div>
 
-      <form role="search">
+      <!-- <form role="search">
           <div class="search-control">
               <input type="search" id="survey-search" name="q"placeholder="Search...">
               <button>Search</button>
           </div>
-      </form>
+      </form> -->
 
     </div>
 </div>
