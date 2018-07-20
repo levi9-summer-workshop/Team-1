@@ -6,23 +6,26 @@
             Get the feedback you need with free survey software!
         </p>
         <div class="text-center">
-        <span style="display: inline; ">
-        <button type="button" class="btn btn-primary" (click) = "redirect('/login')">Sign in</button>
-        <button type="button" class="btn btn-primary" (click) = "redirect('/signup')">Sign up</button>
-        </span></div>
-
-  </div>
-</div> 
+          <span style="display: inline;" >
+            <button type="button" class="btn btn-primary" [hidden] = "authService.isAuthenticated()" (click) = "redirect('/login')">Sign in</button>
+            <button type="button" class="btn btn-primary" [hidden] = "authService.isAuthenticated()" (click) = "redirect('/signup')">Sign up</button>
+            <button type="button" class="btn btn-primary" [hidden] = "authService.isAuthenticated() == false" (click) = "redirect('/newsurvey')">Create Survey</button>
+          </span>
+        </div>
+    </div>
+  </div> 
     <div class="col-lg-9">
       <survey-survey-list-home></survey-survey-list-home>
     </div>
     <div class="col-lg-3">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body" [hidden] = "authService.isAuthenticated()">
           <h5 class="card-title">Create new survey now</h5>
           <p class="card-text">Ready to build your first survey? It's free, easy and effortless.</p>
           <!-- <a href="#" class="btn btn-primary">Create survey</a> -->
-          <button type="button" class="btn btn-primary" (click) = "redirect('/newsurvey')">Create Survey</button>
+          <span [attr.title]='authService.isAuthenticated() ? null : "You must be logged in to create survey!"'>
+          <button type="button" class="btn btn-primary" [disabled] = "authService.isAuthenticated() == false" (click) = "redirect('/newsurvey')">Create Survey</button>
+        </span>
         </div>
       </div>
 

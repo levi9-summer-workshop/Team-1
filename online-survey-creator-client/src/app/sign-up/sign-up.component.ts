@@ -5,6 +5,7 @@ import { SurveyUser } from '../users/survey-user.model';
 import { Router } from '../../../node_modules/@angular/router';
 import { AuthService } from '../login/auth-service.service';
 import { HttpHeaders } from '../../../node_modules/@angular/common/http';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'survey-sign-up',
@@ -22,7 +23,7 @@ export class SignUpComponent implements OnInit {
 
   onSignUp(ngForm: NgForm) {
     let userToSave = new SurveyUser(null,ngForm.value.username, ngForm.value.password, ngForm.value.email, false);
-    console.log(userToSave);
+        console.log(userToSave);
     userToSave = JSON.parse(JSON.stringify(userToSave));
     console.log(userToSave);
     const base64Credential = btoa("user" + ':' + "user");
@@ -30,7 +31,18 @@ export class SignUpComponent implements OnInit {
       authorization: 'Basic ' + base64Credential
     });
     this.surveyUserService.registerUser(userToSave, headers).subscribe(
-         any => this.router.navigate(['/home'])
+         any => {
+          this.authService.login(userToSave.username, userToSave.password)
+          .subscribe(
+           () => this.router.navigate(['/home']),
+           (error) => {
+             this.error = error;
+             console.error(error);
+           }
+          );
+        }
     );
+
+    
   }
 }

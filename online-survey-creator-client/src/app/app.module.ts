@@ -19,6 +19,8 @@ import { SurveyListHomeComponent } from './home/survey-list-home/survey-list-hom
 import { SurveyComponent } from './survey/survey.component';
 import { QuestionComponent } from './question/question.component';
 import { AnswerComponent } from './answer/answer.component';
+import { AuthGuardAccessDeniedService } from './auth-guard-access-denied.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { AnswerComponent } from './answer/answer.component';
     SurveyListHomeComponent,
     SurveyComponent,
     QuestionComponent,
-    AnswerComponent
+    AnswerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { AnswerComponent } from './answer/answer.component';
   ],
   providers: [
     AuthService,
-    AuthGuard,
+    AuthGuard,,
+    AuthGuardAccessDeniedService,
     UsersService
   ],
   bootstrap: [AppComponent]
