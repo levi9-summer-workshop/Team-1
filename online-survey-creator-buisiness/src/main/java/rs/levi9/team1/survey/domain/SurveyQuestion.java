@@ -11,15 +11,16 @@ public class SurveyQuestion extends BaseEntity {
     @NotNull
     private String text;
 
-    @OneToMany(mappedBy = "surveyQuestion", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<SurveyAnswer> surveyAnswers = new HashSet<>();
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER) //mappedBy = "surveyQuestion",
+//    @JoinColumn(name = "fk_question")
+//    private Set<SurveyAnswer> surveyAnswers = new HashSet<>();
 
     @Enumerated(EnumType.STRING)
     private QuestionType questionType = QuestionType.SINGLE_ANSWER;
 
-    @ManyToOne
-    @JoinColumn(name = "fk_survey")
-    private Survey survey;
+//    @ManyToOne
+//    @JoinColumn(name = "fk_survey")
+//    private Survey survey;
 
     enum QuestionType {
         SINGLE_ANSWER, MULTIPLE_ANSWERS
@@ -30,9 +31,9 @@ public class SurveyQuestion extends BaseEntity {
 
     public SurveyQuestion(String text, Set<SurveyAnswer> surveyAnswers, QuestionType questionType, Survey survey) {
         this.text = text;
-        this.surveyAnswers = surveyAnswers;
+//        this.surveyAnswers = surveyAnswers;
         this.questionType = questionType;
-        this.survey = survey;
+//        this.survey = survey;
     }
 
     public String getText() {
@@ -43,13 +44,13 @@ public class SurveyQuestion extends BaseEntity {
         this.text = text;
     }
 
-    public Set<SurveyAnswer> getSurveyAnswers() {
-        return surveyAnswers;
-    }
+//    public Set<SurveyAnswer> getSurveyAnswers() {
+//        return surveyAnswers;
+//    }
 
-    public void setSurveyAnswers(Set<SurveyAnswer> surveyAnswers) {
-        this.surveyAnswers = surveyAnswers;
-    }
+//    public void setSurveyAnswers(Set<SurveyAnswer> surveyAnswers) {
+//        this.surveyAnswers = surveyAnswers;
+//    }
 
     public QuestionType getQuestionType() {
         return questionType;
@@ -59,11 +60,11 @@ public class SurveyQuestion extends BaseEntity {
         this.questionType = questionType;
     }
 
-    public Survey getSurvey() {
-        return survey;
-    }
-
-    public void setSurvey(Survey survey) {
-        this.survey = survey;
-    }
+//    public Survey getSurvey() {
+//        return survey;
+//    }
+//
+//    public void setSurvey(Survey survey) {
+//        this.survey = survey;
+//    }
 }

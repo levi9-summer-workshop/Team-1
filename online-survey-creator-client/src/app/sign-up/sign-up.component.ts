@@ -32,14 +32,11 @@ export class SignUpComponent implements OnInit {
     });
     this.surveyUserService.registerUser(userToSave, headers).subscribe(
          any => {
-          this.authService.login(userToSave.username, userToSave.password)
-          .subscribe(
-           () => this.router.navigate(['/home']),
-           (error) => {
-             this.error = error;
-             console.error(error);
-           }
-          );
+           this.authService.login(userToSave.username, userToSave.password)
+            .subscribe(any =>{
+              this.router.navigate(["/home"]),
+              (error) => this.error = error
+            })
         }
     );
 

@@ -16,7 +16,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'admin', component: UsersComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
-  { path: 'newsurvey', component: QuestionComponent /*, canActivate: [AuthGuard]*/ },
+  { path: 'newsurvey', component: SurveyComponent /*, canActivate: [AuthGuard]*/ },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent, canActivate: [AuthGuardAccessDeniedService] },
   { path: '404', component: PageNotFoundComponent },

@@ -1,8 +1,8 @@
 <div class="row justify-content-center">
-  <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
+  <div id="loginbox" class="border   col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
     <form (ngSubmit)="onLogin(f)" #f="ngForm">
       <div class="form-group">
-        <label for="username">Username</label>
+        <label for="username" class="my-sm-3">Username</label>
         <input class="form-control" type="text" id="username" name="username" ngModel >
       </div>
       <div class="form-group">
@@ -12,7 +12,12 @@
       <div class="alert alert-danger" *ngIf="error">
         Bad credentials!
       </div>
-      <button class="btn btn-primary" type="submit">Sign In</button>
+      <button class="btn btn-primary my-sm-2" type="submit">Sign In</button>
+
+      <div style="border-top: 1px solid#888; padding-top:15px; font-size:85% " class="my-sm-3">Don't have an account!
+        <a href="http://localhost:4200/#/signup" onclick="$('loginbox').hide()">Sign Up Here</a>
+      </div>
+
     </form>
   </div>
 </div>

@@ -1,11 +1,14 @@
 package rs.levi9.team1.survey.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class SurveyStatus extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
