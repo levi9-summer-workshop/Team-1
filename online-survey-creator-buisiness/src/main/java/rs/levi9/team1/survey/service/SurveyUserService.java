@@ -69,4 +69,8 @@ public class SurveyUserService implements UserDetailsService {
         userRepository.delete(id);
     } // end delete
 
+    public SurveyUser findByUsernameOrEmail(String username, String email) {
+        return userRepository.findByUsernameOrEmail(username, email);
+    }
+
 } // end class UserService

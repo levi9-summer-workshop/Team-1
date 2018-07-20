@@ -12,6 +12,6 @@ export class SurveyUser {
         this.email = email;
         this.blocked = blocked;
     }
-
+    
     
 }
