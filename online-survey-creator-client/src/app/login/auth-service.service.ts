@@ -5,6 +5,7 @@ import {
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 import 'rxjs/Rx'; // tslint:disable-line
+
 export interface User {
   username: string;
   roles: string[];
