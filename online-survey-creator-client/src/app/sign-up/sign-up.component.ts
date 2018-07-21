@@ -26,7 +26,7 @@ export class SignUpComponent implements OnInit {
         console.log(userToSave);
     userToSave = JSON.parse(JSON.stringify(userToSave));
     console.log(userToSave);
-    const base64Credential = btoa("user" + ':' + "user");
+    const base64Credential = btoa("admin" + ':' + "admin");
     const headers = new HttpHeaders({
       authorization: 'Basic ' + base64Credential
     });

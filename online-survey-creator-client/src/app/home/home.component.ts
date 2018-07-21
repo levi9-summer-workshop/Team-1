@@ -12,7 +12,7 @@ import { HttpHeaders } from '../../../node_modules/@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   surveys$: Observable<Survey[]>;
-  base64Credential = btoa("user" + ':' + "user");
+  base64Credential = btoa("admin" + ':' + "admin");
   headers = new HttpHeaders({
     authorization: 'Basic ' + this.base64Credential
   });
