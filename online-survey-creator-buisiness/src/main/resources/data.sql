@@ -4,6 +4,10 @@ INSERT INTO `survey_creator`.`survey_user_roles`(`fk_survey_user`,`fk_survey_use
 INSERT INTO `survey_creator`.`survey_user_role`(`type`) VALUES ('ROLE_USER');
 INSERT INTO `survey_creator`.`survey_user_roles`(`fk_survey_user`,`fk_survey_user_role`)VALUES(1, 2);
 
+INSERT INTO `survey_creator`.`survey_user`(`password`,`username`,`email`,`blocked`) VALUES ('user','user','user@email.com',false);
+INSERT INTO `survey_creator`.`survey_user_role`(`type`) VALUES ('ROLE_USER');
+INSERT INTO `survey_creator`.`survey_user_roles`(`fk_survey_user`,`fk_survey_user_role`)VALUES(2, 3);
+
 INSERT INTO `survey_creator`.`survey_privacy`(`privacy_type`) VALUES ('PUBLIC');
 INSERT INTO `survey_creator`.`survey_privacy`(`privacy_type`) VALUES ('RESTRICTED');
 
@@ -11,7 +15,7 @@ INSERT INTO `survey_creator`.`survey_status`(`survey_status_type`) VALUES ('OPEN
 INSERT INTO `survey_creator`.`survey_status`(`survey_status_type`) VALUES ('CLOSED');
 
 INSERT INTO `survey_creator`.`survey`(`survey_description`,`survey_expire_date`,`fk_survey_user`,`fk_survey_status`,`fk_survey_privacy`)VALUES('Description of demo Survey1','2018-10-17',1,1,1);
-INSERT INTO `survey_creator`.`survey`(`survey_description`,`survey_expire_date`,`fk_survey_user`,`fk_survey_status`,`fk_survey_privacy`)VALUES('Description of demo Survey2','2018-10-17',1,1,1);
+INSERT INTO `survey_creator`.`survey`(`survey_description`,`survey_expire_date`,`fk_survey_user`,`fk_survey_status`,`fk_survey_privacy`)VALUES('Description of demo Survey2','2018-10-17',1,1,2);
 INSERT INTO `survey_creator`.`survey`(`survey_description`,`survey_expire_date`,`fk_survey_user`,`fk_survey_status`,`fk_survey_privacy`)VALUES('Description of demo Survey3','2018-10-17',1,1,1);
 INSERT INTO `survey_creator`.`survey`(`survey_description`,`survey_expire_date`,`fk_survey_user`,`fk_survey_status`,`fk_survey_privacy`)VALUES('Description of demo Survey4','2018-10-17',1,1,1);
 
@@ -78,3 +82,40 @@ INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES
 INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer4',13);
 INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer1',14);
 INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer2',14);
+
+INSERT INTO `survey_creator`.`survey`(`survey_description`,`survey_expire_date`,`fk_survey_user`,`fk_survey_status`,`fk_survey_privacy`)VALUES('Description of demo Survey1','2018-10-17',2,1,1);
+INSERT INTO `survey_creator`.`survey`(`survey_description`,`survey_expire_date`,`fk_survey_user`,`fk_survey_status`,`fk_survey_privacy`)VALUES('Description of demo Survey2','2018-10-17',2,1,2);
+
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question1','SINGLE_ANSWER',5);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question2','SINGLE_ANSWER',5);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question3','SINGLE_ANSWER',5);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question4','SINGLE_ANSWER',5);
+
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question1','SINGLE_ANSWER',6);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question2','SINGLE_ANSWER',6);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question3','SINGLE_ANSWER',6);
+
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer1',15);
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer2',15);
+
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer1',16);
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer2',16);
+
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer1',17);
+
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer1',18);
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer2',18);
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer3',18);
+
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer1',19);
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer2',19);
+
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer1',20);
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer2',20);
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer3',20);
+
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer1',21);
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer2',21);
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer3',21);
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer4',21);
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer4',21);

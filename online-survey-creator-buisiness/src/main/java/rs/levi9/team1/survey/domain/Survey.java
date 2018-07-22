@@ -1,8 +1,11 @@
 package rs.levi9.team1.survey.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,9 +17,9 @@ public class Survey extends BaseEntity {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "fk_survey")
-    private List<SurveyQuestion> surveyQuestions;
+    private List<SurveyQuestion> surveyQuestions = new ArrayList<>();
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_survey_user")
     private SurveyUser surveyUser;
 

@@ -1,9 +1,9 @@
 package rs.levi9.team1.survey.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class SurveyUser extends BaseEntity {
@@ -19,6 +19,10 @@ public class SurveyUser extends BaseEntity {
 
     private Boolean blocked = false;
 
+    @OneToMany(mappedBy = "surveyUser", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Transient
+    private List<Survey> surveys = new ArrayList<>();
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(joinColumns = @JoinColumn(name = "fk_survey_user"),
             inverseJoinColumns = @JoinColumn(name = "fk_survey_user_role"))
@@ -27,12 +31,13 @@ public class SurveyUser extends BaseEntity {
     public SurveyUser() {
     }
 
-    public SurveyUser(String username, String email, String password, Boolean blocked, Set<Role> roles) {
+    public SurveyUser(String username, String email, String password, Boolean blocked,List<Survey> surveys, Set<Role> roles) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.blocked = blocked;
         this.roles = roles;
+        this.surveys = surveys;
     }
 
     public String getUsername() {
@@ -73,6 +78,14 @@ public class SurveyUser extends BaseEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Survey> getSurveys() {
+        return surveys;
+    }
+
+    public void setSurveys(List<Survey> surveys) {
+        this.surveys = surveys;
     }
 
     @Override

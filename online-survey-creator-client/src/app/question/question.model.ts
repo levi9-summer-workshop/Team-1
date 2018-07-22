@@ -2,12 +2,12 @@ import { Answer } from "../answer/answer.model";
 
 export class Question {
     public id: number;
-    public questionText: string;
+    public text: string;
     public answers: Answer[];
     public questionType: string;
 
-    constructor (id: number, questionText: string, answers: Answer[], questionType: string) {
-        this.questionText = questionText;
+    constructor (id: number, text: string, answers: Answer[], questionType: string) {
+        this.text = text;
         this.answers = answers;
         questionType = questionType;
     }

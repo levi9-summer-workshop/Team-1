@@ -14,7 +14,7 @@ import { AuthService } from '../login/auth-service.service';
 })
 export class UsersComponent implements OnInit {
     users$: Observable<SurveyUser[]>;
-    selectedUser: SurveyUser = { id: null, username: null, password: null, email: null, blocked: null };
+    selectedUser: SurveyUser;
     error: { name: string};
     button: string;
 
@@ -34,7 +34,7 @@ export class UsersComponent implements OnInit {
       .subscribe(
         () => {
           this.users$ = this.userService.getUsers();
-          this.selectedUser = new SurveyUser(null, null, null, null, null);
+          this.selectedUser = new SurveyUser(null, null, null);
         },
         (error) => console.error(error)
       );
@@ -43,12 +43,12 @@ export class UsersComponent implements OnInit {
   onUserBlock(user: SurveyUser) {
     this.selectedUser = user;
     this.selectedUser = JSON.parse(JSON.stringify(this.selectedUser));
-    // console.log(this.selectedUser);
+    console.log(this.selectedUser);
   }
 
   onUserBlockSubmit() {    
     this.selectedUser.blocked = !this.selectedUser.blocked;
-    // console.log(this.selectedUser);
+    console.log(this.selectedUser);
       this.userService.saveUser(this.selectedUser)
       .subscribe(
         () => {

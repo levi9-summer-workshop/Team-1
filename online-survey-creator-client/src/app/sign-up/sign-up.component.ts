@@ -22,7 +22,7 @@ export class SignUpComponent implements OnInit {
   }
 
   onSignUp(ngForm: NgForm) {
-    let userToSave = new SurveyUser(null,ngForm.value.username, ngForm.value.password, ngForm.value.email, false);
+    let userToSave = new SurveyUser(ngForm.value.username, ngForm.value.password, ngForm.value.email, false);
         console.log(userToSave);
     userToSave = JSON.parse(JSON.stringify(userToSave));
     console.log(userToSave);

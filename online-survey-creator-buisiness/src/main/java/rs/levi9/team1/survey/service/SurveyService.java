@@ -1,23 +1,12 @@
 package rs.levi9.team1.survey.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import rs.levi9.team1.survey.domain.Role;
-import rs.levi9.team1.survey.domain.Survey;
-import rs.levi9.team1.survey.domain.SurveyUser;
+import rs.levi9.team1.survey.domain.*;
 import rs.levi9.team1.survey.repository.SurveyRepository;
-import rs.levi9.team1.survey.repository.UserRepository;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Transactional
 @Service
@@ -50,5 +39,26 @@ public class SurveyService  {
     public List<Survey> findAllBySurveyUserId(Long id) {
         return surveyRepository.findAllBySurveyUserId(id);
     }
+
+    public List<Survey> searchSurveysByDescription(String searchQuery) {
+        return surveyRepository.findAllBySurveyDescriptionContainingIgnoreCase(searchQuery);
+    }
+
+    public List<Survey> findAllPublicSurveys() {
+        return surveyRepository.findAllBySurveyPrivacyPrivacyType(SurveyPrivacy.PrivacyType.PUBLIC);
+    }
+
+    public List<Survey> findAllOpenedSurveys() {
+        return surveyRepository.findAllBySurveyStatusSurveyStatusType(SurveyStatus.SurveyStatusType.OPEN);
+    }
+
+    public List<Survey> findAllClosedSurveys() {
+        return surveyRepository.findAllBySurveyStatusSurveyStatusType(SurveyStatus.SurveyStatusType.CLOSED);
+    }
+
+    public void deleteBySurveyUserId(Long id) {
+        surveyRepository.deleteBySurveyUserId(id);
+    }
+
 
 }

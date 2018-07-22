@@ -2,6 +2,7 @@ package rs.levi9.team1.survey.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,7 +20,7 @@ public class SurveyQuestion extends BaseEntity {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "fk_survey_question")
-    private List<SurveyAnswer> surveyAnswers;
+    private List<SurveyAnswer> surveyAnswers = new ArrayList<>();
 
     public SurveyQuestion() {
     }

@@ -23,4 +23,8 @@ export class SurveyService {
     return this.httpClient.get<Survey[]>(this.API, { headers: headers });
   }
 
+  getPublicSurveys(headers: HttpHeaders): Observable<Survey[]> {
+    return this.httpClient.get<Survey[]>(this.API + "/privacy/public", { headers: headers });
+  }
+
 }
