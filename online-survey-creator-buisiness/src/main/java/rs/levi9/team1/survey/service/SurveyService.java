@@ -47,8 +47,8 @@ public class SurveyService  {
         return surveyRepository.findOne(id);
     }
 
-//    public List<Survey> findAllBySurveyUserId(Long id) {
-//        return surveyRepository.findAllBySurveyUserId(id);
-//    }
+    public List<Survey> findAllBySurveyUserId(Long id) {
+        return surveyRepository.findAllBySurveyUserId(id);
+    }
 
 }

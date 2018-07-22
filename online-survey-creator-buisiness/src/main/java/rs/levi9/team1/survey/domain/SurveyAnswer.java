@@ -1,8 +1,6 @@
 package rs.levi9.team1.survey.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -11,16 +9,11 @@ public class SurveyAnswer extends BaseEntity {
     @NotNull
     private String text;
 
-    @ManyToOne
-    @JoinColumn(name = "fk_question")
-    private SurveyQuestion surveyQuestion;
-
     public SurveyAnswer() {
     }
 
-    public SurveyAnswer(String text, SurveyQuestion surveyQuestion) {
+    public SurveyAnswer(String text) {
         this.text = text;
-        this.surveyQuestion = surveyQuestion;
     }
 
     public String getText() {
@@ -31,11 +24,25 @@ public class SurveyAnswer extends BaseEntity {
         this.text = text;
     }
 
-    public SurveyQuestion getSurveyQuestion() {
-        return surveyQuestion;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SurveyAnswer that = (SurveyAnswer) o;
+
+        return text.equals(that.text);
     }
 
-    public void setSurveyQuestion(SurveyQuestion surveyQuestion) {
-        this.surveyQuestion = surveyQuestion;
+    @Override
+    public int hashCode() {
+        return text.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "SurveyAnswer{" +
+                "text='" + text + '\'' +
+                '}';
     }
 }

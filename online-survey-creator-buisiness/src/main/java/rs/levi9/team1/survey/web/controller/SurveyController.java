@@ -48,7 +48,7 @@ public class SurveyController {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    @RequestMapping(path = "id", method = RequestMethod.GET)
+    @RequestMapping(path = "{id}", method = RequestMethod.GET)
     public ResponseEntity findById(@PathVariable("id") Long id) {
         Survey survey = surveyService.findOne(id);
         if (survey == null) {
@@ -58,9 +58,9 @@ public class SurveyController {
         return new ResponseEntity(survey, HttpStatus.OK);
     }
 
-//    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-//    @RequestMapping(path = "user/{id}", method = RequestMethod.GET)
-//    public List<Survey> findAllBySurveyUserId(@PathVariable("id") Long id) {
-//        return surveyService.findAllBySurveyUserId(id);
-//    }
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "user/{id}", method = RequestMethod.GET)
+    public List<Survey> findAllBySurveyUserId(@PathVariable("id") Long id) {
+        return surveyService.findAllBySurveyUserId(id);
+    }
 }

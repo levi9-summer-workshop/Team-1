@@ -4,22 +4,19 @@ import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Survey extends BaseEntity {
 
     @NotNull
-    @Column(nullable = false)
     private String surveyDescription;
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER) //mappedBy = "survey",
-//    @JoinColumn(name = "fk_survey")
-//    private Set<SurveyQuestion> surveyQuestions = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "fk_survey")
+    private List<SurveyQuestion> surveyQuestions;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "fk_survey_user")
     private SurveyUser surveyUser;
 
@@ -31,22 +28,22 @@ public class Survey extends BaseEntity {
     @JoinColumn(name = "fk_survey_status")
     private SurveyStatus surveyStatus = new SurveyStatus(SurveyStatus.SurveyStatusType.OPEN);
 
+    @NotNull
     @Future
     @Temporal(TemporalType.DATE)
-    @Column(nullable = false)
     private Date surveyExpireDate;
 
     public Survey() {
     }
 
-//    public Survey(String surveyDescription, Set<SurveyQuestion> surveyQuestions, SurveyUser surveyUser, Date surveyExpireDate) {
-//        this.surveyDescription = surveyDescription;
-////        this.surveyQuestions = surveyQuestions;
-//        this.surveyUser = surveyUser;
-//        this.surveyPrivacy = surveyPrivacy;
-//        this.surveyStatus = surveyStatus;
-//        this.surveyExpireDate = surveyExpireDate;
-//    }
+    public Survey(String surveyDescription, List<SurveyQuestion> surveyQuestions, SurveyUser surveyUser, SurveyPrivacy surveyPrivacy, SurveyStatus surveyStatus, Date surveyExpireDate) {
+        this.surveyDescription = surveyDescription;
+        this.surveyQuestions = surveyQuestions;
+        this.surveyUser = surveyUser;
+        this.surveyPrivacy = surveyPrivacy;
+        this.surveyStatus = surveyStatus;
+        this.surveyExpireDate = surveyExpireDate;
+    }
 
     public String getSurveyDescription() {
         return surveyDescription;
@@ -56,14 +53,21 @@ public class Survey extends BaseEntity {
         this.surveyDescription = surveyDescription;
     }
 
-//    public Set<SurveyQuestion> getSurveyQuestions() {
-//        return surveyQuestions;
-//    }
-//
-//    public void setSurveyQuestions(Set<SurveyQuestion> surveyQuestions) {
-//        this.surveyQuestions = surveyQuestions;
-//    }
+    public List<SurveyQuestion> getSurveyQuestions() {
+        return surveyQuestions;
+    }
 
+    public void setSurveyQuestions(List<SurveyQuestion> surveyQuestions) {
+        this.surveyQuestions = surveyQuestions;
+    }
+
+    public SurveyUser getSurveyUser() {
+        return surveyUser;
+    }
+
+    public void setSurveyUser(SurveyUser surveyUser) {
+        this.surveyUser = surveyUser;
+    }
 
     public SurveyPrivacy getSurveyPrivacy() {
         return surveyPrivacy;
@@ -87,5 +91,41 @@ public class Survey extends BaseEntity {
 
     public void setSurveyExpireDate(Date surveyExpireDate) {
         this.surveyExpireDate = surveyExpireDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Survey survey = (Survey) o;
+
+        if (!surveyDescription.equals(survey.surveyDescription)) return false;
+        if (!surveyUser.equals(survey.surveyUser)) return false;
+        if (!surveyPrivacy.equals(survey.surveyPrivacy)) return false;
+        if (!surveyStatus.equals(survey.surveyStatus)) return false;
+        return surveyExpireDate.equals(survey.surveyExpireDate);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = surveyDescription.hashCode();
+        result = 31 * result + surveyUser.hashCode();
+        result = 31 * result + surveyPrivacy.hashCode();
+        result = 31 * result + surveyStatus.hashCode();
+        result = 31 * result + surveyExpireDate.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Survey{" +
+                "surveyDescription='" + surveyDescription + '\'' +
+                ", surveyQuestions=" + surveyQuestions +
+                ", surveyUser=" + surveyUser +
+                ", surveyPrivacy=" + surveyPrivacy +
+                ", surveyStatus=" + surveyStatus +
+                ", surveyExpireDate=" + surveyExpireDate +
+                '}';
     }
 }
