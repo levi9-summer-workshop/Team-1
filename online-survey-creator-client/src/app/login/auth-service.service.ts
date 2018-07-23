@@ -65,16 +65,18 @@ export class AuthService {
     this.currentUser = null;
   }
 
+  // makes an object for user that's logged in
   getCurrentUser(username: string) {
     return this.httpClient
       .get<SurveyUser>('http://localhost:8080/users/username' + username, { headers: this.getAuthHeaders() })
       .do(currentUser => {
       this.currentUser = currentUser;
       });      
-  }
+    }
 
-  getSurveyUser() {
+  // returns the object of the logged in user
+  getSurveyUser (): SurveyUser {
     return this.currentUser;
-  }
+    }
 
 }
