@@ -16,7 +16,7 @@
             <a class="nav-link" routerLink="/admin">Admin</a>
           </li>
            </ng-template>        
-          <ng-template [ngIf]="authService.isAuthenticated() && authService.hasRoleAdmin() == false">
+          <ng-template [ngIf]="authService.isAuthenticated()">
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" routerLink="/user">{{authService.getUsername()}}'s Surveys</a>
           </li>
