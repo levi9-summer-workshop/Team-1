@@ -1,10 +1,12 @@
-<div class="container mt-5">
+<div class="container">
+
   <div class="row">
     <div class="col">
       <div class="list-group mb-3 shadow-sm" *ngFor="let survey of (userSurveys$ | async)">
-        <div class="card border-0" >
-          <div class="card-body">
-         
+        
+        <div class="card border-0" >    
+          
+          <div class="card-body">            
             <p class="card-text">{{survey.surveyDescription}}</p>
             <p class="card-text text-right"><small class="text-muted">Duration date: {{survey.surveyExpireDate}}
              Status: <span class="text-success">{{survey.surveyStatus.surveyStatusType}}</span> privacy: {{survey.surveyPrivacy.privacyType}}</small></p>
