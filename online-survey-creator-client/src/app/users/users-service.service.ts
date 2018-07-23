@@ -40,15 +40,5 @@ registerUser(user: SurveyUser, headers: HttpHeaders) {
   return this.httpClient.post(this.API, user, {headers});
 }
 
-ifUserIsBlocked(currentUser: SurveyUser): boolean {
-  if(this.authService.isAuthenticated && this.authService.user.username == currentUser.username && currentUser.blocked == true) {
-    return true;
-  }
-  else {
-    return false;
-  }
-  
-}
-
 }
 
