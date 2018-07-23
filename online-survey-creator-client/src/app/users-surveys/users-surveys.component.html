@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <div class="list-group mb-3 shadow-sm">
+        <div class="card border-0" *ngFor="let survey of (userSurveys$ | async)" >
+          <div class="card-body">
+         
+            <p class="card-text">{{survey.surveyDescription}}</p>
+            <p class="card-text text-right"><small class="text-muted">Duration date: </small>{{survey.surveyExpireDate}}
+             Status: <span class="text-success">{{survey.surveyStatus.surveyStatusType}}</span> privacy: {{survey.surveyPrivacy.privacyType}}</p>
+            <button class="btn btn-link" (click) = "redirect('/signup')">Open survey</button>
+            <div style="float:right" class="mx-ms-3">
+              <button type="button"class="btn btn-primary" (click)="onCategorySelect(null)">Close</button>
+              <button type="button"class="btn btn-primary" (click)="onSurveyDelete(survey)" data-toggle="modal" data-target="#deleteSurveyModal">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteSurveyModal" tabindex="-1" role="dialog" aria-labelledby="deleteSurveyModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="deleteSurveyModalLabel">Delete Survey</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+                <p>Do you want to delete <i>{{selectedSurvey?.username}}</i>?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSurveyDeleteSubmit()">Yes</button>
+        </div>
+        </div>
+    </div>
+</div>
+

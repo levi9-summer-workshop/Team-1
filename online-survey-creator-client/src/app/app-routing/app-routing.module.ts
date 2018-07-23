@@ -10,6 +10,7 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
 import { SurveyComponent } from '../survey/survey.component';
 import { AuthGuardAccessDeniedService } from '../auth-guard-access-denied.service';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { UsersSurveysComponent } from '../users-surveys/users-surveys.component';
 
 
 const appRoutes: Routes = [
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   { path: 'newsurvey', component: SurveyComponent /*, canActivate: [AuthGuard]*/ },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent, canActivate: [AuthGuardAccessDeniedService] },
+  { path: 'user', component: UsersSurveysComponent },
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '404' }
 ];

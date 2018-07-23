@@ -1,4 +1,4 @@
-import { Survey } from "../survey/survey-service.service";
+import { Survey } from "../survey/survey.model";
 
 export class SurveyUser {
     public id: number;

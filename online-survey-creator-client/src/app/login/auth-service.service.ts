@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import 'rxjs/Rx'; // tslint:disable-line
 import { SurveyUser } from '../users/survey-user.model';
 import { UsersService } from '../users/users-service.service';
+import { Observable } from 'rxjs/Rx';
 
 export interface User {
   username: string;
@@ -33,7 +34,9 @@ export class AuthService {
         this.user = user;
         this.headers = headers;
         this.authenticated = true;
-        this.getCurrentUser(this.user.username);
+        this.getCurrentUser(this.user.username).subscribe(
+          currentUser => this.currentUser = currentUser
+        );
       });
   }
 
@@ -68,15 +71,12 @@ export class AuthService {
   // makes an object for user that's logged in
   getCurrentUser(username: string) {
     return this.httpClient
-      .get<SurveyUser>('http://localhost:8080/users/username' + username, { headers: this.getAuthHeaders() })
-      .do(currentUser => {
-      this.currentUser = currentUser;
-      });      
-    }
+      .get<SurveyUser>('http://localhost:8080/users/username/' + username, { headers: this.getAuthHeaders() });     
+  }
 
   // returns the object of the logged in user
   getSurveyUser (): SurveyUser {
-    return this.currentUser;
-    }
+        return this.currentUser;
+  }
 
 }
