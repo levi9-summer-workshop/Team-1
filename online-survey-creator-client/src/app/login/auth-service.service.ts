@@ -17,7 +17,7 @@ export interface User {
 @Injectable()
 export class AuthService {
   user: User;
-  currentUser$: Observable<SurveyUser>;
+  currentUser: SurveyUser;
   private authenticated = false;
   private headers;
 
@@ -34,7 +34,9 @@ export class AuthService {
         this.user = user;
         this.headers = headers;
         this.authenticated = true;
-        this.currentUser$ = this.getCurrentUser(this.user.username);
+        this.getCurrentUser(this.user.username).subscribe(
+          currentUser => this.currentUser = currentUser
+        );
       });
   }
 
@@ -63,16 +65,16 @@ export class AuthService {
     this.user = null;
     this.headers = null;
     this.router.navigate(['/login']);
-    this.currentUser$ = null;
+    this.currentUser = null;
   }
 
   getCurrentUser(username: string) {
     return this.httpClient
-      .get<SurveyUser>('http://localhost:8080/users/username' + username, { headers: this.getAuthHeaders() });    
+      .get<SurveyUser>('http://localhost:8080/users/username/' + username, { headers: this.getAuthHeaders() });     
   }
 
   getSurveyUser() {
-    return this.currentUser$;
+    return this.currentUser;
   }
 
 }
