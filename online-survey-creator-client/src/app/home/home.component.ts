@@ -12,7 +12,7 @@ import { HttpHeaders } from '../../../node_modules/@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   surveys$: Observable<Survey[]>;
-  base64Credential = btoa("user" + ':' + "user");
+  base64Credential = btoa("admin" + ':' + "admin");
   headers = new HttpHeaders({
     authorization: 'Basic ' + this.base64Credential
   });
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, public authService: AuthService, private surveyService: SurveyService) { }
 
   ngOnInit() {
-    this.surveys$ = this.surveyService.getSurveys(this.headers);
+    this.surveys$ = this.surveyService.getPublicSurveys(this.headers);
   }
 
   redirect(redirectPath: string) {

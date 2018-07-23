@@ -23,7 +23,7 @@ public class SurveyController {
         this.surveyService = surveyService;
     }
 
-//    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @RequestMapping(method = RequestMethod.GET)
     public List<Survey> findAllSurveys() {
         return this.surveyService.findAll();
@@ -42,25 +42,72 @@ public class SurveyController {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    @RequestMapping(method = RequestMethod.DELETE)
+    @RequestMapping(path = "{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") Long id) {
         surveyService.delete(id);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    @RequestMapping(path = "id", method = RequestMethod.GET)
+    @RequestMapping(path = "{id}", method = RequestMethod.GET)
     public ResponseEntity findById(@PathVariable("id") Long id) {
         Survey survey = surveyService.findOne(id);
         if (survey == null) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-
         return new ResponseEntity(survey, HttpStatus.OK);
     }
 
-//    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-//    @RequestMapping(path = "user/{id}", method = RequestMethod.GET)
-//    public List<Survey> findAllBySurveyUserId(@PathVariable("id") Long id) {
-//        return surveyService.findAllBySurveyUserId(id);
-//    }
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "user/{id}", method = RequestMethod.GET)
+    public List<Survey> findAllBySurveyUserId(@PathVariable("id") Long id) {
+        return surveyService.findAllBySurveyUserId(id);
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "search/{searchQuery}", method = RequestMethod.POST)
+    public ResponseEntity searchByDescription(@PathVariable("searchQuery") String searchQuery) {
+        if(searchQuery == null) {
+            List<Survey> allSurveys = surveyService.findAll();
+            if (allSurveys == null) {
+                return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
+            }
+            return new ResponseEntity(allSurveys, HttpStatus.OK);
+        } else {
+            List<Survey> filteredSurveys = surveyService.searchSurveysByDescription(searchQuery);
+            if (filteredSurveys == null) {
+                return new ResponseEntity(HttpStatus.NOT_FOUND);
+            }
+        return new ResponseEntity(filteredSurveys, HttpStatus.OK);
+        }
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "privacy/public", method = RequestMethod.GET)
+    public ResponseEntity findAllPublicSurveys() {
+        List<Survey> publicSurveys = surveyService.findAllPublicSurveys();
+        if (publicSurveys == null) {
+            return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
+        }
+        return new ResponseEntity(publicSurveys, HttpStatus.OK);
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "status/open", method = RequestMethod.GET)
+    public ResponseEntity findAllOpenSurveys() {
+        List<Survey> openSurveys = surveyService.findAllOpenedSurveys();
+        if (openSurveys == null) {
+            return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
+        }
+        return new ResponseEntity(openSurveys, HttpStatus.OK);
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "status/closed", method = RequestMethod.GET)
+    public ResponseEntity findAllClosedSurveys() {
+        List<Survey> closedSurveys = surveyService.findAllClosedSurveys();
+        if (closedSurveys == null) {
+            return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
+        }
+        return new ResponseEntity(closedSurveys, HttpStatus.OK);
+    }
 }

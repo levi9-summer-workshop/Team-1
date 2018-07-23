@@ -1,15 +1,15 @@
 <div class="row">
   <div class="col">
-    <div class="list-group mb-3 shadow">
-      <div class="card">
+    <div class="list-group mb-3 shadow-sm">
+      <div class="card border-0">
         <div class="card-body">
           <!-- <h5 class="card-title">Survey tittle{{survey.tittle}}</h5> -->
           <p class="card-text">{{ survey.surveyDescription }}</p>
-          <p class="card-text text-right"><small class="text-muted">Created by: </small><a href="#" class="user-link">user</a>
+          <p class="card-text text-right"><small class="text-muted">Created by: </small><a href="#" class="user-link">{{survey.surveyUser.username}}</a>
              Status: <span class="text-success">{{ survey.surveyStatus.surveyStatusType + " " + survey.surveyPrivacy.privacyType}} </span></p>
           
           <!-- <button type="button" [ngClass]="{active: selectedCategoryId === null}" class="btn btn-outline-secondary list-group-item" (click)="onCategorySelect(null)">Share</button> -->
-          <a href="#" class="btn btn-link">Participate</a>
+          <button class="btn btn-link" (click) = "redirect('/signup')">Participate</button>
 
         </div>
         

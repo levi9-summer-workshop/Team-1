@@ -31,7 +31,7 @@ public class SurveyPrivacy extends BaseEntity {
         this.privacyType = privacyType;
     }
 
-    static enum PrivacyType {
+    public static enum PrivacyType {
         PUBLIC, RESTRICTED
     }
 }

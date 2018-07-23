@@ -1,8 +1,8 @@
 export class Answer {
     public id: number
-    public answerText: string;
+    public text: string;
 
-    constructor(id:number, answerText: string) {
-        this.answerText = answerText;
+    constructor(id:number, text: string) {
+        this.text = text;
     }
 }

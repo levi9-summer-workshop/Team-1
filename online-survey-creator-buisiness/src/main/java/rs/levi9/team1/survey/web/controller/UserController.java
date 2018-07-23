@@ -9,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import rs.levi9.team1.survey.domain.AuthenticatedUser;
 import rs.levi9.team1.survey.domain.SurveyUser;
-import rs.levi9.team1.survey.repository.UserRepository;
+import rs.levi9.team1.survey.service.SurveyService;
 import rs.levi9.team1.survey.service.SurveyUserService;
 
 import javax.validation.Valid;
@@ -21,11 +21,15 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
-    @Autowired
+
     private SurveyUserService surveyUserService;
+    private SurveyService surveyService;
 
     @Autowired
-    private UserRepository userRepository;
+    public UserController(SurveyUserService surveyUserService, SurveyService surveyService) {
+        this.surveyUserService = surveyUserService;
+        this.surveyService = surveyService;
+    }
 
     @RequestMapping("user")
     public AuthenticatedUser getUser(Authentication authentication) {
@@ -71,6 +75,7 @@ public class UserController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(path = "{id}", method = RequestMethod.DELETE)
     public ResponseEntity delete(@PathVariable("id") Long id) {
+        surveyService.deleteBySurveyUserId(id);
         surveyUserService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
     } // end delete
