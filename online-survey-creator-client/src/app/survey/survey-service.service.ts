@@ -11,7 +11,7 @@ import { Survey } from './survey.model';
 
 @Injectable()
 export class SurveyService {
-  API = 'http://localhost:8080/surveys';
+  API = 'http://localhost:8080/surveys/';
 
   constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
@@ -21,10 +21,18 @@ export class SurveyService {
   }
 
   getPublicSurveys(headers: HttpHeaders): Observable<Survey[]> {
-    return this.httpClient.get<Survey[]>(this.API + "/privacy/public", { headers: headers });
+    return this.httpClient.get<Survey[]>(this.API + "privacy/public", { headers: headers });
   }
 
   getUserSurveys(id: number): Observable<Survey[]>{
-    return this.httpClient.get<Survey[]>(this.API + "/user/" + id, { headers: this.authService.getAuthHeaders()});
+    return this.httpClient.get<Survey[]>(this.API + "user/" + id, { headers: this.authService.getAuthHeaders()});
+  }
+
+  deleteSurvey(id: number){
+    return this.httpClient.delete(this.API + id, { headers: this.authService.getAuthHeaders()});
+  }
+
+  closeSurvey(survey: Survey){
+    return this.httpClient.put(this.API, survey ,{ headers: this.authService.getAuthHeaders()});
   }
 }
