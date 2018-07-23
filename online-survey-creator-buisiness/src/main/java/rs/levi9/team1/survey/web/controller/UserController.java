@@ -86,4 +86,13 @@ public class UserController {
        return surveyUserService.save(surveyUser);
     } // end update
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "/username/{username}", method = RequestMethod.GET)
+    public ResponseEntity findByUsername(@PathVariable("username") String username) {
+        SurveyUser user = surveyUserService.findByUserName(username);
+        if(user == null) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity(user, HttpStatus.OK);
+    }
 } // end UserController
