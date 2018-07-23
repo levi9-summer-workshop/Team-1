@@ -1,8 +1,40 @@
-<div class="row">
-  <div  class="my-sm-3 mx-auto" >
+<div class="row mt-5">
+  <div  class="my-sm-3 mx-auto">
     <form>
-        <label  for="descriptionTextarea">Description</label>
-        <textarea class="form-control" id="descriptionTextArea" rows="3" cols="75" maxlength="300"></textarea>
+        <fieldset class="form-group">
+          <div class="row">      
+            <legend class="col-sm-2 col-form-label col-form-label-sm">Privacy:</legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" id="privacyTypePublic" type="radio" name="privacy" title="Survey can be seen by all users" checked>
+                <label class="form-check-label" for="privacyTypePublic">Public</label>
+              </div>
+              <div class="form-check">
+              <input class="form-check-input" id="privacyTypeRestricted" type="radio" name="privacy" title="Survey can be seen only by registered users">
+              <label class="form-check-label" for="privacyTypeRestricted">Registered users only</label>              
+              </div>       
+            </div>
+          </div>
+          <hr>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-sm-2 col-form-label col-form-label-sm">Expiry Date:</legend>
+              <input class="form-control col-sm-4" type="date">
+              <legend class="col-sm-2 col-form-label col-form-label-sm">(optional)</legend>
+            </div>
+            <hr>
+          </fieldset>
+
+        <fieldset class="form-group">
+          <div class="row">
+            <legend class="col-sm-2 col-form-label col-form-label-sm">Description:</legend>
+            <textarea class="form-control col-sm-9" id="descriptionTextArea" rows="3" cols="75" maxlength="270"></textarea>
+          </div>
+          <hr>
+        </fieldset>
+
     </form>
   </div>
 </div>
