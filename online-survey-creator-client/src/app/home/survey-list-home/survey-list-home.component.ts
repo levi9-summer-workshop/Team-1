@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { Survey } from '../../survey/survey.model';
 import { AuthService } from '../../login/auth-service.service';
 import { Router } from '../../../../node_modules/@angular/router';
+import { UsersService } from '../../users/users-service.service';
+import { SurveyUser } from '../../users/survey-user.model';
 
 @Component({
   selector: 'survey-survey-list-home',
@@ -23,6 +25,16 @@ export class SurveyListHomeComponent implements OnInit {
   } else {
     this.router.navigate([redirectPath]);
   }
+}
+
+ifUserIsBlocked(currentUser: SurveyUser): boolean {
+  if(this.authService.isAuthenticated && this.authService.user.username == currentUser.username && currentUser.blocked == true) {
+    return true;
+  }
+  else {
+    return false;
+  }
+  
 }
 
 }
