@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router, public authService: AuthService, private surveyService: SurveyService) { }
 
-  ngOnInit() {
+  ngOnInit() {                                                  
     this.surveys$ = this.surveyService.getPublicSurveys(this.headers);
   }
 
