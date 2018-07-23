@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'library-survey',
+  selector: 'survey-survey',
   templateUrl: './survey.component.html',
   styleUrls: ['./survey.component.css']
 })

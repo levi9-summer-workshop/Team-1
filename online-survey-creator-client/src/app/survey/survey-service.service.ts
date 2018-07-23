@@ -7,10 +7,7 @@ import { Router } from '@angular/router';
 import 'rxjs/Rx'; // tslint:disable-line
 import { AuthService } from '../login/auth-service.service';
 import { Observable } from 'rxjs/Rx';
-
-export interface Survey {
-  
-}
+import { Survey } from './survey.model';
 
 @Injectable()
 export class SurveyService {
@@ -27,4 +24,7 @@ export class SurveyService {
     return this.httpClient.get<Survey[]>(this.API + "/privacy/public", { headers: headers });
   }
 
+  getUserSurveys(id: number): Observable<Survey[]>{
+    return this.httpClient.get<Survey[]>(this.API + "/user/" + id, { headers: this.authService.getAuthHeaders()});
+  }
 }

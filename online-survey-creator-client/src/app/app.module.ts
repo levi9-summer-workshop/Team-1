@@ -22,6 +22,7 @@ import { AnswerComponent } from './answer/answer.component';
 import { AuthGuardAccessDeniedService } from './auth-guard-access-denied.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SurveyService } from './survey/survey-service.service';
+import { UsersSurveysComponent } from './users-surveys/users-surveys.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { SurveyService } from './survey/survey-service.service';
     SurveyComponent,
     QuestionComponent,
     AnswerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UsersSurveysComponent
   ],
   imports: [
     BrowserModule,
