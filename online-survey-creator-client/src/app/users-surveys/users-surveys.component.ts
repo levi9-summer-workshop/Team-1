@@ -4,6 +4,7 @@ import { Survey } from '../survey/survey.model';
 import { SurveyService } from '../survey/survey-service.service';
 import { SurveyUser } from '../users/survey-user.model';
 import { AuthService } from '../login/auth-service.service';
+import { identifierModuleUrl } from '../../../node_modules/@angular/compiler';
 
 @Component({
   selector: 'survey-users-surveys',
@@ -18,7 +19,8 @@ export class UsersSurveysComponent implements OnInit {
   constructor(private surveyService: SurveyService, public authService: AuthService) { }
 
   ngOnInit() {
-   
+   this.currentUser = this.authService.getSurveyUser();
+   this.userSurveys$ = this.surveyService.getUserSurveys(this.currentUser.id);
   }
 
 
