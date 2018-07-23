@@ -5,6 +5,8 @@ import {
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 import 'rxjs/Rx'; // tslint:disable-line
+import { SurveyUser } from '../users/survey-user.model';
+import { UsersService } from '../users/users-service.service';
 
 export interface User {
   username: string;
@@ -14,6 +16,7 @@ export interface User {
 @Injectable()
 export class AuthService {
   user: User;
+  currentUser: SurveyUser;
   private authenticated = false;
   private headers;
 
@@ -30,6 +33,7 @@ export class AuthService {
         this.user = user;
         this.headers = headers;
         this.authenticated = true;
+        this.getCurrentUser(this.user.username);
       });
   }
 
@@ -58,7 +62,19 @@ export class AuthService {
     this.user = null;
     this.headers = null;
     this.router.navigate(['/login']);
+    this.currentUser = null;
   }
 
+  getCurrentUser(username: string) {
+    return this.httpClient
+      .get<SurveyUser>('http://localhost:8080/users/username' + username, { headers: this.getAuthHeaders() })
+      .do(currentUser => {
+      this.currentUser = currentUser;
+      });      
+  }
+
+  getSurveyUser() {
+    return this.currentUser;
+  }
 
 }
