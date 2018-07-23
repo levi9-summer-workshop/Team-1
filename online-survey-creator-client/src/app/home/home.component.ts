@@ -4,8 +4,8 @@ import { AuthService } from '../login/auth-service.service';
 import { SurveyService } from '../survey/survey-service.service';
 import { Observable } from '../../../node_modules/rxjs';
 import { HttpHeaders } from '../../../node_modules/@angular/common/http';
-import { Survey } from '../survey/survey.model';
 import { UsersService } from '../users/users-service.service';
+import { Survey } from '../survey/survey.model';
 
 @Component({
   selector: 'survey-home',
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   });
   
 
-  constructor(private router: Router, public authService: AuthService, private surveyService: SurveyService, private surveyUserService: UsersService) { }
+  constructor(private router: Router, public authService: AuthService, private surveyService: SurveyService) { }
 
   ngOnInit() {                                                  
     this.surveys$ = this.surveyService.getPublicSurveys(this.headers);
