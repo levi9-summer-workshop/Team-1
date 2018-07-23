@@ -39,11 +39,9 @@ export class UsersSurveysComponent implements OnInit {
   }
 
   onCloseSurvey(survey: Survey) {
-    console.log(survey);
     this.selectedSurvey = survey;
     this.selectedSurvey.surveyStatus = new SurveyStatus("CLOSED", 2);
     this.selectedSurvey = JSON.parse(JSON.stringify(this.selectedSurvey));
-     console.log(this.selectedSurvey);
      this.surveyService.closeSurvey(this.selectedSurvey).subscribe(
       survey => {
         this.userSurveys$ = this.surveyService.getUserSurveys(this.currentUser.id);
