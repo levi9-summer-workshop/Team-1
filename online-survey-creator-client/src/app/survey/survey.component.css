@@ -3,3 +3,8 @@
     max-height: 140px;
     min-height: 140px;
   }
+
+  #container {
+    position: relative;
+    top: 45px;
+  }
