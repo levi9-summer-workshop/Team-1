@@ -6,6 +6,7 @@ import { Router } from '../../../node_modules/@angular/router';
 import { AuthService } from '../login/auth-service.service';
 import { HttpHeaders } from '../../../node_modules/@angular/common/http';
 import { LoginComponent } from '../login/login.component';
+import { EmailService } from '../email-service.service';
 
 @Component({
   selector: 'survey-sign-up',
@@ -16,7 +17,7 @@ export class SignUpComponent implements OnInit {
 
   error: Error;
 
-  constructor(public surveyUserService: UsersService, private authService: AuthService, private router: Router) { }
+  constructor(public surveyUserService: UsersService, private authService: AuthService, private router: Router, private emailService: EmailService) { }
 
   ngOnInit() {
   }
@@ -33,8 +34,9 @@ export class SignUpComponent implements OnInit {
     this.surveyUserService.registerUser(userToSave, headers).subscribe(
          any => {
            this.authService.login(userToSave.username, userToSave.password)
-            .subscribe(any =>{
-              this.router.navigate(["/home"]),
+            .subscribe(any => {
+              this.router.navigate(["/home"])
+              this.emailService.sendEmail(userToSave).subscribe(),
               (error) => this.error = error
             })
         },
