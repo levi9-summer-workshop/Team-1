@@ -13,7 +13,7 @@
        </div>
        <div class="form-group">
           <label for="email">E-mail</label>
-          <input class="form-control" type="email" id="email" name="email" required ngModel email #email="ngModel" [ngClass] = "{ 'is-invalid': error?.email || (email.invalid && email.touched) }">
+          <input class="form-control" type="email" id="email" name="email" placeholder="name@example.com" required ngModel email #email="ngModel" [ngClass] = "{ 'is-invalid': error?.email || (email.invalid && email.touched) }">
           <div class="invalid-feedback" *ngIf="email.invalid">Please enter your email!</div>
         </div>
         <div class="alert alert-danger" *ngIf="error">

@@ -11,6 +11,7 @@ import { SurveyComponent } from '../survey/survey.component';
 import { AuthGuardAccessDeniedService } from '../auth-guard-access-denied.service';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { UsersSurveysComponent } from '../users-surveys/users-surveys.component';
+import { SurveyResultComponent } from '../survey/survey-result/survey-result.component';
 
 
 const appRoutes: Routes = [
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent, canActivate: [AuthGuardAccessDeniedService] },
   { path: 'user', component: UsersSurveysComponent },
+  { path: 'surveyresult', component: SurveyResultComponent },
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '404' }
 ];
