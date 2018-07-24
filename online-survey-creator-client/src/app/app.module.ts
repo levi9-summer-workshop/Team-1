@@ -25,6 +25,9 @@ import { SurveyService } from './survey/survey-service.service';
 import { UsersSurveysComponent } from './users-surveys/users-surveys.component';
 import { SurveyAnsweringComponent } from './survey/survey-answering/survey-answering.component';
 import { EmailService } from './email-service.service';
+import { SurveyResultComponent } from './survey/survey-result/survey-result.component';
+import { QuestionResultComponent } from './survey/question-result/question-result.component';
+import { AnswerResultComponent } from './survey/answer-result/answer-result.component';
 
 
 @NgModule({
@@ -42,7 +45,10 @@ import { EmailService } from './email-service.service';
     AnswerComponent,
     PageNotFoundComponent,
     UsersSurveysComponent,
-    SurveyAnsweringComponent
+    SurveyAnsweringComponent,
+    SurveyResultComponent,
+    QuestionResultComponent,
+    AnswerResultComponent
   ],
   imports: [
     BrowserModule,

@@ -35,4 +35,9 @@ export class SurveyService {
   closeSurvey(survey: Survey){
     return this.httpClient.put(this.API, survey ,{ headers: this.authService.getAuthHeaders()});
   }
+
+  getSurveyById(id: number): Observable<Survey>{
+    return this.httpClient.get<Survey>(this.API + id, { headers: this.authService.getAuthHeaders()});
+  }
+
 }
