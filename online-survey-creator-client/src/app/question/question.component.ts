@@ -12,4 +12,8 @@ export class QuestionComponent implements OnInit {
   ngOnInit() {
   }
 
+  onQuestionAdd() {
+    
+  }
+
 }
