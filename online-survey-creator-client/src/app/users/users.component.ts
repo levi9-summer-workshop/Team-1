@@ -43,12 +43,12 @@ export class UsersComponent implements OnInit {
   onUserBlock(user: SurveyUser) {
     this.selectedUser = user;
     this.selectedUser = JSON.parse(JSON.stringify(this.selectedUser));
-    console.log(this.selectedUser);
+    // console.log(this.selectedUser);
   }
 
   onUserBlockSubmit() {    
     this.selectedUser.blocked = !this.selectedUser.blocked;
-    console.log(this.selectedUser);
+    // console.log(this.selectedUser);
       this.userService.saveUser(this.selectedUser)
       .subscribe(
         () => {
