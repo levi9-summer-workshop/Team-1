@@ -1,2 +1,2 @@
-<h5 class="card-title">{{i +"."+ question.text}}</h5>
-<!-- <survey-answer-result *ngFor="let answer of answers; let i = index + 1" [answers]="question.answers"></survey-answer-result> -->
+<h5 class="card-title">{{question.text}}</h5>
+<survey-answer-result *ngFor="let answer of question.surveyAnswers; let i = index" [answer]="answer"></survey-answer-result>

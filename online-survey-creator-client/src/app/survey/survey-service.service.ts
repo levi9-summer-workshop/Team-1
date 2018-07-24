@@ -37,7 +37,7 @@ export class SurveyService {
   }
 
   getSurveyById(id: number): Observable<Survey>{
-    return this.httpClient.get<Survey>(this.API + id, { headers: this.authService.getAuthHeaders()});
+    return this.httpClient.get<Survey>(this.API + id,{ headers: this.authService.getAuthHeaders()});
   }
 
 }

@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
     authorization: 'Basic ' + this.base64Credential
   });
   
-
   constructor(private router: Router, public authService: AuthService, private surveyService: SurveyService) { }
 
   ngOnInit() {                                                  

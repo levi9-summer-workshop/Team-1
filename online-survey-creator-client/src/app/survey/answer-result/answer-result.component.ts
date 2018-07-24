@@ -7,7 +7,8 @@ import { Answer } from '../../answer/answer.model';
   styleUrls: ['./answer-result.component.css']
 })
 export class AnswerResultComponent implements OnInit {
-  @Input() answers: Answer[];
+  @Input() answer: Answer;
+  
   constructor() { }
 
   ngOnInit() {

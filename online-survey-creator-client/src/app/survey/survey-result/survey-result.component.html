@@ -6,7 +6,8 @@
           Survey Results
        </h1>
         <div class="card-body">
-          <!-- <survey-question-result *ngFor="let question of questions; let i = index + 1" [questions]="survey.surveyQuestions"></survey-question-result> -->
+          <p>{{ survey.surveyDescription }}</p>
+          <survey-question-result *ngFor="let question of survey.surveyQuestions; let i = index" [question]="question"></survey-question-result>
         </div>
       </div>
     </div>

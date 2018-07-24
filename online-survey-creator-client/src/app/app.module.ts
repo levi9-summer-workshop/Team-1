@@ -28,6 +28,8 @@ import { EmailService } from './email-service.service';
 import { SurveyResultComponent } from './survey/survey-result/survey-result.component';
 import { QuestionResultComponent } from './survey/question-result/question-result.component';
 import { AnswerResultComponent } from './survey/answer-result/answer-result.component';
+import { SurveyWrapperComponent } from './survey-survey-wrapper/survey-survey-wrapper.component';
+
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import { AnswerResultComponent } from './survey/answer-result/answer-result.comp
     SurveyAnsweringComponent,
     SurveyResultComponent,
     QuestionResultComponent,
-    AnswerResultComponent
+    AnswerResultComponent,
+    SurveyWrapperComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@ import { Question } from '../../question/question.model';
   styleUrls: ['./question-result.component.css']
 })
 export class QuestionResultComponent implements OnInit {
-@Input() questions: Question[];
+@Input() question: Question;
 
   constructor() { }
 
