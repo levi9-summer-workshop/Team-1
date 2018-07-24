@@ -1,6 +1,6 @@
-<div class="row justify-content-center mt-5">
-  <div id="loginbox" class="border   col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
-    <form (ngSubmit)="onLogin(f)" #f="ngForm">
+<div class="row justify-content-center pt-5 mx-3 ">
+  <div id="loginbox" class=" shadow-lg p-3 col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
+    <form  (ngSubmit)="onLogin(f)" #f="ngForm">
       <div class="form-group">
         <label for="username" class="my-sm-3">Username</label>
         <input class="form-control" type="text" id="username" name="username" ngModel required #username="ngModel" [ngClass] = "{'is-invalid': error?.username || (username.invalid && username.touched) }" >
@@ -14,9 +14,12 @@
       <div class="alert alert-danger" *ngIf="error">
         Bad credentials!
       </div>
-      <button class="btn btn-primary my-sm-2" type="submit">Sign In</button>
+      <span [attr.title]='f.invalid ? "Please provide all required information!" : null '>
+      <button  class="btn btn-primary my-sm-2" type="submit" [disabled]="f.invalid">Sign In</button>
+    </span>
+      <hr/>
 
-      <div style="border-top: 1px solid#888; padding-top:15px; font-size:85% " class="my-sm-3">Don't have an account?
+      <div class="my-sm-3">Don't have an account?
         <a href="http://localhost:4200/#/signup" onclick="$('loginbox').hide()">Sign Up Here!</a>
       </div>
 

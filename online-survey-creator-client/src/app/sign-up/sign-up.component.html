@@ -1,5 +1,5 @@
-<div class="row justify-content-center mt-5">
-    <div id="signupbox" class="border col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
+<div class="row justify-content-center pt-5 mx-3">
+    <div id="signupbox" class="shadow-lg p-3 col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
       <form (ngSubmit)="onSignUp(f)" #f="ngForm">
         <div class="form-group">
           <label for="username" class="my-sm-3">Username</label>
@@ -17,12 +17,13 @@
           <div class="invalid-feedback" *ngIf="email.invalid">Please enter your email!</div>
         </div>
         <div class="alert alert-danger" *ngIf="error">
-          Bad credentials!
+          Username or email are already in use, Please choose another one!
         </div>
         <span [attr.title]='f.invalid ? "Please provide all required information!" : null '>
           <button class="my-sm-3 btn btn-primary" type="submit" [disabled]="f.invalid">Sign Up</button>
         </span>
-        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85% " class="my-sm-3">Already have an account?
+        <hr/>
+        <div class="my-sm-3">Already have an account?
             <a href="http://localhost:4200/#/login" onclick="$('loginbox').hide()" >Sign In Here!</a>
           </div>
       </form>
