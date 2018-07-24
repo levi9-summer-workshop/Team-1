@@ -37,7 +37,8 @@ export class SignUpComponent implements OnInit {
               this.router.navigate(["/home"]),
               (error) => this.error = error
             })
-        }
+        },
+        error => this.error = error
     );
 
     
