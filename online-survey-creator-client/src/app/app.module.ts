@@ -24,6 +24,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { SurveyService } from './survey/survey-service.service';
 import { UsersSurveysComponent } from './users-surveys/users-surveys.component';
 import { SurveyAnsweringComponent } from './survey/survey-answering/survey-answering.component';
+import { EmailService } from './email-service.service';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { SurveyAnsweringComponent } from './survey/survey-answering/survey-answe
     AuthGuard,
     AuthGuardAccessDeniedService,
     UsersService,
-    SurveyService
+    SurveyService,
+    EmailService
   ],
   bootstrap: [AppComponent]
 })
