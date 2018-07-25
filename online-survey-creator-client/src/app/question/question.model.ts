@@ -9,6 +9,6 @@ export class Question {
     constructor (id: number, text?: string, surveyAnswers?: Answer[], questionType?: string) {
         this.text = text;
         this.surveyAnswers = surveyAnswers;
-        questionType = questionType;
+        this.questionType = questionType;
     }
 }
