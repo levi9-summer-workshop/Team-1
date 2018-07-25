@@ -4,9 +4,9 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 import { Router } from '@angular/router';
-import 'rxjs/Rx'; // tslint:disable-line
+import 'rxjs'; // tslint:disable-line
 import { AuthService } from '../login/auth-service.service';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { Survey } from './survey.model';
 
 @Injectable()

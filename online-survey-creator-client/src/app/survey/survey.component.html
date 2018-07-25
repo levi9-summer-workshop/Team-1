@@ -1,7 +1,7 @@
-<div id="container" class="container pt-5" >
+<div id="container" class="container mt-5" >
   <div class="row">
   <div  class="col">
-    <form >
+    <form class="p-3 shadow">
         <fieldset class="form-group">
           <div class="row">      
             <legend class="col-sm-2 col-form-label col-form-label-sm">Privacy:</legend>
@@ -33,7 +33,36 @@
           </div>
           <hr>
         </fieldset>
-        <survey-question></survey-question>
+        <fieldset class="form-group p-3 shadow">
+          <div *ngFor="let question of questions; let i=index">
+            <div class="row form-inline" >
+                <span class="mx-2">{{i+1}}</span>
+                <input type="text" class="form-control mx-sm-3" [value]="question.text" size=35 id="question" disabled>
+               <button (click)="deleteQuestion(i)" class="btn btn-danger mx-sm-3">Delete</button>
+            </div>
+            <div class="row form-inline" *ngFor="let answer of question.surveyAnswers; let i=index">
+                <span class="mx-2">{{i+1}}</span>
+                <input type="text" class="form-control mx-sm-3" [value]="answer.text" size=35 id="question" disabled>
+            </div>
+          </div>
+            <div class="row form-inline">
+                <input type="text" class="form-control mx-sm-3" size=35 id="question" [(ngModel)]="questionText" [ngModelOptions]="{standalone: true}" placeholder="Enter your question">
+                <select class="form-control" id="selectQuestionType">
+                    <option selected>Single choice</option>
+                    <option>Multiple choice</option>              
+                </select>
+               <button (click)="addQuestion(questionText)" class="btn btn-primary mx-sm-3">Add question</button>
+              </div>
+              <div class="row form-inline bg-light" *ngFor="let answer of answers; let i = index">
+                  <span class="mx-2">{{i+1}}</span>
+                  <input type="text" class="form-control mx-2 my-2" [value]="answer.text" size=50 disabled>
+                  <button type="submit" (click)="deleteAnswer(i)" class="btn btn-danger mx-3">Delete</button>
+      </div>
+      <div class="row form-inline">
+            <input type="text" class="form-control mx-2 my-2" [(ngModel)]="answerValue" [ngModelOptions]="{standalone: true}" size=50 id="answer" placeholder="Enter an answer">
+            <button  (click)="addAnswer(answerValue)" class="btn btn-primary mx-1">Add answer</button>
+      </div>
+          </fieldset>
     </form>
     
   </div>
