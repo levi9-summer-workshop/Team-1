@@ -22,12 +22,18 @@ INSERT INTO `survey_creator`.`survey`(`survey_description`,`survey_expire_date`,
 
 
 INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question1','SINGLE_ANSWER',1);
-INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question2','SINGLE_ANSWER',1);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question2','MULTIPLE_ANSWERS',1);
 INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question3','SINGLE_ANSWER',1);
-INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question4','SINGLE_ANSWER',1);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question4','MULTIPLE_ANSWERS',1);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question5','MULTIPLE_ANSWERS',1);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question6','SINGLE_ANSWER',1);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question7','MULTIPLE_ANSWERS',1);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question8','SINGLE_ANSWER',1);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question9','MULTIPLE_ANSWERS',1);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question10','MULTIPLE_ANSWERS',1);
 
 INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question1','SINGLE_ANSWER',2);
-INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question2','SINGLE_ANSWER',2);
+INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question2','MULTIPLE_ANSWERS',2);
 INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question3','SINGLE_ANSWER',2);
 
 INSERT INTO `survey_creator`.`survey_question`(`text`,`question_type`,`fk_survey`) VALUES ('Question1','SINGLE_ANSWER',3);
@@ -49,6 +55,8 @@ INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES
 
 
 INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer1',3);
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer2',3);
+INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer3',3);
 
 INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer1',4);
 INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`) VALUES ('Answer2',4);

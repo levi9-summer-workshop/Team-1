@@ -16,6 +16,7 @@ import { EmailService } from '../email-service.service';
 export class SignUpComponent implements OnInit {
 
   error: Error;
+  notification: string;
 
   constructor(public surveyUserService: UsersService, private authService: AuthService, private router: Router, private emailService: EmailService) { }
 
@@ -39,10 +40,10 @@ export class SignUpComponent implements OnInit {
               this.emailService.sendEmail(userToSave).subscribe(),
               (error) => this.error = error
             })
-        },
+        },        
         error => this.error = error
     );
-
-    
+    this.notification = 'Thank you, ' + userToSave.username + ' for your registration.';    
+    alert(this.notification);
   }
 }
