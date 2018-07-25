@@ -23,7 +23,10 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuardAccessDeniedService] },
   { path: 'signup', component: SignUpComponent, canActivate: [AuthGuardAccessDeniedService] },
   { path: 'user', component: UsersSurveysComponent },
+<<<<<<< HEAD
   { path: 'answeringsurvey', component: SurveyAnsweringComponent, canActivate: [AuthGuard], data: {expectedRole: 'admin'} },
+=======
+>>>>>>> 36a650cff38e20f86b3ab73fe18721673628d32a
   { path: 'surveyresult', component: SurveyWrapperComponent, canActivate: [AuthGuard], data: { expectedRole: 'user'}  },
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '404' }
