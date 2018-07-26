@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import 'rxjs/Rx'; // tslint:disable-line
 import { SurveyUser } from '../users/survey-user.model';
 import { UsersService } from '../users/users-service.service';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 
 export interface User {
   username: string;

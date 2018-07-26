@@ -1,24 +1,25 @@
-<div class="row">
-  <div class="col">
+
     
-    <div class="list-group mb-3 shadow-sm">
-      <div class="card border-0">
+    
+      <div class="card border-0 my-2 shadow">
         <div class="card-body">
           <!-- <h5 class="card-title">Survey tittle{{survey.tittle}}</h5> -->
           <p class="card-text">{{ survey.surveyDescription }}</p>
+          
           <p class="card-text text-right"><small class="text-muted">Created by: <a href="#" class="user-link">{{survey.surveyUser.username}}</a>
              Status: <span class="text-success">{{ survey.surveyStatus.surveyStatusType}} <span *ngIf="survey.surveyStatus.surveyStatusType === 'OPEN'? true:false">
               {{" until " + survey.surveyExpireDate}}</span></span></small></p>
           <!-- <button type="button" [ngClass]="{active: selectedCategoryId === null}" class="btn btn-outline-secondary list-group-item" (click)="onCategorySelect(null)">Share</button> -->
           <button class="btn btn-link" [hidden] = "authService.isAuthenticated() && authService.getSurveyUser()?.blocked" (click) = "redirect('/signup')">Participate</button>
-
+<div class="text-right"><i class="fab fa-facebook-f"></i><i class="fab fa-instagram"></i></div>
+      
+<!-- <i class="fas fa-share-alt"> -->
         </div>
         
       </div>
     
-    </div>
-  </div>
-</div> 
+
+ 
 
 
 

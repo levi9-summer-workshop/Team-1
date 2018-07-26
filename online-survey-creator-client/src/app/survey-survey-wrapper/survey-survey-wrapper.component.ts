@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '../survey/survey-service.service';
 import { Survey } from '../survey/survey.model';
-import { Observable } from '../../../node_modules/rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'survey-survey-survey-wrapper',

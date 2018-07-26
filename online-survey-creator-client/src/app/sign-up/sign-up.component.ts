@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '../../../node_modules/@angular/forms';
+import { NgForm } from '@angular/forms';
 import { UsersService } from '../users/users-service.service';
 import { SurveyUser } from '../users/survey-user.model';
-import { Router } from '../../../node_modules/@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '../login/auth-service.service';
-import { HttpHeaders } from '../../../node_modules/@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 import { LoginComponent } from '../login/login.component';
 import { EmailService } from '../email-service.service';
 

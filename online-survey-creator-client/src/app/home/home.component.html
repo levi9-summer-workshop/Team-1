@@ -27,6 +27,7 @@
     <div class="col-lg-9">
       
       <survey-survey-list-home *ngFor="let survey of (surveys$ | async)" [survey]="survey"></survey-survey-list-home>
+      <!-- </div>     -->
     </div>
     <div class="col-lg-3" [hidden] = "authService.isAuthenticated()">
       <div class="card border-light shadow">
@@ -41,4 +42,4 @@
       </div>
     </div>
 </div>
-  
+  </div>

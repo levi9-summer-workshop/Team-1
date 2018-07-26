@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Answer } from './answer.model';
 
 @Component({
   selector: 'survey-answer',

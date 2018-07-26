@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Question } from './question.model';
+import { CreateSurveyService } from '../survey/create-survey.service';
+import { Survey } from '../survey/survey.model';
 
 @Component({
   selector: 'survey-question',
@@ -10,10 +13,6 @@ export class QuestionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  onQuestionAdd() {
-    
   }
 
 }

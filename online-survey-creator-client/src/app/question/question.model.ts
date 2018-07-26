@@ -6,7 +6,7 @@ export class Question {
     public surveyAnswers: Answer[];
     public questionType: string;
 
-    constructor (id: number, text: string, surveyAnswers: Answer[], questionType: string) {
+    constructor (id: number, text?: string, surveyAnswers?: Answer[], questionType?: string) {
         this.text = text;
         this.surveyAnswers = surveyAnswers;
         this.questionType = questionType;
