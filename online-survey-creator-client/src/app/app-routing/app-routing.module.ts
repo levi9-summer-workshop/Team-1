@@ -12,6 +12,7 @@ import { AuthGuardAccessDeniedService } from '../auth-guard-access-denied.servic
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { UsersSurveysComponent } from '../users-surveys/users-surveys.component';
 import { SurveyWrapperComponent } from '../survey-survey-wrapper/survey-survey-wrapper.component';
+import { SurveyAnsweringComponent } from '../survey/survey-answering/survey-answering.component';
 
 
 const appRoutes: Routes = [
@@ -19,9 +20,12 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'admin', component: UsersComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
   { path: 'newsurvey', component: SurveyComponent /*, canActivate: [AuthGuard]*/ },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuardAccessDeniedService] },
   { path: 'signup', component: SignUpComponent, canActivate: [AuthGuardAccessDeniedService] },
   { path: 'user', component: UsersSurveysComponent },
+
+  { path: 'answeringsurvey', component: SurveyAnsweringComponent, canActivate: [AuthGuard], data: {expectedRole: 'admin'} },
+
   { path: 'surveyresult', component: SurveyWrapperComponent, canActivate: [AuthGuard], data: { expectedRole: 'user'}  },
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '404' }

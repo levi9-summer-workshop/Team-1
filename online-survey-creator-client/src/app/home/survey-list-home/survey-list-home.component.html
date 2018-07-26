@@ -9,7 +9,6 @@
           <p class="card-text text-right"><small class="text-muted">Created by: <a href="#" class="user-link">{{survey.surveyUser.username}}</a>
              Status: <span class="text-success">{{ survey.surveyStatus.surveyStatusType}} <span *ngIf="survey.surveyStatus.surveyStatusType === 'OPEN'? true:false">
               {{" until " + survey.surveyExpireDate}}</span></span></small></p>
-          
           <!-- <button type="button" [ngClass]="{active: selectedCategoryId === null}" class="btn btn-outline-secondary list-group-item" (click)="onCategorySelect(null)">Share</button> -->
           <button class="btn btn-link" [hidden] = "authService.isAuthenticated() && authService.getSurveyUser()?.blocked" (click) = "redirect('/signup')">Participate</button>
 <div class="text-right"><i class="fab fa-facebook-f"></i><i class="fab fa-instagram"></i></div>

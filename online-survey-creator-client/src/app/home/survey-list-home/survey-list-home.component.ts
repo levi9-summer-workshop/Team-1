@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Survey } from '../../survey/survey.model';
 import { AuthService } from '../../login/auth-service.service';
-import { Router } from '../../../../node_modules/@angular/router';
+import { Router } from '@angular/router';
 import { UsersService } from '../../users/users-service.service';
 import { SurveyUser } from '../../users/survey-user.model';
 

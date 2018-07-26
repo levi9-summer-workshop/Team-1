@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from '../../../node_modules/rxjs';
+import { Observable } from 'rxjs';
 import { Survey } from '../survey/survey.model';
 import { SurveyService } from '../survey/survey-service.service';
 import { SurveyUser } from '../users/survey-user.model';
 import { AuthService } from '../login/auth-service.service';
-import { identifierModuleUrl } from '../../../node_modules/@angular/compiler';
+import { identifierModuleUrl } from '@angular/compiler';
 import { SurveyStatus } from '../survey/survey-status';
 
 @Component({

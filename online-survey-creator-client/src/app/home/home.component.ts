@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../login/auth-service.service';
 import { SurveyService } from '../survey/survey-service.service';
-import { Observable } from '../../../node_modules/rxjs';
-import { HttpHeaders } from '../../../node_modules/@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 import { UsersService } from '../users/users-service.service';
 import { Survey } from '../survey/survey.model';
 
