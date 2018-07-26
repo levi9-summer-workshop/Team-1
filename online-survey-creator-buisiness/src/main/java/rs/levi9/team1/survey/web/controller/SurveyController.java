@@ -64,7 +64,7 @@ public class SurveyController {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    @RequestMapping(path = "search/{searchQuery}", method = RequestMethod.POST)
+    @RequestMapping(path = "search/{searchQuery}", method = RequestMethod.GET)
     public ResponseEntity searchByDescription(@PathVariable("searchQuery") String searchQuery) {
         if(searchQuery == null) {
             List<Survey> allSurveys = surveyService.findAll();

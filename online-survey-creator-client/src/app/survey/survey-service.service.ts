@@ -40,4 +40,8 @@ export class SurveyService {
     return this.httpClient.get<Survey>(this.API + id,{ headers: this.authService.getAuthHeaders()});
   }
 
+  getSearchByDescriptionSurveys(searchTerm: string): Observable<Survey[]> {
+    return this.httpClient.get<Survey[]>(this.API + "search/" + searchTerm, { headers: this.authService.getAuthHeaders()});
+  }
+
 }
