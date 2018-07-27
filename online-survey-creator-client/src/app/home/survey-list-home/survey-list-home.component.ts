@@ -19,12 +19,13 @@ export class SurveyListHomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  redirect(redirectPath: string) {
-    if(this.authService.isAuthenticated() ) {
-      
-  } else {
-    this.router.navigate([redirectPath]);
+  onResultClick(id: number) {
+    this.router.navigate(['survey/'+id+'/result']);
   }
-}
+
+  onParticipateClick(id: number) {
+    this.router.navigate(['survey/'+id+'/participate']);
+  }
+
 
 }

@@ -6,6 +6,7 @@ import { Answer } from '../answer/answer.model';
 import { AuthService } from '../login/auth-service.service';
 import { SurveyStatus } from './survey-status';
 import { SurveyPrivacy } from './survey-privacy';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'survey-survey',
@@ -22,7 +23,7 @@ export class SurveyComponent implements OnInit {
   privacyType = 'PUBLIC';
   questionType = 'SINGLE_ANSWER';
 
-  constructor(private authService: AuthService, private surveyService: SurveyService) {}
+  constructor(private authService: AuthService, private surveyService: SurveyService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -58,9 +59,8 @@ export class SurveyComponent implements OnInit {
     const user = this.authService.getSurveyUser();
     const survey =
     new
-    Survey(this.surveyDescription,
-      user, this.questions, this.surveyDueDate, new SurveyPrivacy(this.privacyType, privacyId), new SurveyStatus('OPEN', 1), null);
-    this.surveyService.saveSurvey(survey).subscribe();
+    Survey(this.surveyDescription,user, this.questions, this.surveyDueDate, new SurveyPrivacy(this.privacyType, privacyId), new SurveyStatus('OPEN', 1), null);
+    this.surveyService.saveSurvey(survey).subscribe(data => this.router.navigate(['user']));
   }
 
 }

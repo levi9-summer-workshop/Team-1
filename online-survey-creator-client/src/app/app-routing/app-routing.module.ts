@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
 import { UsersSurveysComponent } from '../users-surveys/users-surveys.component';
 import { SurveyWrapperComponent } from '../survey-survey-wrapper/survey-survey-wrapper.component';
 import { SurveyAnsweringComponent } from '../survey/survey-answering/survey-answering.component';
+import { SurveyListHomeComponent } from '../home/survey-list-home/survey-list-home.component';
 
 
 const appRoutes: Routes = [
@@ -22,9 +23,10 @@ const appRoutes: Routes = [
   { path: 'newsurvey', component: SurveyComponent /*, canActivate: [AuthGuard]*/ },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuardAccessDeniedService] },
   { path: 'signup', component: SignUpComponent, canActivate: [AuthGuardAccessDeniedService] },
-  { path: 'user', component: UsersSurveysComponent },
-  { path: 'answeringsurvey', component: SurveyAnsweringComponent, canActivate: [AuthGuard], data: {expectedRole: 'admin'} },
-  { path: 'surveyresult', component: SurveyWrapperComponent, canActivate: [AuthGuard], data: { expectedRole: 'user'}  },
+  { path: 'user', component: UsersSurveysComponent, canActivate: [AuthGuard], data: {expectedRole: 'user'} },
+  { path: 'survey/:id/participate', component: SurveyAnsweringComponent, canActivate: [AuthGuard], data: {expectedRole: 'user'} },
+  { path: 'survey/:id/result', component: SurveyWrapperComponent, canActivate: [AuthGuard], data: { expectedRole: 'user'}  },
+  { path: 'survey/:id/result/admin', component: SurveyWrapperComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '404' }
 ];
