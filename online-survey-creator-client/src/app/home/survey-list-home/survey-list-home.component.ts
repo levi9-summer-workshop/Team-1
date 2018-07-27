@@ -24,7 +24,7 @@ export class SurveyListHomeComponent implements OnInit {
   }
 
   onParticipateClick(id: number) {
-    this.router.navigate(['survey/'+id+'participate']);
+    this.router.navigate(['survey/'+id+'/participate']);
   }
 
 
