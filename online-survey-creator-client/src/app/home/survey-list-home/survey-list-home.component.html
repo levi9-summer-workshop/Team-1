@@ -1,22 +1,21 @@
-
-    
-    
-      <div class="card border-0 my-2 shadow">
-        <div class="card-body">
-          <!-- <h5 class="card-title">Survey tittle{{survey.tittle}}</h5> -->
-          <p class="card-text">{{ survey.surveyDescription }}</p>
-          
-          <p class="card-text text-right"><small class="text-muted">Created by: <a href="#" class="user-link">{{survey.surveyUser.username}}</a>
+<div class="card border my-2 shadow">
+        <div class="card-header">
+          <p class="card-text text-center"><small class="text-muted">Created by: <a href="#" class="user-link">{{survey.surveyUser.username}}</a>
              Status: <span class="text-success">{{ survey.surveyStatus.surveyStatusType}} <span *ngIf="survey.surveyStatus.surveyStatusType === 'OPEN'? true:false">
               {{" until " + survey.surveyExpireDate}}</span></span></small></p>
-          <!-- <button type="button" [ngClass]="{active: selectedCategoryId === null}" class="btn btn-outline-secondary list-group-item" (click)="onCategorySelect(null)">Share</button> -->
-          <button class="btn btn-link" [hidden] = "authService.isAuthenticated() && authService.getSurveyUser()?.blocked" (click) = "redirect('/signup')">Participate</button>
-<div class="text-right"><i class="fab fa-facebook-f"></i><i class="fab fa-instagram"></i></div>
-      
-<!-- <i class="fas fa-share-alt"> -->
         </div>
+
+        <div class="card-body">
+          <p class="card-text">{{ survey.surveyDescription }}</p>
+        </div>  
+
+          <div class="card-footer" style="display: inline;">
+            <button class="btn btn-link" [hidden] = "authService.isAuthenticated() && authService.getSurveyUser()?.blocked" (click) = "redirect('/signup')">Participate</button>
+            <button class="btn btn-link  alignright"><i class="fas fa-share-alt text-secondary "></i></button>
+      
+          </div>
         
-      </div>
+ </div>
     
 
  

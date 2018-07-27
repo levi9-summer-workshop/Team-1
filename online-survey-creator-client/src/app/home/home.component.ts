@@ -13,6 +13,7 @@ import { Survey } from '../survey/survey.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  searchTerm: string;
   surveys$: Observable<Survey[]>;
   base64Credential = btoa("admin" + ':' + "admin");
   headers = new HttpHeaders({
@@ -28,5 +29,13 @@ export class HomeComponent implements OnInit {
   redirect(redirectPath: string) {
     this.router.navigate([redirectPath]);
   }
+
+searchSurveys(searchTerm: string){
+  if(searchTerm) {
+  this.surveys$ = this.surveyService.getSearchByDescriptionSurveys(searchTerm);
+  } else {
+    this.surveys$ = this.surveyService.getPublicSurveys(this.headers);
+  }
+}
 
 }
