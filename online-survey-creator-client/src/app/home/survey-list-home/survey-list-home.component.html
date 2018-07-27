@@ -10,7 +10,11 @@
         </div>  
 
           <div class="card-footer" style="display: inline;">
-            <button class="btn btn-link" [hidden] = "authService.isAuthenticated() && authService.getSurveyUser()?.blocked" (click) = "redirect('/signup')">Participate</button>
+              <span *ngIf="survey.surveyStatus.surveyStatusType === 'OPEN'? true:false">
+            <button class="btn btn-link" [hidden] = "authService.isAuthenticated() && authService.getSurveyUser()?.blocked" (click) = "redirect('/signup')">Participate</button></span>
+            <!-- <button class="btn btn-link" [hidden] = "survey.surveyStatus.surveyStatusType === 'OPEN'" (click) = "redirect('/surveyresult')">View results</button> -->
+            <a href="http://localhost:4200/#/surveyresult" class="btn btn-link"  [hidden] = "survey.surveyStatus.surveyStatusType === 'OPEN'" role="button">View results</a>
+
             <button class="btn btn-link  alignright"><i class="fas fa-share-alt text-secondary "></i></button>
       
           </div>
