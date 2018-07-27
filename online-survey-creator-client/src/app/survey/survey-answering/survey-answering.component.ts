@@ -5,6 +5,7 @@ import { NgForm, FormControl, FormGroup } from '../../../../node_modules/@angula
 import { Answer } from '../../answer/answer.model';
 import { forEach } from '../../../../node_modules/@angular/router/src/utils/collection';
 import { ActivatedRoute } from '../../../../node_modules/@angular/router';
+
 @Component({
   selector: 'survey-answering',
   templateUrl: './survey-answering.component.html',
