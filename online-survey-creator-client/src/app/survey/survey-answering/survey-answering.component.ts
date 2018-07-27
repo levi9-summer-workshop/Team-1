@@ -28,9 +28,16 @@ export class SurveyAnsweringComponent implements OnInit {
   }
 
 
+  // go through all answers in survey, check which ones are selected
+  // chechbox returns true/false; radio returns answer.id
+  // if selection value != null && "" && false => add it to the list of selectedAnswers and submit it to backend
 
   onSurveySubmit(form: NgForm) {      
-    console.log(form.value);
+    for (let i in form.value) {
+      console.log(i);
+      
+    }
+    
   }
 
 }

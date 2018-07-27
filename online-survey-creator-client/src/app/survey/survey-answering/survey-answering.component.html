@@ -26,7 +26,7 @@
             <!-- show all the answers for that question -->
             <!-- name should be question.id so only one radio button can be selected -->
             <div *ngIf="question.questionType === 'SINGLE_ANSWER'">
-                <input class="form-check-input" [name] = "question.id" type = "radio" ngModel value="{{question.id}}, {{answer.id}}"> {{answer.text}}
+                <input class="form-check-input" [name] = "question.id" type = "radio" ngModel value= "{{answer.id}}"> {{answer.text}}
             </div>
             <div *ngIf="question.questionType === 'MULTIPLE_ANSWERS'">
                 <input class="form-check-input" [name] = "answer.id" type = "checkbox" ngModel value = "{{answer.id}}"> {{answer.text}}
