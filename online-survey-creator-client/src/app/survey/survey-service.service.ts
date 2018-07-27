@@ -20,6 +20,10 @@ export class SurveyService {
     return this.httpClient.get<Survey[]>(this.API, { headers: headers });
   }
 
+  getAllSurveys(): Observable<Survey[]> {
+    return this.httpClient.get<Survey[]>(this.API, { headers:  this.authService.getAuthHeaders()});
+  }
+
   getPublicSurveys(headers: HttpHeaders): Observable<Survey[]> {
     return this.httpClient.get<Survey[]>(this.API + 'privacy/public', { headers: headers });
   }
@@ -46,6 +50,10 @@ export class SurveyService {
 
   getSearchByDescriptionSurveys(searchTerm: string): Observable<Survey[]> {
     return this.httpClient.get<Survey[]>(this.API + "search/" + searchTerm, { headers: this.authService.getAuthHeaders()});
+  }
+
+  getSearchOpenedSurveysByDescription(searchTerm: string, headers: HttpHeaders): Observable<Survey[]> {
+    return this.httpClient.get<Survey[]>(this.API + "search/" + searchTerm + "/public", { headers: headers});
   }
 
 }

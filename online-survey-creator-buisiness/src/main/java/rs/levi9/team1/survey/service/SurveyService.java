@@ -52,6 +52,10 @@ public class SurveyService  {
         return surveyRepository.findAllBySurveyStatusSurveyStatusType(SurveyStatus.SurveyStatusType.OPEN);
     }
 
+    public List<Survey> searchPublicSurveyByDescription(String searchTerm) {
+        return surveyRepository.findAllBySurveyDescriptionContainingIgnoreCaseAndSurveyStatusSurveyStatusType(searchTerm, SurveyStatus.SurveyStatusType.OPEN);
+    }
+
     public List<Survey> findAllClosedSurveys() {
         return surveyRepository.findAllBySurveyStatusSurveyStatusType(SurveyStatus.SurveyStatusType.CLOSED);
     }

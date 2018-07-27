@@ -12,6 +12,7 @@ import java.util.List;
 public interface SurveyRepository extends JpaRepository<Survey, Long> {
     List<Survey> findAllBySurveyUserId(Long id);
     List<Survey> findAllBySurveyDescriptionContainingIgnoreCase(String searchQuery);
+    List<Survey> findAllBySurveyDescriptionContainingIgnoreCaseAndSurveyStatusSurveyStatusType(String searchQuery, SurveyStatus.SurveyStatusType statusType);
     List<Survey> findAllBySurveyPrivacyPrivacyType(SurveyPrivacy.PrivacyType privacyType);
     List<Survey> findAllBySurveyStatusSurveyStatusType(SurveyStatus.SurveyStatusType statusType);
     void deleteBySurveyUserId(Long id);

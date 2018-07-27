@@ -110,4 +110,22 @@ public class SurveyController {
         }
         return new ResponseEntity(closedSurveys, HttpStatus.OK);
     }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "search/{searchQuery}/public", method = RequestMethod.GET)
+    public ResponseEntity searchPublicSurveysByDescription(@PathVariable("searchQuery") String searchQuery) {
+        if(searchQuery == null) {
+            List<Survey> allSurveys = surveyService.findAll();
+            if (allSurveys == null) {
+                return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
+            }
+            return new ResponseEntity(allSurveys, HttpStatus.OK);
+        } else {
+            List<Survey> filteredSurveys = surveyService.searchPublicSurveyByDescription(searchQuery);
+            if (filteredSurveys == null) {
+                return new ResponseEntity(HttpStatus.NOT_FOUND);
+            }
+            return new ResponseEntity(filteredSurveys, HttpStatus.OK);
+        }
+    }
 }
