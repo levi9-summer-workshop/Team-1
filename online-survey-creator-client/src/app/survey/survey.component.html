@@ -1,70 +1,78 @@
-<div id="container" class="container mt-5" >
+<div id="container" class="container my-5">
   <div class="row">
-  <div  class="col">
-    <form class="p-3 shadow">
+    <div class="col">
+      <form class="p-3 shadow">
         <fieldset class="form-group">
-          <div class="row">      
+          <div class="row">
             <legend class="col-sm-2 col-form-label col-form-label-sm">Privacy:</legend>
             <div class="col-sm-10">
               <div class="form-check">
-                <input class="form-check-input" id="privacyTypePublic" type="radio" name="privacy" title="Survey can be seen by all users" checked>
+                <input class="form-check-input" id="privacyTypePublic" type="radio" name="privacy" title="Survey can be seen by all users" [ngModelOptions]="{standalone: true}" [(ngModel)]="privacyType" value="PUBLIC"> 
                 <label class="form-check-label" for="privacyTypePublic">Public</label>
               </div>
               <div class="form-check">
-              <input class="form-check-input" id="privacyTypeRestricted" type="radio" name="privacy" title="Survey can be seen only by registered users">
-              <label class="form-check-label" for="privacyTypeRestricted">Registered users only</label>              
-              </div>       
+                <input class="form-check-input" id="privacyTypeRestricted" type="radio" name="privacy" title="Survey can be seen only by registered users" [ngModelOptions]="{standalone: true}" [(ngModel)]="privacyType" value="RESTRICTED">
+                <label class="form-check-label" for="privacyTypeRestricted">Registered users only</label>
+              </div>
             </div>
           </div>
           <hr>
         </fieldset>
         <fieldset class="form-group">
-            <div class="row ">
-              <legend class="col-sm-2 col-form-label col-form-label-sm">Expire Date:</legend>
-              <input class="form-control col-sm-4" type="date">
-              <legend class="col-sm-2 col-form-label col-form-label-sm">(optional)</legend>
-            </div>
-            <hr>
-          </fieldset>
+          <div class="row ">
+            <legend class="col-sm-2 col-form-label col-form-label-sm">Expire Date:</legend>
+            <input class="form-control col-sm-4" type="date" [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyDueDate">
+            <legend class="col-sm-2 col-form-label col-form-label-sm">(optional)</legend>
+          </div>
+          <hr>
+        </fieldset>
         <fieldset class="form-group">
           <div class="row">
             <legend class="col-sm-2 col-form-label col-form-label-sm">Description:</legend>
-            <textarea class="form-control col-sm-9" id="descriptionTextArea" rows="3" cols="75" maxlength="270"></textarea>
+            <textarea class="form-control col-sm-9" id="descriptionTextArea" rows="3" cols="75" maxlength="270" [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyDescription"></textarea>
           </div>
           <hr>
         </fieldset>
-        <fieldset class="form-group p-3 shadow">
-          <div *ngFor="let question of questions; let i=index">
-            <div class="row form-inline" >
-                <span class="mx-2">{{i+1}}</span>
-                <input type="text" class="form-control mx-sm-3" [value]="question.text" size=35 id="question" disabled>
-               <button (click)="deleteQuestion(i)" class="btn btn-danger mx-sm-3">Delete</button>
+        <fieldset class="form-group shadow">
+          <div class="alert-primary p-3" *ngFor="let question of questions; let i=index">
+            <div class="row form-inline mb-1">
+              <span class="mx-2">{{i+1}}</span>
+                <input type="text" class="form-control" [value]="question.text" size=35 id="question" disabled>
+                <button (click)="deleteQuestion(i)" class="btn btn-danger mx-1">Delete</button>
             </div>
-            <div class="row form-inline" *ngFor="let answer of question.surveyAnswers; let i=index">
-                <span class="mx-2">{{i+1}}</span>
-                <input type="text" class="form-control mx-sm-3" [value]="answer.text" size=35 id="question" disabled>
+            <div class="row form-inline alert-secondary mx-5 mt-1" *ngFor="let answer of question.surveyAnswers; let i=index">
+              <span class="mx-2">{{i+1}}</span>
+              <input type="text" class="form-control" [value]="answer.text" size=35 id="question" disabled>
             </div>
           </div>
-            <div class="row form-inline">
-                <input type="text" class="form-control mx-sm-3" size=35 id="question" [(ngModel)]="questionText" [ngModelOptions]="{standalone: true}" placeholder="Enter your question">
-                <select class="form-control" id="selectQuestionType">
-                    <option selected>Single choice</option>
-                    <option>Multiple choice</option>              
-                </select>
-               <button (click)="addQuestion(questionText)" class="btn btn-primary mx-sm-3">Add question</button>
-              </div>
-              <div class="row form-inline bg-light" *ngFor="let answer of answers; let i = index">
-                  <span class="mx-2">{{i+1}}</span>
-                  <input type="text" class="form-control mx-2 my-2" [value]="answer.text" size=50 disabled>
-                  <button type="submit" (click)="deleteAnswer(i)" class="btn btn-danger mx-3">Delete</button>
-      </div>
-      <div class="row form-inline">
-            <input type="text" class="form-control mx-2 my-2" [(ngModel)]="answerValue" [ngModelOptions]="{standalone: true}" size=50 id="answer" placeholder="Enter an answer">
-            <button  (click)="addAnswer(answerValue)" class="btn btn-primary mx-1">Add answer</button>
-      </div>
-          </fieldset>
-    </form>
-    
+          <div class="m-3 p-3 border rounded">
+          <div class="row form-inline">
+            <input type="text" class="form-control" size=35 id="question" [(ngModel)]="questionText" [ngModelOptions]="{standalone: true}"
+              placeholder="Enter your question">
+            <select class="form-control mx-1" id="selectQuestionType"  [(ngModel)]="questionType" [ngModelOptions]="{standalone: true}">
+              <option value="SINGLE_ANSWER" selected>Single choice</option>
+              <option value="MULTIPLE_ANSWERS">Multiple choice</option>
+            </select>
+            <button (click)="addQuestion(questionText)" class="btn btn-primary">Add question</button>
+          </div>
+          <div class="row form-inline alert-secondary mt-2" *ngFor="let answer of answers; let i = index">
+            <span class="mx-2">{{i+1}}</span>
+            <input type="text" class="form-control" [value]="answer.text" size=50 disabled>
+            <button type="submit" (click)="deleteAnswer(i)" class="btn btn-danger mx-1">Delete</button>
+          </div>
+          <div class="row form-inline mt-2">
+            <input type="text" class="form-control" [(ngModel)]="answerValue" [ngModelOptions]="{standalone: true}" size=50 id="answer"
+              placeholder="Enter an answer">
+            <button (click)="addAnswer(answerValue)" class="btn btn-primary mx-1">Add answer</button>
+          </div>
+        </div>
+        </fieldset>
+        <div class="row form-inline px-3 mt-5 d-flex justify-content-end">
+            <button (click)="cancelSurvey()" class="btn mr-3">Cancel</button>
+            <button (click)="submitSurvey()" class="btn btn-success">Submit Survey</button>
+          </div>
+      </form>
+     
+    </div>
   </div>
-</div>
 </div>
