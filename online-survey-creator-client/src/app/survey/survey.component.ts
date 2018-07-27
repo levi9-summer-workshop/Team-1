@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Survey } from './survey.model';
 import { SurveyService } from './survey-service.service';
-import { CreateSurveyService } from './create-survey.service';
 import { Question } from '../question/question.model';
 import { Answer } from '../answer/answer.model';
 import { AuthService } from '../login/auth-service.service';
@@ -62,7 +61,6 @@ export class SurveyComponent implements OnInit {
     Survey(this.surveyDescription,
       user, this.questions, this.surveyDueDate, new SurveyPrivacy(this.privacyType, privacyId), new SurveyStatus('OPEN', 1), null);
     this.surveyService.saveSurvey(survey).subscribe();
-    console.log(survey);
   }
 
 }
