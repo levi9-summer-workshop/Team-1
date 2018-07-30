@@ -34,6 +34,7 @@ import { SurveyAnsweringService } from './survey/survey-answering/survey-answeri
 import { UserSurveysComponent } from './user-surveys/user-surveys.component';
 import { CommentListComponent } from './survey/comment-list/comment-list.component';
 import { CommentsComponent } from './survey/comments/comments.component';
+import { CommentsService } from './survey/comments/comments.service';
 
 
 
@@ -75,7 +76,8 @@ import { CommentsComponent } from './survey/comments/comments.component';
     SurveyService,
     EmailService,
     CreateSurveyService,
-    SurveyAnsweringService 
+    SurveyAnsweringService,
+    CommentsService
   ],
   bootstrap: [AppComponent]
 })
