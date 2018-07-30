@@ -30,8 +30,7 @@ public class Survey extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_survey_status")
     private SurveyStatus surveyStatus = new SurveyStatus(SurveyStatus.SurveyStatusType.OPEN);
-
-    @NotNull
+    
     @Future
     @Temporal(TemporalType.DATE)
     private Date surveyExpireDate;

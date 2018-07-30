@@ -44,7 +44,7 @@ searchSurveys(searchTerm: string){
     }
   } else { // not authenticated user can only search public surveys
     if(searchTerm) {       
-      this.surveys$ = this.surveyService.getSearchOpenedSurveysByDescription(searchTerm, this.headers); // set filtered surveys
+      this.surveys$ = this.surveyService.getSearchOpenedSurveysByDescription(searchTerm, this.headers); // set filtered public surveys
       } else {
         this.surveys$ = this.surveyService.getPublicSurveys(this.headers); // set all public surveys if searchTerm is empty
       }
