@@ -37,5 +37,15 @@ public class SurveyAnswerService {
         return surveyAnswerRepository.findOne(id);
     }
 
+    public SurveyAnswer update(SurveyAnswer surveyAnswer) {
+        return surveyAnswerRepository.save(surveyAnswer);
+    }
+
+    public List<SurveyAnswer> findAllWithIds(List<Long> ids) {
+        return surveyAnswerRepository.findAll(ids);
+    }
+
+
+
 
 }

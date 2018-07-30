@@ -30,6 +30,10 @@ import { QuestionResultComponent } from './survey/question-result/question-resul
 import { AnswerResultComponent } from './survey/answer-result/answer-result.component';
 import { SurveyWrapperComponent } from './survey-survey-wrapper/survey-survey-wrapper.component';
 import { CreateSurveyService } from './survey/create-survey.service';
+import { SurveyAnsweringService } from './survey/survey-answering/survey-answering.service';
+import { UserSurveysComponent } from './user-surveys/user-surveys.component';
+import { CommentListComponent } from './survey/comment-list/comment-list.component';
+import { CommentsComponent } from './survey/comments/comments.component';
 
 
 
@@ -52,7 +56,10 @@ import { CreateSurveyService } from './survey/create-survey.service';
     SurveyResultComponent,
     QuestionResultComponent,
     AnswerResultComponent,
-    SurveyWrapperComponent
+    SurveyWrapperComponent,
+    UserSurveysComponent,
+    CommentListComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +74,8 @@ import { CreateSurveyService } from './survey/create-survey.service';
     UsersService,
     SurveyService,
     EmailService,
-    CreateSurveyService
+    CreateSurveyService,
+    SurveyAnsweringService 
   ],
   bootstrap: [AppComponent]
 })

@@ -36,5 +36,8 @@ export class SurveyListHomeComponent implements OnInit {
     }
   }
 
+  onUserClicked(id: number) {
+    this.router.navigate(['survey/user/'+id+'/surveys']);
+  }
 
 }

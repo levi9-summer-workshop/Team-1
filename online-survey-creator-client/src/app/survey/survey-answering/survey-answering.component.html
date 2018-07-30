@@ -6,7 +6,7 @@
       <div class="d-flex justify-content-end">
         <blockquote class="blockquote">
           <p>created by: {{currentSurvey.surveyUser?.username}} <br>
-            open until: {{currentSurvey?.surveyExpireDate}}
+            {{ifExpiryDateExists()}}
           </p>
         </blockquote>
       </div>
@@ -29,7 +29,7 @@
                 <input id="userAnswer" class="form-check-input" [name] = "question.id" type = "radio" ngModel  [value] = "answer.id"> {{answer.text}}
             </div>
             <div *ngIf="question.questionType === 'MULTIPLE_ANSWERS'">
-                <input id="userAnswer" class="form-check-input" [name] = "answer.id" type = "checkbox" ngModel [value] = "answer.id"> {{answer.text}}
+                <input id="userAnswer" class="form-check-input" [name] = "answer.id" type = "checkbox" ngModel> {{answer.text}}
             </div>
           </div>
         </div>
@@ -40,6 +40,9 @@
         <button class="btn btn-primary" type="submit">Submit</button>    
       </div>         
     </form>
+
+<survey-comments></survey-comments>
+
     </div>
   </div>
 </div>

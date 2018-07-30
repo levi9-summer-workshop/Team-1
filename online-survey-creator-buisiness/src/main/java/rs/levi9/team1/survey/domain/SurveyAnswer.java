@@ -9,11 +9,14 @@ public class SurveyAnswer extends BaseEntity {
     @NotNull
     private String text;
 
+    private Long result = 0L;
+
     public SurveyAnswer() {
     }
 
-    public SurveyAnswer(String text) {
+    public SurveyAnswer(String text, Long result) {
         this.text = text;
+        this.result = result;
     }
 
     public String getText() {
@@ -22,6 +25,14 @@ public class SurveyAnswer extends BaseEntity {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public Long getResult() {
+        return result;
+    }
+
+    public void setResult(Long result) {
+        this.result = result;
     }
 
     @Override
