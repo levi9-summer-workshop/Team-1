@@ -1,0 +1,6 @@
+.survey-alerts {
+    position: absolute;
+    top: 0px;
+    z-index: 555;
+    width:100%;
+}

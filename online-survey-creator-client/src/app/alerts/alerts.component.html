@@ -1,1 +1,5 @@
-
+<div class="animated justify-content-center p-4 shadow-lg survey-alerts alert" role="alert" [ngStyle]="{'visibility': message.visibility}" [ngClass]="[message.bootstrapClassAlert, message.animateIn, message.animateOut]">
+  <strong>Success!!! </strong> {{ message.text }}
+  <hr>
+  <p class="mb-0">login in and redirecting to home page... </p>
+</div>
