@@ -31,6 +31,7 @@ import { AnswerResultComponent } from './survey/answer-result/answer-result.comp
 import { SurveyWrapperComponent } from './survey-survey-wrapper/survey-survey-wrapper.component';
 import { CreateSurveyService } from './survey/create-survey.service';
 import { SurveyAnsweringService } from './survey/survey-answering/survey-answering.service';
+import { UserSurveysComponent } from './user-surveys/user-surveys.component';
 
 
 
@@ -53,7 +54,8 @@ import { SurveyAnsweringService } from './survey/survey-answering/survey-answeri
     SurveyResultComponent,
     QuestionResultComponent,
     AnswerResultComponent,
-    SurveyWrapperComponent
+    SurveyWrapperComponent,
+    UserSurveysComponent
   ],
   imports: [
     BrowserModule,
