@@ -27,5 +27,8 @@ export class SurveyListHomeComponent implements OnInit {
     this.router.navigate(['survey/'+id+'/participate']);
   }
 
+  onUserClicked(id: number) {
+    this.router.navigate(['survey/user/'+id+'/surveys']);
+  }
 
 }

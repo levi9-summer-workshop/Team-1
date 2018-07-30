@@ -14,6 +14,7 @@ import { UsersSurveysComponent } from '../users-surveys/users-surveys.component'
 import { SurveyWrapperComponent } from '../survey-survey-wrapper/survey-survey-wrapper.component';
 import { SurveyAnsweringComponent } from '../survey/survey-answering/survey-answering.component';
 import { SurveyListHomeComponent } from '../home/survey-list-home/survey-list-home.component';
+import { UserSurveysComponent } from '../user-surveys/user-surveys.component';
 
 
 const appRoutes: Routes = [
@@ -27,6 +28,8 @@ const appRoutes: Routes = [
   { path: 'survey/:id/participate', component: SurveyAnsweringComponent, canActivate: [AuthGuard], data: {expectedRole: 'user'} },
   { path: 'survey/:id/result', component: SurveyWrapperComponent, canActivate: [AuthGuard], data: { expectedRole: 'user'}  },
   { path: 'survey/:id/result/admin', component: SurveyWrapperComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
+  { path: 'survey/user/:id/surveys', component: UserSurveysComponent, canActivate: [AuthGuard], data: { expectedRole: 'user'}  },
+
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '404' }
 ];
