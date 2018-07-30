@@ -30,6 +30,7 @@ import { QuestionResultComponent } from './survey/question-result/question-resul
 import { AnswerResultComponent } from './survey/answer-result/answer-result.component';
 import { SurveyWrapperComponent } from './survey-survey-wrapper/survey-survey-wrapper.component';
 import { CreateSurveyService } from './survey/create-survey.service';
+import { SurveyAnsweringService } from './survey/survey-answering/survey-answering.service';
 
 
 
@@ -67,7 +68,8 @@ import { CreateSurveyService } from './survey/create-survey.service';
     UsersService,
     SurveyService,
     EmailService,
-    CreateSurveyService
+    CreateSurveyService,
+    SurveyAnsweringService 
   ],
   bootstrap: [AppComponent]
 })
