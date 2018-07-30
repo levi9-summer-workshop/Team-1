@@ -77,4 +77,14 @@ export class UsersSurveysComponent implements OnInit {
     }
   }
 
+  ifExpiryDateExists(survey: Survey) {
+    this.selectedSurvey = survey;
+    if (this.selectedSurvey.surveyExpireDate != null) {
+      return 'until ' + this.selectedSurvey.surveyExpireDate;
+    }
+    else {
+      return;
+    }
+  }
+
 }
