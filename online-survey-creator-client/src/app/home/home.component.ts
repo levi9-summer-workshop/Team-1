@@ -22,8 +22,13 @@ export class HomeComponent implements OnInit {
   
   constructor(private router: Router, public authService: AuthService, private surveyService: SurveyService) { }
 
-  ngOnInit() {                                                  
-    this.surveys$ = this.surveyService.getPublicSurveys(this.headers);
+  ngOnInit() {
+    if(this.authService.isAuthenticated()) {
+      this.surveys$ = this.surveyService.getAllSurveys();
+    } else {
+      this.surveys$ = this.surveyService.getPublicSurveys(this.headers);
+    }                                                  
+    
   }
 
   redirect(redirectPath: string) {

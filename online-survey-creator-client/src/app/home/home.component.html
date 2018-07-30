@@ -22,17 +22,22 @@
   </div>
 </div>
 
-<div class="container ">
-  <div class="input-group w-75 mx-auto ">
+<!-- <div class="container ">
+  <div class="input-group w-75 mx-auto">
     <input type="text"  class="form-control " [(ngModel)]="searchTerm"  placeholder="Search" >
     <button (click)="searchSurveys(searchTerm)" class=""  ><i class="fas fa-search"></i></button>
-  </div>        
-</div>
+  </div>          
+</div> -->
 
 <div class="container mt-2">
   <div class="row">
     <div class="col-lg-12">
-      
+      <div class="w-75 mx-auto input-group my-3 border-0 rounded input-group-lg shadow-lg">
+        <input  [(ngModel)]="searchTerm" type="text" class="form-control border-0" placeholder="Search Surveys" aria-label="Search Surveys" aria-describedby="button-addon2">
+        <div class="input-group-append border-0">
+          <button (click)="searchSurveys(searchTerm)" type="submit" class="btn" type="button" id="button-addon2"><i class="fas fa-search text-secondary "></i></button>
+        </div>
+      </div>
       <survey-survey-list-home *ngFor="let survey of (surveys$ | async)" [survey]="survey"></survey-survey-list-home>
       <!-- </div>     -->
     </div>
