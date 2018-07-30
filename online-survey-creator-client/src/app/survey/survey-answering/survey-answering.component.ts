@@ -52,6 +52,14 @@ export class SurveyAnsweringComponent implements OnInit {
     );
   }
 
+  ifExpiryDateExists() {
+    if (this.currentSurvey.surveyExpireDate === null) {
+      return;
+    } else {
+      return 'Open until: ' + this.currentSurvey.surveyExpireDate;
+    }
+  }
+
 
   // go through all answers in survey, check which ones are selected
   // chechbox returns true/false; radio returns answer.id

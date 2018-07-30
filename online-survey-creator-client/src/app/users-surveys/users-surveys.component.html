@@ -6,7 +6,7 @@
         <div class="card border-0" >    
           <div class="card-body">            
             <p class="card-text">{{survey.surveyDescription}}</p>
-            <p class="card-text text-right"><small class="text-muted">Duration date: {{survey.surveyExpireDate}}
+            <p class="card-text text-right"><small class="text-muted">{{ifExpiryDateExists(survey)}}
              Status: <span class="text-success">{{survey.surveyStatus.surveyStatusType}}</span> privacy: {{survey.surveyPrivacy.privacyType}}</small></p>
             <button (click)="onResultClick(survey.id)" class="btn btn-link">View results</button>
             <div style="float:right" class="mx-ms-3">
