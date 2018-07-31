@@ -4,7 +4,7 @@
              Status: <span class="text-success">{{ survey.surveyStatus.surveyStatusType}} <span *ngIf="survey.surveyStatus.surveyStatusType === 'OPEN'? true:false">
               {{ifExpiryDateExists()}}</span></span></small></p>
         </div>
-
+        
         <div class="card-body">
           <p class="card-text">{{ survey.surveyDescription }}</p>
         </div>  

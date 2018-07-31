@@ -7,6 +7,7 @@ import { AuthService } from '../login/auth-service.service';
 import { SurveyStatus } from './survey-status';
 import { SurveyPrivacy } from './survey-privacy';
 import { Router } from '../../../node_modules/@angular/router';
+import { Time } from '../../../node_modules/@angular/common';
 
 @Component({
   selector: 'survey-survey',
@@ -59,10 +60,12 @@ export class SurveyComponent implements OnInit {
       privacyId = 2;
     }
     const user = this.authService.getSurveyUser();
+    console.log(this.surveyDueDate);
     const survey =
     new
     Survey(this.surveyDescription,user, this.questions, this.surveyDueDate, new SurveyPrivacy(this.privacyType, privacyId), new SurveyStatus('OPEN', 1), null);
     this.surveyService.saveSurvey(survey).subscribe(data => this.router.navigate(['user']));
+    
   }
 
   ifNotEnoughAnswers() {
