@@ -36,17 +36,17 @@
       <survey-survey-list-home *ngFor="let survey of (surveys$ | async)" [survey]="survey"></survey-survey-list-home>
       <!-- </div>     -->
     </div>
-    <div class="col-lg-3" [hidden] = "authService.isAuthenticated()">
+    <!-- <div class="col-lg-3" [hidden] = "authService.isAuthenticated()">
       <div class="card border-light shadow">
         <div class="card-body" >
           <h5 class="card-title">Create new survey now</h5>
           <p class="card-text">Ready to build your first survey? It's free, easy and effortless.</p>
-          <!-- <a href="#" class="btn btn-primary">Create survey</a> -->
-          <!-- <span [attr.title]='authService.isAuthenticated() ? null : "You must be logged in to create survey!"'> -->
+          <a href="#" class="btn btn-primary">Create survey</a>
+          <span [attr.title]='authService.isAuthenticated() ? null : "You must be logged in to create survey!"'>
           <button type="button" class="btn btn-primary" [hidden] = "authService.isAuthenticated()" (click) = "redirect('/signup')">Sign up</button>
-        <!-- </span> -->
+        </span>
         </div>
       </div>
-    </div>
+    </div> -->
 </div>
   </div>

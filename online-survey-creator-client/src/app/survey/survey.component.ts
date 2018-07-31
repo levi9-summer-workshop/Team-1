@@ -79,6 +79,7 @@ export class SurveyComponent implements OnInit {
     this.surveyDueDate = null;
     this.privacyType = 'PUBLIC';
     this.questionType = 'SINGLE_ANSWER';
+    this.router.navigate(['home']);
   }
 
   ifDateIsInvalid() {

@@ -35,6 +35,7 @@ import { UserSurveysComponent } from './user-surveys/user-surveys.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { CommentListComponent } from './survey/comment-list/comment-list.component';
 import { CommentsComponent } from './survey/comments/comments.component';
+import { AuthGuardUserBlockedService } from './auth-guard-user-blocked.service';
 import { CommentsService } from './survey/comments/comments.service';
 
 
@@ -74,6 +75,7 @@ import { CommentsService } from './survey/comments/comments.service';
     AuthService,
     AuthGuard,
     AuthGuardAccessDeniedService,
+    AuthGuardUserBlockedService,
     UsersService,
     SurveyService,
     EmailService,
