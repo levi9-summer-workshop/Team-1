@@ -8,6 +8,4 @@ import rs.levi9.team1.survey.domain.SurveyUser;
 @Repository
 public interface SurveyAnswerRepository extends JpaRepository<SurveyAnswer, Long> {
 
-
-
 }

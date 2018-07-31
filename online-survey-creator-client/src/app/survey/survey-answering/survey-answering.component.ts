@@ -24,6 +24,8 @@ import {
   ActivatedRoute
 } from '../../../../node_modules/@angular/router';
 import { SurveyAnsweringService } from './survey-answering.service';
+import { SurveyComment } from '../comments/survey-comment';
+import { CommentsService } from '../comments/comments.service';
 
 @Component({
   selector: 'survey-answering',
@@ -31,14 +33,14 @@ import { SurveyAnsweringService } from './survey-answering.service';
   styleUrls: ['./survey-answering.component.css']
 })
 export class SurveyAnsweringComponent implements OnInit {
-
+  comments: SurveyComment[];
   currentSurvey: Survey;
   buttonType: string;
   selectedAnswers: number[] = [];
   surveyId: number;
 
 
-  constructor(private surveyService: SurveyService, private route: ActivatedRoute, private surveyAnsweringService: SurveyAnsweringService) {
+  constructor(private surveyService: SurveyService, private route: ActivatedRoute, private surveyAnsweringService: SurveyAnsweringService, private commentsService: CommentsService) {
     this.route.params.subscribe(params => this.surveyId = params['id']);
   }
 
@@ -48,8 +50,10 @@ export class SurveyAnsweringComponent implements OnInit {
       (survey) => {
         this.currentSurvey = survey;
         this.currentSurvey.surveyQuestions.forEach(q => q.surveyAnswers.forEach(a => console.log(a.id)));
+        this.commentsService.getAllCommentsBySurveyId(this.currentSurvey.id).subscribe(data => this.comments = data);
       }
     );
+    
   }
 
   ifExpiryDateExists() {
@@ -90,7 +94,10 @@ export class SurveyAnsweringComponent implements OnInit {
     console.log('Ids of answers: [' + result + ']');
     
     this.surveyAnsweringService.submitAnswers(result).subscribe();
+  }
 
+  onSavedComment() {
+    this.commentsService.getAllCommentsBySurveyId(this.currentSurvey.id).subscribe(data => this.comments = data);
   }
 
 }

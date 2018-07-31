@@ -36,6 +36,7 @@ import { AlertsComponent } from './alerts/alerts.component';
 import { CommentListComponent } from './survey/comment-list/comment-list.component';
 import { CommentsComponent } from './survey/comments/comments.component';
 import { AuthGuardUserBlockedService } from './auth-guard-user-blocked.service';
+import { CommentsService } from './survey/comments/comments.service';
 
 
 
@@ -79,7 +80,8 @@ import { AuthGuardUserBlockedService } from './auth-guard-user-blocked.service';
     SurveyService,
     EmailService,
     CreateSurveyService,
-    SurveyAnsweringService 
+    SurveyAnsweringService,
+    CommentsService
   ],
   bootstrap: [AppComponent]
 })

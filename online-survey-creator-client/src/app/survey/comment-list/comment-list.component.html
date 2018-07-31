@@ -1,11 +1,11 @@
 <div class="card border my-2 shadow">
   <div class="card-header">
-    <p class="card-text text-center"><small class="text-muted">Posted by: user
-       on: 2018-07-30</small></p>
+    <p class="card-text text-center"><small class="text-muted">Posted by: {{comment.surveyUser.username}}
+       on: {{comment.commentPostDate | date:'medium' }}</small></p>
   </div>
 
   <div class="card-body">
-    <p class="card-text"> Ovo je prvi komentar.</p>
+    <p class="card-text">{{comment.message}}</p>
   </div>  
   
 </div>

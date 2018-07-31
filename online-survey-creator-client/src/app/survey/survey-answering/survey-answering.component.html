@@ -41,7 +41,7 @@
       </div>         
     </form>
 
-<survey-comments></survey-comments>
+<survey-comments (onCommentSave)="onSavedComment()" [currentSurvey]="currentSurvey" [comments]="comments"></survey-comments>
 
     </div>
   </div>

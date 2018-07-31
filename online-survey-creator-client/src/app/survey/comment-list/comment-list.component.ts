@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Survey } from '../survey.model';
+import { SurveyComment } from '../comments/survey-comment';
 
 @Component({
   selector: 'survey-comment-list',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comment-list.component.css']
 })
 export class CommentListComponent implements OnInit {
-  
+  @Input() comment: SurveyComment;
   constructor() { }
 
   ngOnInit() {
