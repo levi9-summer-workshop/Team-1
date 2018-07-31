@@ -15,17 +15,18 @@ import { SurveyWrapperComponent } from '../survey-survey-wrapper/survey-survey-w
 import { SurveyAnsweringComponent } from '../survey/survey-answering/survey-answering.component';
 import { SurveyListHomeComponent } from '../home/survey-list-home/survey-list-home.component';
 import { UserSurveysComponent } from '../user-surveys/user-surveys.component';
+import { AuthGuardUserBlockedService } from '../auth-guard-user-blocked.service';
 
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'admin', component: UsersComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
-  { path: 'newsurvey', component: SurveyComponent, canActivate: [AuthGuard] , data: { expectedRole: 'user'} },
+  { path: 'newsurvey', component: SurveyComponent, canActivate: [AuthGuardUserBlockedService] , data: { expectedRole: 'user'} },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuardAccessDeniedService] },
   { path: 'signup', component: SignUpComponent, canActivate: [AuthGuardAccessDeniedService] },
   { path: 'user', component: UsersSurveysComponent, canActivate: [AuthGuard], data: {expectedRole: 'user'} },
-  { path: 'survey/:id/participate', component: SurveyAnsweringComponent, canActivate: [AuthGuard], data: {expectedRole: 'user'} },
+  { path: 'survey/:id/participate', component: SurveyAnsweringComponent, canActivate: [AuthGuardUserBlockedService], data: {expectedRole: 'user'} },
   { path: 'survey/:id/result', component: SurveyWrapperComponent, canActivate: [AuthGuard], data: { expectedRole: 'user'}  },
   { path: 'survey/:id/result/admin', component: SurveyWrapperComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
   { path: 'survey/user/:id/surveys', component: UserSurveysComponent, canActivate: [AuthGuard], data: { expectedRole: 'user'}  },

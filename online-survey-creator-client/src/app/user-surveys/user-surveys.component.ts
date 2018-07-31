@@ -22,4 +22,13 @@ export class UserSurveysComponent implements OnInit {
     this.surveys$ = this.surveyService.getUserSurveys(this.surveyId);
   }
 
+  ifNoSurveys() {
+    if (this.surveys$.isEmpty() ) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
 }
