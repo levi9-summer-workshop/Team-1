@@ -13,6 +13,7 @@ import { SurveyUser } from '../../users/survey-user.model';
 })
 export class SurveyListHomeComponent implements OnInit {
   @Input() survey: Survey;
+  url: string = 'test';
   
   constructor(public authService: AuthService, public router: Router) { }
 
@@ -38,6 +39,12 @@ export class SurveyListHomeComponent implements OnInit {
 
   onUserClicked(id: number) {
     this.router.navigate(['survey/user/'+id+'/surveys']);
+  }
+
+  getSurveyUrl(id: number) {
+    // this.url = this.router.createUrlTree(['survey/'+id+'/participate']).toString();
+    this.url = 'localhost:4200/#/survey/'+id+'/participate';
+    // this.url = 'test 2';
   }
 
 }
