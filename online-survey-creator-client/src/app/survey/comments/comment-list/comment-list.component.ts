@@ -1,10 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Survey } from '../survey.model';
-import { SurveyComment } from '../comments/survey-comment';
-import { Router } from '../../../../node_modules/@angular/router';
-import { AuthService } from '../../login/auth-service.service';
-import { SurveyUser } from '../../users/survey-user.model';
-import { CommentsService } from '../comments/comments.service';
+import { AuthService } from '../../../login/auth-service.service';
+import { CommentsService } from '../comments.service';
+import { SurveyUser } from '../../../users/survey-user.model';
+import { Router } from '../../../../../node_modules/@angular/router';
+import { SurveyComment } from '../survey-comment';
 
 @Component({
   selector: 'survey-comment-list',

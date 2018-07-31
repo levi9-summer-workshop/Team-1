@@ -23,10 +23,11 @@ export class CommentsComponent implements OnInit {
 
   saveComment() {
     const currentUser = this.authService.getSurveyUser();
-    const comment = new SurveyComment(this.message, currentUser, this.currentSurvey, new Date(), null);
+    let comment = new SurveyComment(this.message, currentUser, this.currentSurvey, new Date(), null);
     this.commentsService.saveComment(comment).subscribe(
       any => this.onCommentSave.emit()
     );
+    this.message = null;
     
   }
 }

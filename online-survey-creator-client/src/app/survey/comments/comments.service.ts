@@ -20,7 +20,7 @@ export class CommentsService {
    }
 
    saveComment(comment: SurveyComment){
-     return this.httpClient.post(this.API, comment, {headers: this.authService.getAuthHeaders()})
+     return this.httpClient.post(this.API, comment, {headers: this.authService.getAuthHeaders()});
    }
 
    getAllCommentsBySurveyId(id: number){
