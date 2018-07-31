@@ -61,7 +61,7 @@
               </span>
             </span>
           </div>
-          <form #sf="ngForm">
+          <form>
           <div class="row form-inline alert-secondary mt-2" *ngFor="let answer of answers; let i = index">
             <span class="mx-2">{{i+1}}</span>
             <input type="text" class="form-control" [value]="answer.text" size=50 disabled>

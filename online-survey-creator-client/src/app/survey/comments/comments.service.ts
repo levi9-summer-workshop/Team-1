@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '../../../../node_modules/@angular/common/http';
 import { AuthService } from '../../login/auth-service.service';
 import { SurveyComment } from './survey-comment';
-import { Observable } from '../../../../node_modules/rxjs';
+import { Observable, Subject } from '../../../../node_modules/rxjs';
 
 @Injectable()
 export class CommentsService {
   
   API = 'http://localhost:8080/comments/';
+  onCommentDeleted = new Subject();
 
 
   constructor(private httpClient: HttpClient, private authService: AuthService) {
@@ -19,11 +20,15 @@ export class CommentsService {
    }
 
    saveComment(comment: SurveyComment){
-     return this.httpClient.post(this.API, comment, {headers: this.authService.getAuthHeaders()})
+     return this.httpClient.post(this.API, comment, {headers: this.authService.getAuthHeaders()});
    }
 
    getAllCommentsBySurveyId(id: number){
      return this.httpClient.get<SurveyComment[]>(this.API + id, {headers: this.authService.getAuthHeaders()});
+   }
+
+   deleteComment(id: number){
+    return this.httpClient.delete(this.API + id, {headers: this.authService.getAuthHeaders()});
    }
 
 }
