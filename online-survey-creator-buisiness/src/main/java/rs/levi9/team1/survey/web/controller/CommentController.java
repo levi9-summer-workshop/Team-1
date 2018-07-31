@@ -44,4 +44,14 @@ public class CommentController {
         return new ResponseEntity(comment, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "{id}", method = RequestMethod.GET)
+    public ResponseEntity findAllCommentsWithSurveyId(@PathVariable("id") Long id) {
+        List<Comment> comments = this.commentsService.findAllWithSurveyId(id);
+        if(comments == null) {
+            return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
+        }
+        return new ResponseEntity(comments, HttpStatus.OK);
+    }
+
 }

@@ -50,9 +50,10 @@ export class SurveyAnsweringComponent implements OnInit {
       (survey) => {
         this.currentSurvey = survey;
         this.currentSurvey.surveyQuestions.forEach(q => q.surveyAnswers.forEach(a => console.log(a.id)));
+        this.commentsService.getAllCommentsBySurveyId(this.currentSurvey.id).subscribe(data => this.comments = data);
       }
     );
-    this.commentsService.getAllComments().subscribe(data => this.comments = data)
+    
   }
 
   ifExpiryDateExists() {
@@ -93,7 +94,10 @@ export class SurveyAnsweringComponent implements OnInit {
     console.log('Ids of answers: [' + result + ']');
     
     this.surveyAnsweringService.submitAnswers(result).subscribe();
+  }
 
+  onSavedComment() {
+    this.commentsService.getAllCommentsBySurveyId(this.currentSurvey.id).subscribe(data => this.comments = data);
   }
 
 }

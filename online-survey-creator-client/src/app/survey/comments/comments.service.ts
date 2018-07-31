@@ -7,7 +7,7 @@ import { Observable } from '../../../../node_modules/rxjs';
 @Injectable()
 export class CommentsService {
   
-  API = 'http://localhost:8080/comments';
+  API = 'http://localhost:8080/comments/';
 
 
   constructor(private httpClient: HttpClient, private authService: AuthService) {
@@ -20,6 +20,10 @@ export class CommentsService {
 
    saveComment(comment: SurveyComment){
      return this.httpClient.post(this.API, comment, {headers: this.authService.getAuthHeaders()})
+   }
+
+   getAllCommentsBySurveyId(id: number){
+     return this.httpClient.get<SurveyComment[]>(this.API + id, {headers: this.authService.getAuthHeaders()});
    }
 
 }

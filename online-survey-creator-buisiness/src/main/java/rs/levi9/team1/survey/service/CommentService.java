@@ -45,6 +45,10 @@ public class CommentService {
         return commentRepository.findAll(ids);
     }
 
+    public List<Comment> findAllWithSurveyId(Long id) {
+        return commentRepository.findAllBySurveyIdOrderByCommentPostDateDesc(id);
+    }
+
 
 
 

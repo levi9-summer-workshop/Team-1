@@ -1,7 +1,7 @@
 <div class="card border my-2 shadow">
   <div class="card-header">
     <p class="card-text text-center"><small class="text-muted">Posted by: {{comment.surveyUser.username}}
-       on: {{comment.commentPostDate}}</small></p>
+       on: {{comment.commentPostDate | date:'medium' }}</small></p>
   </div>
 
   <div class="card-body">

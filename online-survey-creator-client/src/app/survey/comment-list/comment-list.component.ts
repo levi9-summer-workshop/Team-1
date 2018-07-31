@@ -8,7 +8,6 @@ import { SurveyComment } from '../comments/survey-comment';
   styleUrls: ['./comment-list.component.css']
 })
 export class CommentListComponent implements OnInit {
-
   @Input() comment: SurveyComment;
   constructor() { }
 
