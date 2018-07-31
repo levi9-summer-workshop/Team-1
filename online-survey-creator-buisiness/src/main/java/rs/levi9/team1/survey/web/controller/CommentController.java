@@ -54,4 +54,10 @@ public class CommentController {
         return new ResponseEntity(comments, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable("id") Long id) {
+        commentsService.delete(id);
+    }
+
 }

@@ -1,7 +1,8 @@
 import {
   Component,
   OnInit,
-  Input
+  Input,
+  OnDestroy
 } from '@angular/core';
 import {
   Survey
@@ -26,18 +27,20 @@ import {
 import { SurveyAnsweringService } from './survey-answering.service';
 import { SurveyComment } from '../comments/survey-comment';
 import { CommentsService } from '../comments/comments.service';
+import { Subscription } from '../../../../node_modules/rxjs';
 
 @Component({
   selector: 'survey-answering',
   templateUrl: './survey-answering.component.html',
   styleUrls: ['./survey-answering.component.css']
 })
-export class SurveyAnsweringComponent implements OnInit {
+export class SurveyAnsweringComponent implements OnInit, OnDestroy {
   comments: SurveyComment[];
   currentSurvey: Survey;
   buttonType: string;
   selectedAnswers: number[] = [];
   surveyId: number;
+  deleteCommentSubscription: Subscription;
 
 
   constructor(private surveyService: SurveyService, private route: ActivatedRoute, private surveyAnsweringService: SurveyAnsweringService, private commentsService: CommentsService) {
@@ -49,11 +52,16 @@ export class SurveyAnsweringComponent implements OnInit {
     this.surveyService.getSurveyById(this.surveyId).subscribe(
       (survey) => {
         this.currentSurvey = survey;
-        this.currentSurvey.surveyQuestions.forEach(q => q.surveyAnswers.forEach(a => console.log(a.id)));
         this.commentsService.getAllCommentsBySurveyId(this.currentSurvey.id).subscribe(data => this.comments = data);
       }
     );
-    
+    this.deleteCommentSubscription = this.commentsService.onCommentDeleted.subscribe(
+      () => this.commentsService.getAllCommentsBySurveyId(this.currentSurvey.id).subscribe(data => this.comments = data)
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.deleteCommentSubscription.unsubscribe();
   }
 
   ifExpiryDateExists() {
