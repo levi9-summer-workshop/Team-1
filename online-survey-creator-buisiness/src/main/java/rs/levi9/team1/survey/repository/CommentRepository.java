@@ -7,5 +7,5 @@ import rs.levi9.team1.survey.domain.SurveyAnswer;
 
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-
+    
 }

@@ -19,8 +19,8 @@ public class Comment extends BaseEntity {
     @JoinColumn(name = "fk_survey")
     private Survey survey;
 
-    @NotNull
-    @Temporal(TemporalType.DATE)
+    @Basic
+    @Temporal(TemporalType.TIMESTAMP)
     private Date commentPostDate = new Date();
 
     public Comment(){

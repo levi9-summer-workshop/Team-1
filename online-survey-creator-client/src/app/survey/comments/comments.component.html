@@ -6,9 +6,9 @@
         <blockquote class="blockquote">Comments</blockquote>
         <fieldset class="form-group ">
         <div class="row mx-1 ">
-        <textarea class="form-control col" id="descriptionTextArea" rows="3" cols="100" maxlength="270" placeholder="Enter your comment"></textarea>
+        <textarea [(ngModel)]="message" [ngModelOptions]="{standalone: true}" class="form-control col" id="descriptionTextArea" rows="3" cols="100" maxlength="270" placeholder="Enter your comment"></textarea>
         </div>
-        <button class="btn btn-primary mx-2 mt-2">Add comment</button>
+        <button (click)="saveComment()" class="btn btn-primary mx-2 mt-2">Add comment</button>
         <hr>
         </fieldset>
         <survey-comment-list *ngFor="let comment of comments" [comment]="comment"></survey-comment-list>

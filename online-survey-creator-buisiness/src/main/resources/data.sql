@@ -133,3 +133,8 @@ INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`,`result
 INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`,`result`) VALUES ('Answer3',21,0);
 INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`,`result`) VALUES ('Answer4',21,0);
 INSERT INTO `survey_creator`.`survey_answer`(`text`,`fk_survey_question`,`result`) VALUES ('Answer4',21,0);
+
+INSERT INTO `survey_creator`.`comment`(`message`,`comment_post_date`,`fk_survey`,`fk_survey_user`) VALUES ('Comment1','2018-7-29',2,1);
+INSERT INTO `survey_creator`.`comment`(`message`,`comment_post_date`,`fk_survey`,`fk_survey_user`) VALUES ('Comment2','2018-7-30',2,2);
+
+
