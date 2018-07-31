@@ -27,6 +27,15 @@ export class SurveyListHomeComponent implements OnInit {
     this.router.navigate(['survey/'+id+'/participate']);
   }
 
+  ifExpiryDateExists() {
+    if (this.survey.surveyExpireDate != null) {
+      return 'until ' + this.survey.surveyExpireDate;
+    }
+    else {
+      return;
+    }
+  }
+
   onUserClicked(id: number) {
     this.router.navigate(['survey/user/'+id+'/surveys']);
   }

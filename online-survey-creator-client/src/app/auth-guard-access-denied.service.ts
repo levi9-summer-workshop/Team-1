@@ -10,9 +10,9 @@ export class AuthGuardAccessDeniedService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if(this.authService.isAuthenticated() === false) {
       return true;
-    }
+    } 
 
-    this.router.navigate(['404']);
+    this.router.navigate(['home']);
   }
 
 }

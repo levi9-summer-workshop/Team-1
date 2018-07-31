@@ -14,7 +14,13 @@ import { EmailService } from '../email-service.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-
+  message = {
+    bootstrapClassAlert: 'alert-success',
+    text: 'Thank you for registering on Online Survey Creator, Welcome message has been sent to your email address.',
+    animateIn:'',
+    animateOut:'',
+    visibility: 'hidden'
+  };
   error: Error;
   notification: string;
 
@@ -36,14 +42,18 @@ export class SignUpComponent implements OnInit {
          any => {
            this.authService.login(userToSave.username, userToSave.password)
             .subscribe(any => {
-              this.router.navigate(["/home"])
+              this.message.animateIn = 'slideInDown'
+              this.message.visibility = 'visible';
+              setTimeout(() => {
+                this.router.navigate(["/home"]);
+              }, 7000);
               this.emailService.sendEmail(userToSave).subscribe(),
               (error) => this.error = error
             })
         },        
         error => this.error = error
     );
-    this.notification = 'Thank you, ' + userToSave.username + ' for your registration.';    
-    alert(this.notification);
+    // this.notification = 'Thank you, ' + userToSave.username + ' for your registration.';    
+    // alert(this.notification);
   }
 }

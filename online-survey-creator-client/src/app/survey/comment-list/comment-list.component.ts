@@ -9,7 +9,7 @@ import { SurveyComment } from '../comments/survey-comment';
 })
 export class CommentListComponent implements OnInit {
 
-  @Input() comments: SurveyComment[];
+  @Input() comment: SurveyComment;
   constructor() { }
 
   ngOnInit() {

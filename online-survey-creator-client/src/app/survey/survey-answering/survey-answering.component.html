@@ -6,7 +6,7 @@
       <div class="d-flex justify-content-end">
         <blockquote class="blockquote">
           <p>created by: {{currentSurvey.surveyUser?.username}} <br>
-            open until: {{currentSurvey?.surveyExpireDate}}
+            {{ifExpiryDateExists()}}
           </p>
         </blockquote>
       </div>

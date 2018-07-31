@@ -19,13 +19,15 @@ export class SurveyComponent implements OnInit {
   questionText = '';
   answerValue = '';
   surveyDescription = '';
-  surveyDueDate = new Date();
+  surveyDueDate: Date;
   privacyType = 'PUBLIC';
   questionType = 'SINGLE_ANSWER';
 
   constructor(private authService: AuthService, private surveyService: SurveyService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  
+  }
 
  addAnswer(answerValue: string) {
     const answer = new Answer(null, answerValue);
@@ -61,6 +63,36 @@ export class SurveyComponent implements OnInit {
     new
     Survey(this.surveyDescription,user, this.questions, this.surveyDueDate, new SurveyPrivacy(this.privacyType, privacyId), new SurveyStatus('OPEN', 1), null);
     this.surveyService.saveSurvey(survey).subscribe(data => this.router.navigate(['user']));
+  }
+
+  ifNotEnoughAnswers() {
+    if (this.answers.length < 2) {
+      return true;
+    }
+  }
+
+  cancelSurvey() {
+    this.questions = [];
+    this.questionText = '';
+    this.answers = [];
+    this.surveyDescription = '';
+    this.surveyDueDate = null;
+    this.privacyType = 'PUBLIC';
+    this.questionType = 'SINGLE_ANSWER';
+  }
+
+  ifDateIsInvalid() {
+    console.log(this.surveyDueDate < new Date() );
+  }
+
+  getCurrentDate() {
+    return (new Date()).toISOString().slice(0, 10);
+  }
+
+  ifQuestionsListIsEmpty() {
+    if (this.questions.length < 1) {
+      return true;
+    }
   }
 
 }
