@@ -6,8 +6,8 @@
         <div class="card border-0" >    
           <div class="card-body">            
             <p class="card-text">{{survey.surveyDescription}}</p>
-            <p class="card-text text-right"><small class="text-muted">{{ifExpiryDateExists(survey)}}
-             Status: <span class="text-success">{{survey.surveyStatus.surveyStatusType}}</span> privacy: {{survey.surveyPrivacy.privacyType}}</small></p>
+            <p class="card-text text-right"><small class="text-muted">
+             Status: <span class="text-success">{{survey.surveyStatus.surveyStatusType}} {{ifExpiryDateExists(survey)}} </span>, Privacy: {{survey.surveyPrivacy.privacyType}}</small></p>
             <button (click)="onResultClick(survey.id)" class="btn btn-link">View results</button>
             <div style="float:right" class="mx-ms-3">
               <button type="button"class="btn btn-primary" (click)="onCloseSurvey(survey)" *ngIf="survey.surveyStatus.surveyStatusType !== 'CLOSED'">Close</button>

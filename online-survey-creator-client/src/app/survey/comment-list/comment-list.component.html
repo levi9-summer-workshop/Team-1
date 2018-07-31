@@ -1,6 +1,6 @@
 <div class="card border my-2 shadow">
   <div class="card-header">
-    <p class="card-text text-center"><small class="text-muted">Posted by: {{comment.surveyUser.username}}
+    <p class="card-text text-center"><small class="text-muted">Posted by: <button (click)="onUserClicked(comment.surveyUser.id)" class="btn btn-link">{{comment.surveyUser.username}}</button>
        on: {{comment.commentPostDate | date:'medium' }}</small></p>
   </div>
 

@@ -36,14 +36,22 @@ export class HomeComponent implements OnInit {
   }
 
 searchSurveys(searchTerm: string){
+  if ( searchTerm === null) {
+   searchTerm = ' ';
+  } else if (searchTerm != null && searchTerm.trim() === ' ') {
+    searchTerm = ' ';
+  } else if (searchTerm != null) {
+    searchTerm = searchTerm.trim();
+  }
+
   if(this.authService.isAuthenticated()) { // authenticated user can search all surveys
-    if(searchTerm) {
+    if(searchTerm || searchTerm === null || searchTerm === ' ') {
     this.surveys$ = this.surveyService.getSearchByDescriptionSurveys(searchTerm); // set filtered surveys
     } else {
     this.surveys$ = this.surveyService.getAllSurveys(); //set all surveys if searchTerm is empty
     }
   } else { // not authenticated user can only search public surveys
-    if(searchTerm) {       
+    if(searchTerm || searchTerm === null || searchTerm === ' ') {       
       this.surveys$ = this.surveyService.getSearchOpenedSurveysByDescription(searchTerm, this.headers); // set filtered public surveys
       } else {
         this.surveys$ = this.surveyService.getPublicSurveys(this.headers); // set all public surveys if searchTerm is empty

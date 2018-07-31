@@ -21,7 +21,7 @@
         <fieldset class="form-group">
           <div class="row ">
             <legend class="col-sm-2 col-form-label col-form-label-sm">Expiry Date:</legend>
-            <input class="form-control col-sm-4" type="date" [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyDueDate" min="getCurrentDate()">
+            <input class="form-control col-sm-4" type="date" [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyDueDate" [min]="getCurrentDate()">
             <legend class="col-sm-2 col-form-label col-form-label-sm">(optional)</legend>
           </div>
           <hr>
@@ -40,7 +40,7 @@
             <div class="row form-inline mb-1">
               <span class="mx-2">{{i+1}}</span>
                 <input type="text" class="form-control" [value]="question.text" size=35 id="question" disabled>
-                <button (click)="deleteQuestion(i)" class="btn btn-danger mx-1">Delete</button>
+                <button type="button" (click)="deleteQuestion(i)" class="btn btn-danger mx-1">Delete</button>
             </div>
             <div class="row form-inline alert-secondary mx-5 mt-1" *ngFor="let answer of question.surveyAnswers; let i=index">
               <span class="mx-2">{{i+1}}</span>
@@ -61,10 +61,11 @@
               </span>
             </span>
           </div>
+          <form #sf="ngForm">
           <div class="row form-inline alert-secondary mt-2" *ngFor="let answer of answers; let i = index">
             <span class="mx-2">{{i+1}}</span>
             <input type="text" class="form-control" [value]="answer.text" size=50 disabled>
-            <button type="submit" (click)="deleteAnswer(i)" class="btn btn-danger mx-1">Delete</button>
+            <button type="button" (click)="deleteAnswer(i)" class="btn btn-danger mx-1">Delete</button>
           </div>
           <div class="row form-inline mt-2" [hidden] = "questionText === '' ">
             <input type="text" class="form-control" [(ngModel)]="answerValue" [ngModelOptions]="{standalone: true}" size=50 id="answer"
@@ -73,11 +74,14 @@
                 <button (click)="addAnswer(answerValue)" class="btn btn-primary mx-1" [disabled] = "answerValue === '' ">Add answer</button>
               </span>
           </div>
+        </form>
         </div>
+        
         <div class="invalid-feedback" *ngIf="ifQuestionsListIsEmpty()">Please provide all required information!</div>
+       
         </fieldset>
         <div class="row form-inline px-3 mt-5 d-flex justify-content-end">
-            <button (click)="cancelSurvey()" class="btn mr-3">Cancel</button>
+            <button type="button" (click)="cancelSurvey()" class="btn mr-3">Cancel</button>
             <span [attr.title] = "description.invalid ? 'Please enter description for your survey!' : null">
               <span [attr.title] = "ifQuestionsListIsEmpty() ? 'Survey must have at least one question!' : null">
                 <button (click)="submitSurvey()" class="btn btn-success" [disabled] = "ifQuestionsListIsEmpty() || description.invalid">Submit Survey</button>
