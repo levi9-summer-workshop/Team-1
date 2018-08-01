@@ -79,7 +79,7 @@ export class UsersSurveysComponent implements OnInit {
 
   ifExpiryDateExists(survey: Survey) {
     this.selectedSurvey = survey;
-    if (this.selectedSurvey.surveyExpireDate != null) {
+    if (this.selectedSurvey.surveyExpireDate != null && this.selectedSurvey.surveyStatus.surveyStatusType != 'CLOSED') {
       return 'until ' + this.selectedSurvey.surveyExpireDate;
     }
     else {

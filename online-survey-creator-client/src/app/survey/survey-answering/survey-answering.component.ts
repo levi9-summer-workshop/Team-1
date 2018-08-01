@@ -68,7 +68,7 @@ export class SurveyAnsweringComponent implements OnInit, OnDestroy {
     if (this.currentSurvey.surveyExpireDate === null) {
       return;
     } else {
-      return 'Open until: ' + this.currentSurvey.surveyExpireDate;
+      return 'open until: ' + this.currentSurvey.surveyExpireDate;
     }
   }
 
