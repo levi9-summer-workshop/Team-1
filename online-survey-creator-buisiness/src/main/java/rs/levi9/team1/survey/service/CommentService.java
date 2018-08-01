@@ -49,6 +49,9 @@ public class CommentService {
         return commentRepository.findAllBySurveyIdOrderByCommentPostDateDesc(id);
     }
 
+    public void deleteAllCommentsBySurveyUserId(Long id) {
+        commentRepository.deleteAllBySurveyUserId(id);
+    }
 
 
 
