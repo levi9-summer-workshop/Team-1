@@ -14,13 +14,11 @@ import { Observable } from '../../../../../node_modules/rxjs';
 export class CommentListComponent implements OnInit {
   @Input() comment: SurveyComment;
   currentUser: SurveyUser;
-  comments$: Observable<SurveyComment[]>;
 
   constructor(public authService: AuthService,public router: Router, public commentService: CommentsService) { }
 
   ngOnInit() {
     this.currentUser=this.authService.getSurveyUser();
-    this.comments$ = this.commentService.getAllComments();
   }
 
   onUserClicked(id: number) {
@@ -30,7 +28,6 @@ export class CommentListComponent implements OnInit {
   deleteComment(id: number) {
     this.commentService.deleteComment(id).subscribe(
       () => {
-          this.comments$ = this.commentService.getAllComments();
           this.commentService.onCommentDeleted.next();
       });
     
