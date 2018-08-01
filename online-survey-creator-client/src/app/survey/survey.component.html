@@ -64,11 +64,13 @@
             </span>
           </div>
           <form>
-          <div class="row form-inline alert-secondary mt-2" *ngFor="let answer of answers; let i = index">
-            <span class="mx-2">{{i+1}}.</span>
+            <div class="alert-secondary">
+          <div class="row form-inline mt-2 px-3 animated fadeIn" *ngFor="let answer of answers; let i = index">
+            <span class="mx-3">{{i+1}}.</span>
             <input type="text" class="form-control" [value]="answer.text" size=50 disabled>
             <button type="button" (click)="deleteAnswer(i)" class="btn btn-danger mx-1">Delete</button>
           </div>
+        </div>
           <div class="row form-inline mt-2" [hidden] = "questionText === '' ">
             <input type="text" class="form-control" [(ngModel)]="answerValue" [ngModelOptions]="{standalone: true}" size=50 id="answer"
               placeholder="Enter an answer">
