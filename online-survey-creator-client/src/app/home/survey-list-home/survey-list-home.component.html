@@ -1,4 +1,4 @@
-<div class="card border my-2 shadow">
+<div class="card border my-2 mx-2 shadow">
   <div class="card-header">
     <p class="card-text text-center"><small class="text-muted">Created by: <button (click)="onUserClicked(survey.surveyUser.id)" class="btn btn-link">{{survey.surveyUser.username}}</button>
       Status: <span class="text-success">{{ survey.surveyStatus.surveyStatusType}} <span *ngIf="survey.surveyStatus.surveyStatusType === 'OPEN'? true:false">
