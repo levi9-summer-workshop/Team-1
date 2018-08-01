@@ -13,31 +13,6 @@
     <button class="btn btn-link" [hidden] = "authService.isAuthenticated() && authService.getSurveyUser()?.blocked" (click) = "onParticipateClick(survey.id)">Participate</button>
   </span>
     <button (click) = "onResultClick(survey.id)" class="btn btn-link"  [hidden] = "survey.surveyStatus.surveyStatusType === 'OPEN'" role="button">View results</button>
-    <button class="btn btn-link alignright" (click) = "getSurveyUrl(survey.id)"><i class="fas fa-share-alt text-secondary" data-toggle="modal" data-target="#shareSurveyModal"></i></button>
+    <button class="btn btn-link alignright" (click) = "getSurveyUrl(survey.id)" data-toggle="modal" data-target="#shareSurveyModal"><i class="fas fa-share-alt text-secondary" ></i></button>
   </div>       
  </div>
-<!-- Share Survey Modal -->
-<!-- <div class="modal fade" id="shareSurveyModal" tabindex="-1" role="dialog" aria-labelledby="shareSurveyModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="shareSurveyModalLabel">Share Survey</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>{{url}}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div> -->
-    
-
- 
-
-
-
-

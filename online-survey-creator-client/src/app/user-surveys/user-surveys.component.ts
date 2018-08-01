@@ -11,6 +11,7 @@ import { ActivatedRoute } from '../../../node_modules/@angular/router';
 })
 export class UserSurveysComponent implements OnInit {
 
+  url: string;
   surveys$: Observable<Survey[]>;
   surveyId: number;
 
@@ -29,6 +30,16 @@ export class UserSurveysComponent implements OnInit {
     else {
       return false;
     }
+  }
+
+  onSurveyShare(event: string) {
+    this.url = event;
+  }
+  
+  onCopyClick(selectedUrl: HTMLInputElement) {
+    selectedUrl.focus();
+    selectedUrl.select();  
+    document.execCommand('copy');
   }
 
 }
