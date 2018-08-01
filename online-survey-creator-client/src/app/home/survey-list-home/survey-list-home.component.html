@@ -2,7 +2,7 @@
 <div class="card border shadow mb-3">
   <div class="card-header">
     <p class="card-text text-center"><small class="text-muted">Created by: <button (click)="onUserClicked(survey.surveyUser.id)" class="btn btn-link">{{survey.surveyUser.username}}</button>
-      Status: <span class="text-success">{{ survey.surveyStatus.surveyStatusType}} <span *ngIf="survey.surveyStatus.surveyStatusType === 'OPEN'? true:false">
+      Status: <span [ngClass]="{'text-danger': survey.surveyStatus.surveyStatusType !== 'OPEN', 'text-success':survey.surveyStatus.surveyStatusType === 'OPEN'}">{{ survey.surveyStatus.surveyStatusType}} <span *ngIf="survey.surveyStatus.surveyStatusType === 'OPEN'? true:false">
       {{ifExpiryDateExists()}}</span></span></small></p>
   </div>
   <div class="card-body">
