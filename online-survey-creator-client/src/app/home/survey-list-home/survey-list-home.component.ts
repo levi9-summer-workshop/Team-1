@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Survey } from '../../survey/survey.model';
 import { AuthService } from '../../login/auth-service.service';
@@ -13,7 +13,7 @@ import { SurveyUser } from '../../users/survey-user.model';
 })
 export class SurveyListHomeComponent implements OnInit {
   @Input() survey: Survey;
-  url: string = 'test';
+  @Output() onSurveyShare = new EventEmitter<string>();
   
   constructor(public authService: AuthService, public router: Router) { }
 
@@ -42,9 +42,7 @@ export class SurveyListHomeComponent implements OnInit {
   }
 
   getSurveyUrl(id: number) {
-    // this.url = this.router.createUrlTree(['survey/'+id+'/participate']).toString();
-    this.url = 'localhost:4200/#/survey/'+id+'/participate';
-    // this.url = 'test 2';
+    this.onSurveyShare.emit('localhost:4200/#/survey/'+id+'/participate');
   }
 
 }

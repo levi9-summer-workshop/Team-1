@@ -13,6 +13,7 @@ import { Survey } from '../survey/survey.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  url: string;
   searchTerm: string;
   surveys$: Observable<Survey[]>;
   base64Credential = btoa("admin" + ':' + "admin");
@@ -57,6 +58,16 @@ searchSurveys(searchTerm: string){
         this.surveys$ = this.surveyService.getPublicSurveys(this.headers); // set all public surveys if searchTerm is empty
       }
   }
+} // end searchSurveys
+
+onSurveyShare(event: string) {
+  this.url = event;
+}
+
+onCopyClick(selectedUrl: HTMLInputElement) {
+  selectedUrl.focus();
+  selectedUrl.select();  
+  document.execCommand('copy');
 }
 
 }
