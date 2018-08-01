@@ -1,14 +1,13 @@
 <div class="card border my-2 ">
   <div class="card-header">
     <p class="card-text text-center"><small class="text-muted">Posted by: <button (click)="onUserClicked(comment.surveyUser.id)" class="btn btn-link">{{comment.surveyUser.username}}</button>
-       on: {{comment.commentPostDate | date:'medium' }}</small></p>
+       on: {{comment.commentPostDate | date:'medium' }}</small><button title="delete comment"  *ngIf="comment.surveyUser.id === currentUser.id" (click)="deleteComment(comment.id)" type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
   </div>
 
   <div class="card-body">
     <p class="card-text">{{comment.message}}</p>
-    <div *ngIf="comment.surveyUser.id === currentUser.id">
-    <button type="button" (click)="deleteComment(comment.id)" class="btn btn-danger ">Delete</button>
-    </div>
   </div>  
   
 </div>

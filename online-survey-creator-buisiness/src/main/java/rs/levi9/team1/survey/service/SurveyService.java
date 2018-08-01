@@ -64,5 +64,12 @@ public class SurveyService  {
         surveyRepository.deleteBySurveyUserId(id);
     }
 
+    public void saveSurveys(List<Survey> surveys) {
+        surveyRepository.save(surveys);
+    }
+
+    public void saveAndFlush(Survey survey) {
+        surveyRepository.saveAndFlush(survey);
+    }
 
 }

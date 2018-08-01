@@ -1,4 +1,5 @@
-<div class="card border my-2 shadow">
+
+<div class="card border shadow mb-3">
   <div class="card-header">
     <p class="card-text text-center"><small class="text-muted">Created by: <button (click)="onUserClicked(survey.surveyUser.id)" class="btn btn-link">{{survey.surveyUser.username}}</button>
       Status: <span class="text-success">{{ survey.surveyStatus.surveyStatusType}} <span *ngIf="survey.surveyStatus.surveyStatusType === 'OPEN'? true:false">
@@ -15,9 +16,8 @@
     <button class="btn btn-link alignright" (click) = "getSurveyUrl(survey.id)"><i class="fas fa-share-alt text-secondary" data-toggle="modal" data-target="#shareSurveyModal"></i></button>
   </div>       
  </div>
-
 <!-- Share Survey Modal -->
-<div class="modal fade" id="shareSurveyModal" tabindex="-1" role="dialog" aria-labelledby="shareSurveyModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="shareSurveyModal" tabindex="-1" role="dialog" aria-labelledby="shareSurveyModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -33,8 +33,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
-  </div>
-</div>
+  </div> -->
     
 
  
