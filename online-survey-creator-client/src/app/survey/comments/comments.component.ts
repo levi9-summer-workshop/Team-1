@@ -3,6 +3,7 @@ import { Survey } from '../survey.model';
 import { SurveyComment } from './survey-comment';
 import { CommentsService } from './comments.service';
 import { AuthService } from '../../login/auth-service.service';
+import { Observable } from '../../../../node_modules/rxjs';
 
 @Component({
   selector: 'survey-comments',
@@ -18,8 +19,7 @@ export class CommentsComponent implements OnInit {
 
   constructor(private commentsService: CommentsService, private authService: AuthService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   saveComment() {
     const currentUser = this.authService.getSurveyUser();

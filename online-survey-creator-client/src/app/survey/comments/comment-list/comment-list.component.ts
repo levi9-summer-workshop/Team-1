@@ -4,6 +4,7 @@ import { CommentsService } from '../comments.service';
 import { SurveyUser } from '../../../users/survey-user.model';
 import { Router } from '../../../../../node_modules/@angular/router';
 import { SurveyComment } from '../survey-comment';
+import { Observable } from '../../../../../node_modules/rxjs';
 
 @Component({
   selector: 'survey-comment-list',
@@ -13,10 +14,13 @@ import { SurveyComment } from '../survey-comment';
 export class CommentListComponent implements OnInit {
   @Input() comment: SurveyComment;
   currentUser: SurveyUser;
+  comments$: Observable<SurveyComment[]>;
+
   constructor(public authService: AuthService,public router: Router, public commentService: CommentsService) { }
 
   ngOnInit() {
     this.currentUser=this.authService.getSurveyUser();
+    this.comments$ = this.commentService.getAllComments();
   }
 
   onUserClicked(id: number) {
@@ -24,7 +28,11 @@ export class CommentListComponent implements OnInit {
   }
 
   deleteComment(id: number) {
-    this.commentService.deleteComment(id).subscribe();
-    this.commentService.onCommentDeleted.next();
+    this.commentService.deleteComment(id).subscribe(
+      () => {
+          this.comments$ = this.commentService.getAllComments();
+          this.commentService.onCommentDeleted.next();
+      });
+    
   }
 }
