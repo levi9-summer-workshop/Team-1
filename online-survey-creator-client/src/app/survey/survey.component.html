@@ -1,4 +1,4 @@
-<div id="container" class="container my-5">
+<div id="container" class="container my-5 animated fadeIn">
   <div class="row">
     <div class="col">
       <form class="p-3 shadow" #f="ngForm">
@@ -36,16 +36,18 @@
           <hr>
         </fieldset>
         <fieldset class="form-group shadow">
-          <div class="alert-primary p-3" *ngFor="let question of questions; let i=index">
+          <div class="alert-primary p-3 animated fadeIn" *ngFor="let question of questions; let i=index">
             <div class="row form-inline mb-1">
-              <span class="mx-2">{{i+1}}</span>
+              <span class="mx-2">{{i+1}}.</span>
                 <input type="text" class="form-control" [value]="question.text" size=35 id="question" disabled>
                 <button type="button" (click)="deleteQuestion(i)" class="btn btn-danger mx-1">Delete</button>
             </div>
-            <div class="row form-inline alert-secondary mx-5 mt-1" *ngFor="let answer of question.surveyAnswers; let i=index">
-              <span class="mx-2">{{i+1}}</span>
+            <div class="alert-secondary">
+            <div class="row form-inline mx-5 mt-1" *ngFor="let answer of question.surveyAnswers; let i=index">
+              <span class="mx-2">{{i+1}}.</span>
               <input type="text" class="form-control" [value]="answer.text" size=35 id="question" disabled>
             </div>
+          </div>
           </div>
           <div class="m-3 p-3 border rounded">
           <div class="row form-inline">
@@ -63,7 +65,7 @@
           </div>
           <form>
           <div class="row form-inline alert-secondary mt-2" *ngFor="let answer of answers; let i = index">
-            <span class="mx-2">{{i+1}}</span>
+            <span class="mx-2">{{i+1}}.</span>
             <input type="text" class="form-control" [value]="answer.text" size=50 disabled>
             <button type="button" (click)="deleteAnswer(i)" class="btn btn-danger mx-1">Delete</button>
           </div>
