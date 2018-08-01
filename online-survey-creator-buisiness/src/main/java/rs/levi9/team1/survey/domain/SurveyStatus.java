@@ -16,7 +16,6 @@ public class SurveyStatus extends BaseEntity {
     private SurveyStatusType surveyStatusType;
 
     public SurveyStatus() {
-        this.surveyStatusType = SurveyStatusType.OPEN;
     }
 
     public SurveyStatus(SurveyStatusType surveyStatusType) {

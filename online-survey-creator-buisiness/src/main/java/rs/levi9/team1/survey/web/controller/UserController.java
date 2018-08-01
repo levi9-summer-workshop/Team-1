@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import rs.levi9.team1.survey.domain.AuthenticatedUser;
 import rs.levi9.team1.survey.domain.SurveyUser;
+import rs.levi9.team1.survey.service.CommentService;
 import rs.levi9.team1.survey.service.SurveyService;
 import rs.levi9.team1.survey.service.SurveyUserService;
 
@@ -24,11 +25,13 @@ public class UserController {
 
     private SurveyUserService surveyUserService;
     private SurveyService surveyService;
+    private CommentService commentService;
 
     @Autowired
-    public UserController(SurveyUserService surveyUserService, SurveyService surveyService) {
+    public UserController(SurveyUserService surveyUserService, SurveyService surveyService, CommentService commentService) {
         this.surveyUserService = surveyUserService;
         this.surveyService = surveyService;
+        this.commentService = commentService;
     }
 
     @RequestMapping("user")
@@ -75,6 +78,7 @@ public class UserController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(path = "{id}", method = RequestMethod.DELETE)
     public ResponseEntity delete(@PathVariable("id") Long id) {
+        commentService.deleteAllCommentsBySurveyUserId(id);
         surveyService.deleteBySurveyUserId(id);
         surveyUserService.delete(id);
         return new ResponseEntity(HttpStatus.OK);

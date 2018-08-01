@@ -16,4 +16,5 @@ public interface SurveyRepository extends JpaRepository<Survey, Long> {
     List<Survey> findAllBySurveyPrivacyPrivacyType(SurveyPrivacy.PrivacyType privacyType);
     List<Survey> findAllBySurveyStatusSurveyStatusType(SurveyStatus.SurveyStatusType statusType);
     void deleteBySurveyUserId(Long id);
+
 }

@@ -21,7 +21,6 @@
     </div>
   </div>
 </div>
-
 <div class="container mt-2">
   <div class="row">
     <div class="col-lg-12">
@@ -33,11 +32,12 @@
         </div>
       </div>
       </form>
+  <div class="col card-deck d-flex justify-content-center">
       <survey-survey-list-home *ngFor="let survey of (surveys$ | async)" [survey]="survey" (onSurveyShare) = "onSurveyShare($event)"></survey-survey-list-home>
     </div>
   </div>
 </div>
-
+</div>
 <!-- Share Survey Modal -->
 <div class="modal fade" id="shareSurveyModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">

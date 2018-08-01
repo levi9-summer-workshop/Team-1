@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
     List<Comment> findAllBySurveyIdOrderByCommentPostDateDesc(Long id);
+    void deleteAllBySurveyUserId(Long id);
 }

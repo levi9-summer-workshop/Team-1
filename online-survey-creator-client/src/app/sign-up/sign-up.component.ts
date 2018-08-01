@@ -42,7 +42,7 @@ export class SignUpComponent implements OnInit {
          any => {
            this.authService.login(userToSave.username, userToSave.password)
             .subscribe(any => {
-              this.message.animateIn = 'slideInDown'
+              this.message.animateIn = 'fadeIn'
               this.message.visibility = 'visible';
               setTimeout(() => {
                 this.router.navigate(["/home"]);

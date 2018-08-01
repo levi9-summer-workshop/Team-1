@@ -31,7 +31,7 @@ public class Survey extends BaseEntity {
     @JoinColumn(name = "fk_survey_status")
     private SurveyStatus surveyStatus = new SurveyStatus(SurveyStatus.SurveyStatusType.OPEN);
 
-    @Future
+
     @Temporal(TemporalType.DATE)
     private Date surveyExpireDate;
 
