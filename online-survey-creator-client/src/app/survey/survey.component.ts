@@ -60,7 +60,7 @@ export class SurveyComponent implements OnInit {
       privacyId = 2;
     }
     const user = this.authService.getSurveyUser();
-    console.log(this.surveyDueDate);
+    // console.log(this.surveyDueDate);
     const survey =
     new
     Survey(this.surveyDescription,user, this.questions, this.surveyDueDate, new SurveyPrivacy(this.privacyType, privacyId), new SurveyStatus('OPEN', 1), null);

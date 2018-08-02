@@ -41,6 +41,7 @@ export class SurveyAnsweringComponent implements OnInit, OnDestroy {
   selectedAnswers: number[] = [];
   surveyId: number;
   deleteCommentSubscription: Subscription;
+  selectedCheckboxAnswers: string[] = [];
 
 
   constructor(private surveyService: SurveyService, private route: ActivatedRoute, private surveyAnsweringService: SurveyAnsweringService, private commentsService: CommentsService) {
@@ -99,13 +100,40 @@ export class SurveyAnsweringComponent implements OnInit, OnDestroy {
         }));
         let result = [];
         answersWithIds.sort().forEach(qId => result.push(qId));
-    console.log('Ids of answers: [' + result + ']');
+    // console.log('Ids of answers: [' + result + ']');
     
     this.surveyAnsweringService.submitAnswers(result).subscribe();
   }
 
   onSavedComment() {
     this.commentsService.getAllCommentsBySurveyId(this.currentSurvey.id).subscribe(data => this.comments = data);
+  }
+
+  ifCheckboxSelected(form: NgForm) {
+    this.currentSurvey.surveyQuestions
+      .filter(question => question.questionType === 'MULTIPLE_ANSWERS') //filter only 'MULTIPLE_ANSWERS' questions
+      .forEach(question => {
+        this.selectedCheckboxAnswers = [];                                
+        question.surveyAnswers
+        .forEach(answer => {    
+          let id = answer.id.toString();
+          if (form.controls[id].value === true) {                                 //filter answers that are selected (true)
+            this.selectedCheckboxAnswers.push('true');                            // add value to array
+          } else {
+            this.selectedCheckboxAnswers.push('false');
+            let index = this.selectedCheckboxAnswers.indexOf('false');
+          }
+        })});
+  }
+
+  isCheckboxSelected() {
+    if (this.selectedCheckboxAnswers.length > 0 && this.selectedCheckboxAnswers.indexOf('true') > -1) {
+      
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 
 }

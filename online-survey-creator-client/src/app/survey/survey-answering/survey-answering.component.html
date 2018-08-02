@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container animated fadeIn">
   <div class="row pt-3 mt-5">
     <div class=" shadow col-12 my-sm-3 mt-5">
     <form  (ngSubmit)="onSurveySubmit(f)" #f="ngForm">  
@@ -12,12 +12,9 @@
       </div>
       <div class="row mt-2 mx-2">
       <!-- show the description of that survey -->
-        <blockquote class="blockquote">{{currentSurvey.surveyDescription}}</blockquote>
-        
+        <blockquote class="blockquote">{{currentSurvey.surveyDescription}}</blockquote>        
       </div>        
-      
-      <div class="form-group col mt-3 mx-auto" *ngFor="let question of currentSurvey.surveyQuestions; let i = index">
-        
+      <div class="form-group col mt-3 mx-auto" *ngFor="let question of currentSurvey.surveyQuestions; let i = index">       
         <!-- show the question -->
         <b>{{i+1}}. {{question.text}}</b>
         <div class="btn-group-toggle">
@@ -26,10 +23,10 @@
             <!-- show all the answers for that question -->
             <!-- name should be question.id so only one radio button can be selected -->
             <div *ngIf="question.questionType === 'SINGLE_ANSWER'">
-                <input id="userAnswer" class="form-check-input" [name] = "question.id" type = "radio" ngModel  [value] = "answer.id"> {{answer.text}}
+                <input id="userAnswer" class="form-check-input" [name] = "question.id" type = "radio" ngModel required [value] = "answer.id"> {{answer.text}}
             </div>
             <div *ngIf="question.questionType === 'MULTIPLE_ANSWERS'">
-                <input id="userAnswer" class="form-check-input" [name] = "answer.id" type = "checkbox" ngModel> {{answer.text}}
+                <input id="userAnswer" (change) = "ifCheckboxSelected(f)" class="form-check-input" [name] = "answer.id" type = "checkbox" ngModel > {{answer.text}}
             </div>
           </div>
         </div>
@@ -37,7 +34,9 @@
         <hr>
       </div>         
       <div class="d-flex justify-content-center">
-        <button class="btn btn-primary" type="submit">Submit</button>    
+        <span [attr.title] = "f.invalid ? 'You must answer all questions!' : null">
+          <button class="btn btn-primary" type="submit" [disabled] = "f.invalid || !isCheckboxSelected()">Submit</button>    
+        </span>
       </div>         
     </form>
 <survey-comments (onCommentSave)="onSavedComment()" [currentSurvey]="currentSurvey" [comments]="comments"></survey-comments>

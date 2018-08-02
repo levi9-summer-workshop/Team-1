@@ -1,4 +1,4 @@
-<div class="card border my-2 ">
+<div class="card border my-2 animated fadeIn">
   <div class="card-header">
     <p class="card-text text-center"><small class="text-muted">Posted by: <button (click)="onUserClicked(comment.surveyUser.id)" class="btn btn-link">{{comment.surveyUser.username}}</button>
        on: {{comment.commentPostDate | date:'medium' }}</small><button title="delete comment"  *ngIf="comment.surveyUser.id === currentUser.id" (click)="deleteComment(comment.id)" type="button" class="close" aria-label="Close">
