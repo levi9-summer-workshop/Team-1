@@ -7,6 +7,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import rs.levi9.team1.survey.domain.SurveyUser;
 import rs.levi9.team1.survey.service.EmailService;
+import rs.levi9.team1.survey.service.SurveyUserService;
 
 import javax.mail.MessagingException;
 
@@ -16,10 +17,12 @@ import javax.mail.MessagingException;
 public class EmailController {
 
     private EmailService emailService;
+    private SurveyUserService userService;
 
     @Autowired
-    public EmailController(EmailService emailService) {
+    public EmailController(EmailService emailService, SurveyUserService userService) {
         this.emailService = emailService;
+        this.userService = userService;
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
@@ -38,7 +41,11 @@ public class EmailController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @RequestMapping(path = "forgotten", method = RequestMethod.POST)
-    public ResponseEntity sendForgottenPasswordEmail(@RequestBody SurveyUser user) {
+    public ResponseEntity sendForgottenPasswordEmail(@RequestBody String email) {
+        SurveyUser user = userService.findByEmail(email);
+        if (user == null) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
         String messageText = "Username: "+user.getUsername()+"\nPassword: "+user.getPassword();
         String subject = "Forgotten username or password";
         try {
