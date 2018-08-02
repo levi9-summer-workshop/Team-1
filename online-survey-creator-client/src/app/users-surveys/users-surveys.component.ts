@@ -87,4 +87,9 @@ export class UsersSurveysComponent implements OnInit {
     }
   }
 
+  
+  redirect(redirectPath: string) {
+    this.router.navigate([redirectPath]);
+  }
+
 }

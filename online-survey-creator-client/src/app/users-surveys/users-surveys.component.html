@@ -1,18 +1,29 @@
-<div id="container" class="container pt-5 animated fadeIn">
+<div class="container mt-5 pt-5 animated fadeIn">
+<div class="text text-center">
+      <p>Ready to build your new survey?<span [attr.title] = '(authService.isAuthenticated() && authService.getSurveyUser()?.blocked)?"Your account has been blocked!" : null' >
+  <button type="button" class="btn btn-outline-primary" [hidden] = "authService.isAuthenticated() == false" [disabled] = "authService.isAuthenticated() && authService.getSurveyUser()?.blocked"  (click) = "redirect('/newsurvey')">Create Survey</button>
+</span>
+</p>
+</div>
+</div>
+<div id="container" class="container animated fadeIn">
   <div class="row">
-    <div class="col">
-      <div class="list-group mb-3 shadow-sm" *ngFor="let survey of (userSurveys$ | async)">
-        
-        <div class="card border-0" >    
+    <div class="col card-deck d-flex justify-content-center">
+      <div *ngFor="let survey of (userSurveys$ | async)">
+        <div class="card border shadow" >    
+          <div class="card-header">
+            <p class="card-text text-center"><small class="text-muted">
+             Status: <span [ngClass]="{'text-danger': survey.surveyStatus.surveyStatusType !== 'OPEN', 'text-success':survey.surveyStatus.surveyStatusType === 'OPEN'}">{{survey.surveyStatus.surveyStatusType}} {{ifExpiryDateExists(survey)}} </span>, Privacy: {{survey.surveyPrivacy.privacyType}}</small></p>
+          </div>
           <div class="card-body">            
             <p class="card-text">{{survey.surveyDescription}}</p>
-            <p class="card-text text-right"><small class="text-muted">
-             Status: <span [ngClass]="{'text-danger': survey.surveyStatus.surveyStatusType !== 'OPEN', 'text-success':survey.surveyStatus.surveyStatusType === 'OPEN'}">{{survey.surveyStatus.surveyStatusType}} {{ifExpiryDateExists(survey)}} </span>, Privacy: {{survey.surveyPrivacy.privacyType}}</small></p>
+          </div>  
+          <div class="card-footer">
             <button (click)="onResultClick(survey.id)" class="btn btn-link">View results</button>
             <div style="float:right" class="mx-ms-3">
               <button type="button"class="btn btn-primary" (click)="onCloseSurvey(survey)" *ngIf="survey.surveyStatus.surveyStatusType !== 'CLOSED'">Close</button>
               <button type="button"class="btn btn-danger" (click)="onSurveyDelete(survey)" data-toggle="modal" data-target="#deleteSurveyModal">Delete</button>
-            </div>
+          </div>
           </div>
         </div>
       </div>

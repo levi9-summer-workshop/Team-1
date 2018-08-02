@@ -37,6 +37,7 @@ import { CommentListComponent } from './survey/comments/comment-list/comment-lis
 import { CommentsComponent } from './survey/comments/comments.component';
 import { AuthGuardUserBlockedService } from './auth-guard-user-blocked.service';
 import { CommentsService } from './survey/comments/comments.service';
+import { ForgottenPasswordUsernameComponent } from './forgotten-password-username/forgotten-password-username.component';
 
 
 
@@ -63,7 +64,8 @@ import { CommentsService } from './survey/comments/comments.service';
     UserSurveysComponent,
     AlertsComponent,
     CommentListComponent,
-    CommentsComponent
+    CommentsComponent,
+    ForgottenPasswordUsernameComponent
   ],
   imports: [
     BrowserModule,

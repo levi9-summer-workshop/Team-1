@@ -23,6 +23,14 @@ export class SurveyComponent implements OnInit {
   surveyDueDate: Date;
   privacyType = 'PUBLIC';
   questionType = 'SINGLE_ANSWER';
+  message = {
+    bootstrapClassAlert: 'alert-success',
+    text: 'Survey created',
+    animateIn:'',
+    animateOut:'',
+    visibility: 'hidden',
+    footerMessage: 'Redirecting to your Surveys page.'
+  };
 
   constructor(private authService: AuthService, private surveyService: SurveyService, private router: Router) {}
 
@@ -64,7 +72,13 @@ export class SurveyComponent implements OnInit {
     const survey =
     new
     Survey(this.surveyDescription,user, this.questions, this.surveyDueDate, new SurveyPrivacy(this.privacyType, privacyId), new SurveyStatus('OPEN', 1), null);
-    this.surveyService.saveSurvey(survey).subscribe(data => this.router.navigate(['user']));
+    this.surveyService.saveSurvey(survey).subscribe(data => {
+      this.message.animateIn = 'fadeIn'
+      this.message.visibility = 'visible';
+      setTimeout(() => {
+        this.router.navigate(["/user"]);
+      }, 3000);
+    });
     
   }
 

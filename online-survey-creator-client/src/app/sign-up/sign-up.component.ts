@@ -19,7 +19,8 @@ export class SignUpComponent implements OnInit {
     text: 'Thank you for registering on Online Survey Creator, Welcome message has been sent to your email address.',
     animateIn:'',
     animateOut:'',
-    visibility: 'hidden'
+    visibility: 'hidden',
+    footerMessage: 'Automatic login and redirecting to home page.'
   };
   error: Error;
   notification: string;
@@ -46,10 +47,10 @@ export class SignUpComponent implements OnInit {
               this.message.visibility = 'visible';
               setTimeout(() => {
                 this.router.navigate(["/home"]);
-              }, 7000);
-              this.emailService.sendEmail(userToSave).subscribe(),
-              (error) => this.error = error
-            })
+              }, 5000);
+              this.emailService.sendEmail(userToSave).subscribe();
+            },
+            (error) => this.error = error)
         },        
         error => this.error = error
     );
