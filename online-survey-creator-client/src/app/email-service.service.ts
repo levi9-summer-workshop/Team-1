@@ -14,6 +14,6 @@ export class EmailService {
   }
 
   sendForgottenEmail(email: string, headers: HttpHeaders) {
-    return this.httpClient.post(this.API+"forgotten", email, {headers: headers});
+    return this.httpClient.post(this.API+ "forgotten", email, {headers: headers});
   }
 }
