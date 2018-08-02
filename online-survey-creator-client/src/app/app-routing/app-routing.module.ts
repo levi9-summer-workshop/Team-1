@@ -16,11 +16,13 @@ import { SurveyAnsweringComponent } from '../survey/survey-answering/survey-answ
 import { SurveyListHomeComponent } from '../home/survey-list-home/survey-list-home.component';
 import { UserSurveysComponent } from '../user-surveys/user-surveys.component';
 import { AuthGuardUserBlockedService } from '../auth-guard-user-blocked.service';
+import { ForgottenPasswordUsernameComponent } from '../forgotten-password-username/forgotten-password-username.component';
 
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'login/forgotten', component: ForgottenPasswordUsernameComponent},
   { path: 'admin', component: UsersComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
   { path: 'newsurvey', component: SurveyComponent, canActivate: [AuthGuardUserBlockedService] , data: { expectedRole: 'user'} },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuardAccessDeniedService] },
@@ -30,6 +32,7 @@ const appRoutes: Routes = [
   { path: 'survey/:id/result', component: SurveyWrapperComponent, canActivate: [AuthGuard], data: { expectedRole: 'user'}  },
   { path: 'survey/:id/result/admin', component: SurveyWrapperComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
   { path: 'survey/user/:id/surveys', component: UserSurveysComponent, canActivate: [AuthGuard], data: { expectedRole: 'user'}  },
+  
 
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '404' }

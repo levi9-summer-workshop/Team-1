@@ -1,18 +1,3 @@
-i.fab.fa-facebook-f, i.fab.fa-instagram{
-    font-size: 20px;
-    margin: 3px;
-    }
-i.fab.fa-facebook-f{
-    color: #3B5998;
-    }
-i.fab.fa-instagram{
-        color: #3B5998;
-        }
-
-i.fab.fa-facebook-f:hover, i.fab.fa-instagram:hover{
-            opacity: .6;
-           }
-
 
 .card {
     min-width: 340px;

@@ -1,13 +1,21 @@
-<div id="container" class="container pt-5 animated fadeIn">
+<div id="container" class="container mt-5 pt-3 animated fadeIn">
   <div class="row">
-    <div class="col">
-      <div class="list-group mb-3 shadow-sm" *ngFor="let survey of (userSurveys$ | async)">
+  
+    <div class="col card-deck d-flex justify-content-center">
         
-        <div class="card border-0" >    
+      <div *ngFor="let survey of (userSurveys$ | async)">
+        
+        <div class="card border shadow" >    
+          <div class="card-header">
+            <p class="card-text text-center"><small class="text-muted">
+             Status: <span [ngClass]="{'text-danger': survey.surveyStatus.surveyStatusType !== 'OPEN', 'text-success':survey.surveyStatus.surveyStatusType === 'OPEN'}">{{survey.surveyStatus.surveyStatusType}} {{ifExpiryDateExists(survey)}} </span>, Privacy: {{survey.surveyPrivacy.privacyType}}</small></p>
+          </div>
+
+
           <div class="card-body">            
             <p class="card-text">{{survey.surveyDescription}}</p>
-            <p class="card-text text-right"><small class="text-muted">
-             Status: <span [ngClass]="{'text-danger': survey.surveyStatus.surveyStatusType !== 'OPEN', 'text-success':survey.surveyStatus.surveyStatusType === 'OPEN'}">{{survey.surveyStatus.surveyStatusType}} {{ifExpiryDateExists(survey)}} </span>, Privacy: {{survey.surveyPrivacy.privacyType}}</small></p>
+          </div>  
+          <div class="card-footer">
             <button (click)="onResultClick(survey.id)" class="btn btn-link">View results</button>
             <div style="float:right" class="mx-ms-3">
               <button type="button"class="btn btn-primary" (click)="onCloseSurvey(survey)" *ngIf="survey.surveyStatus.surveyStatusType !== 'CLOSED'">Close</button>
