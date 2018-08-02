@@ -3,3 +3,16 @@
     top: 25px;
     /* margin-bottom: 502px; */
 }
+.card {
+    min-width: 340px;
+    max-width: 340px;
+    min-height: 250px;
+    max-height: 250px;
+    width: 340px;  
+    height: 250px; 
+    margin: 6px; 
+    border-radius:10px; 
+    border: 1px solid #ccc; 
+    background: #fff;
+    float: left; 
+}
