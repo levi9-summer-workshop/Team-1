@@ -49,7 +49,7 @@
         </button>
       </div>
       <div class="modal-body row">
-        <input class="input border-0 col mx-3" id="url" type="text" [value] = "url" #c><button class="btn btn-danger mx-3" (click) = "onCopyClick(c)">Copy</button>
+        <input class="input border-0 col mx-3" id="url" type="text" readonly [value] = "url" #c><button class="btn btn-danger mx-3" (click) = "onCopyClick(c)">Copy</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

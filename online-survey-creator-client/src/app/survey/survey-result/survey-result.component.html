@@ -2,9 +2,9 @@
   <div class="row pt-5 ">
     <div class="col">
       <div class="card shadow-lg">
-       <h1 class="card-header text-center">
+       <h4 class="card-header text-center">
           Survey Results
-       </h1>
+       </h4>
         <div class="card-body">
           <p>{{ survey.surveyDescription }}</p>
           <survey-question-result *ngFor="let question of survey.surveyQuestions; let i = index" [question]="question"></survey-question-result>
