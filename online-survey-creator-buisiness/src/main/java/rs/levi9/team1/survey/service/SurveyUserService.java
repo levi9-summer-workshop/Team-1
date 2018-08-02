@@ -76,4 +76,8 @@ public class SurveyUserService implements UserDetailsService {
     public SurveyUser findByUserName(String username) {
         return userRepository.findByUsername(username);
     }
+
+    public SurveyUser findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
 } // end class UserService
