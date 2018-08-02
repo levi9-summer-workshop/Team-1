@@ -41,8 +41,7 @@ export class SurveyAnsweringComponent implements OnInit, OnDestroy {
   selectedAnswers: number[] = [];
   surveyId: number;
   deleteCommentSubscription: Subscription;
-  selectedCheckboxAnswers: string[] = [];
-
+  selectedCheckboxAnswers: string[] = null;
 
   constructor(private surveyService: SurveyService, private route: ActivatedRoute, private surveyAnsweringService: SurveyAnsweringService, private commentsService: CommentsService) {
     this.route.params.subscribe(params => this.surveyId = params['id']);
@@ -127,12 +126,17 @@ export class SurveyAnsweringComponent implements OnInit, OnDestroy {
   }
 
   isCheckboxSelected() {
-    if (this.selectedCheckboxAnswers.length > 0 && this.selectedCheckboxAnswers.indexOf('true') > -1) {
-      
+    if (this.selectedCheckboxAnswers != null && this.selectedCheckboxAnswers.length > 0 && this.selectedCheckboxAnswers.indexOf('true') > -1) {      
       return true;
     }
     else {
       return false;
+    }
+  }
+
+  ifNoCheckboxes() {
+    if (this.selectedCheckboxAnswers.length === 0) {
+      return true;
     }
   }
 
