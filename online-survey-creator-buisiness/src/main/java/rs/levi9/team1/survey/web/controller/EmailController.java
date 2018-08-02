@@ -25,9 +25,24 @@ public class EmailController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity sendEmail(@RequestBody SurveyUser user) {
-        String text = "Thank you for registering on Online Survey creator";
+        String messageText = "Thank you for registering on Online Survey creator";
+        String subject = "Registration";
         try {
-            emailService.sendEmail(user.getEmail(),"Registration", text);
+            emailService.sendEmail(user.getEmail(), subject, messageText);
+        } catch (MessagingException e) {
+            System.err.println(e.getMessage());
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity("Message sent!", HttpStatus.OK);
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "forgotten", method = RequestMethod.POST)
+    public ResponseEntity sendForgottenPasswordEmail(@RequestBody SurveyUser user) {
+        String messageText = "Username: "+user.getUsername()+"\nPassword: "+user.getPassword();
+        String subject = "Forgotten username or password";
+        try {
+            emailService.sendEmail(user.getEmail(), subject, messageText);
         } catch (MessagingException e) {
             System.err.println(e.getMessage());
             return new ResponseEntity(HttpStatus.BAD_REQUEST);

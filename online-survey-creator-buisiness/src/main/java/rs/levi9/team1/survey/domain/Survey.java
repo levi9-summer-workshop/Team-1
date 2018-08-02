@@ -1,6 +1,7 @@
 package rs.levi9.team1.survey.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.Future;
@@ -31,7 +32,7 @@ public class Survey extends BaseEntity {
     @JoinColumn(name = "fk_survey_status")
     private SurveyStatus surveyStatus = new SurveyStatus(SurveyStatus.SurveyStatusType.OPEN);
 
-
+//    @Future uncomment after testing
     @Temporal(TemporalType.DATE)
     private Date surveyExpireDate;
 
