@@ -13,6 +13,7 @@ export class ForgottenPasswordUsernameComponent implements OnInit {
   headers = new HttpHeaders({
       authorization: 'Basic ' + this.base64Credential
     });
+    error: Error;
 
   constructor(private emailService: EmailService) { }
 
