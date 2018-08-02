@@ -35,7 +35,7 @@
       </div>         
       <div class="d-flex justify-content-center">
         <span [attr.title] = "f.invalid ? 'You must answer all questions!' : null">
-          <button class="btn btn-primary" type="submit" [disabled] = "f.invalid || !isCheckboxSelected() ">Submit</button>    
+          <button class="btn btn-primary" type="submit" [disabled] = "f.invalid || !isCheckboxSelected() || ifNoCheckboxes()">Submit</button>    
         </span>
       </div>         
     </form>
