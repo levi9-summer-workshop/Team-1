@@ -11,8 +11,10 @@
         </blockquote>
       </div>
       <div class="row mt-2 mx-2">
+        <div>
       <!-- show the description of that survey -->
-        <blockquote class="blockquote">{{currentSurvey.surveyDescription}}</blockquote>        
+          <blockquote class="blockquote">{{currentSurvey.surveyDescription}}</blockquote>   
+        </div>     
       </div>        
       <div class="form-group col mt-3 mx-auto" *ngFor="let question of currentSurvey.surveyQuestions; let i = index">       
         <!-- show the question -->

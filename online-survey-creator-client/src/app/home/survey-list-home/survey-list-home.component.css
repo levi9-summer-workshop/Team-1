@@ -13,6 +13,10 @@
     float: left; 
 }
 
+div .card-body {
+    overflow-y: auto;
+}
+
     
 
 .alignright {

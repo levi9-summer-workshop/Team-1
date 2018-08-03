@@ -16,3 +16,7 @@
     background: #fff;
     float: left; 
 }
+
+div .card-body {
+    overflow-y: auto;
+}

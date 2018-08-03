@@ -14,6 +14,7 @@ import java.util.List;
 public class Survey extends BaseEntity {
 
     @NotNull
+    @Type(type = "text")
     private String surveyDescription;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
