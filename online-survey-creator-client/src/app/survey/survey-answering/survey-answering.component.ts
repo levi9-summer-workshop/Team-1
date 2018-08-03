@@ -42,6 +42,14 @@ export class SurveyAnsweringComponent implements OnInit, OnDestroy {
   surveyId: number;
   deleteCommentSubscription: Subscription;
   selectedCheckboxAnswers: string[] = null;
+  message = {
+    bootstrapClassAlert: 'alert-success',
+    text: 'Thank you for participating in our survey',
+    animateIn:'',
+    animateOut:'',
+    visibility: 'hidden',
+    footerMessage: 'redirecting to home page.'
+  };
 
 
   constructor(private surveyService: SurveyService, private router: Router, private route: ActivatedRoute, private surveyAnsweringService: SurveyAnsweringService, private commentsService: CommentsService) {
@@ -102,8 +110,14 @@ export class SurveyAnsweringComponent implements OnInit, OnDestroy {
         answersWithIds.sort().forEach(qId => result.push(qId));
     // console.log('Ids of answers: [' + result + ']');
     
-    this.surveyAnsweringService.submitAnswers(result).subscribe();
-    this.router.navigate(['home']);
+    this.surveyAnsweringService.submitAnswers(result).subscribe(
+      any => {
+        this.message.animateIn = 'fadeIn'
+        this.message.visibility = 'visible';
+        setTimeout(() => {
+          this.router.navigate(["/home"]);
+        }, 2000)
+      });
     
   }
 
