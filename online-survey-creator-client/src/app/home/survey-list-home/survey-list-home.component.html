@@ -12,6 +12,6 @@
     <button class="btn btn-link" [hidden] = "authService.isAuthenticated() && authService.getSurveyUser()?.blocked" (click) = "onParticipateClick(survey.id)">Participate</button>
   </span>
     <button (click) = "onResultClick(survey.id)" class="btn btn-link"  [hidden] = "survey.surveyStatus.surveyStatusType === 'OPEN'" role="button">View results</button>
-    <button class="btn btn-link alignright" (click) = "getSurveyUrl(survey.id)" data-toggle="modal" data-target="#shareSurveyModal"><i class="fas fa-share-alt text-secondary" ></i></button>
+    <button class="btn btn-link alignright" (click) = "getSurveyUrl({id: survey.id, status: survey.surveyStatus.surveyStatusType})" data-toggle="modal" data-target="#shareSurveyModal"><i class="fas fa-share-alt text-secondary" ></i></button>
   </div>       
  </div>

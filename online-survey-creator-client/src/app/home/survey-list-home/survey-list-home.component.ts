@@ -41,8 +41,12 @@ export class SurveyListHomeComponent implements OnInit {
     this.router.navigate(['survey/user/'+id+'/surveys']);
   }
 
-  getSurveyUrl(id: number) {
-    this.onSurveyShare.emit('localhost:4200/#/survey/'+id+'/participate');
+  getSurveyUrl(event: {id: number, status: string}) {
+    if (event.status === 'OPEN') {
+    this.onSurveyShare.emit('localhost:4200/#/survey/'+event.id+'/participate');
+    } else {
+    this.onSurveyShare.emit('localhost:4200/#/survey/'+event.id+'/result');
+    }
   }
 
 }

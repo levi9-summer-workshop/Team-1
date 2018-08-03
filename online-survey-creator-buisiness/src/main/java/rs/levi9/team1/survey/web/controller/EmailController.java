@@ -32,11 +32,12 @@ public class EmailController {
         String subject = "Registration";
         try {
             emailService.sendEmail(user.getEmail(), subject, messageText);
+            return new ResponseEntity(HttpStatus.OK);
         } catch (MessagingException e) {
             System.err.println(e.getMessage());
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity("Message sent!", HttpStatus.OK);
+
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
@@ -50,10 +51,11 @@ public class EmailController {
         String subject = "Forgotten username or password";
         try {
             emailService.sendEmail(user.getEmail(), subject, messageText);
+            return new ResponseEntity(HttpStatus.OK);
         } catch (MessagingException e) {
             System.err.println(e.getMessage());
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity("Message sent!", HttpStatus.OK);
+
     }
 }
