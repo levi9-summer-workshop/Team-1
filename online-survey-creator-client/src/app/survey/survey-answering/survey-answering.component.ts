@@ -22,7 +22,7 @@ import {
   forEach
 } from '../../../../node_modules/@angular/router/src/utils/collection';
 import {
-  ActivatedRoute
+  ActivatedRoute, Router
 } from '../../../../node_modules/@angular/router';
 import { SurveyAnsweringService } from './survey-answering.service';
 import { SurveyComment } from '../comments/survey-comment';
@@ -41,10 +41,10 @@ export class SurveyAnsweringComponent implements OnInit, OnDestroy {
   selectedAnswers: number[] = [];
   surveyId: number;
   deleteCommentSubscription: Subscription;
-  selectedCheckboxAnswers: string[] = [];
+  selectedCheckboxAnswers: string[] = null;
 
 
-  constructor(private surveyService: SurveyService, private route: ActivatedRoute, private surveyAnsweringService: SurveyAnsweringService, private commentsService: CommentsService) {
+  constructor(private surveyService: SurveyService, private router: Router, private route: ActivatedRoute, private surveyAnsweringService: SurveyAnsweringService, private commentsService: CommentsService) {
     this.route.params.subscribe(params => this.surveyId = params['id']);
   }
 
@@ -103,6 +103,8 @@ export class SurveyAnsweringComponent implements OnInit, OnDestroy {
     // console.log('Ids of answers: [' + result + ']');
     
     this.surveyAnsweringService.submitAnswers(result).subscribe();
+    this.router.navigate(['home']);
+    
   }
 
   onSavedComment() {
@@ -130,9 +132,10 @@ export class SurveyAnsweringComponent implements OnInit, OnDestroy {
     if (this.selectedCheckboxAnswers != null && this.selectedCheckboxAnswers.length > 0 && this.selectedCheckboxAnswers.indexOf('true') > -1) {      
       return true;
     }
-    else {
-      return false;
+    else if (this.selectedCheckboxAnswers  === null) {
+      return true;
     }
+
   }
 
   // ifNoCheckboxes() {
