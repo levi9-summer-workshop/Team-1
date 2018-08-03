@@ -8,9 +8,9 @@
 </div>
 <div id="container" class="container animated fadeIn">
   <div class="row">
-    <div class="col card-deck d-flex justify-content-center">
+    <div class="col card-deck d-flex justify-content-center mb-5">
       <div *ngFor="let survey of (userSurveys$ | async)">
-        <div class="card border shadow" >    
+        <div class="card border-0 shadow" >    
           <div class="card-header">
             <p class="card-text text-center"><small class="text-muted">
              Status: <span [ngClass]="{'text-danger': survey.surveyStatus.surveyStatusType !== 'OPEN', 'text-success':survey.surveyStatus.surveyStatusType === 'OPEN'}">{{survey.surveyStatus.surveyStatusType}} {{ifExpiryDateExists(survey)}} </span>, Privacy: {{survey.surveyPrivacy.privacyType}}</small></p>
