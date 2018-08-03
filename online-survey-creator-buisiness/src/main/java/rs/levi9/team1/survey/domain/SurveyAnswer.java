@@ -1,5 +1,7 @@
 package rs.levi9.team1.survey.domain;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
@@ -7,6 +9,7 @@ import javax.validation.constraints.NotNull;
 public class SurveyAnswer extends BaseEntity {
 
     @NotNull
+    @Type(type = "text")
     private String text;
 
     private Long result = 0L;

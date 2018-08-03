@@ -41,7 +41,8 @@ export class SurveyAnsweringComponent implements OnInit, OnDestroy {
   selectedAnswers: number[] = [];
   surveyId: number;
   deleteCommentSubscription: Subscription;
-  selectedCheckboxAnswers: string[] = null;
+  selectedCheckboxAnswers: string[] = [];
+
 
   constructor(private surveyService: SurveyService, private route: ActivatedRoute, private surveyAnsweringService: SurveyAnsweringService, private commentsService: CommentsService) {
     this.route.params.subscribe(params => this.surveyId = params['id']);
@@ -108,11 +109,11 @@ export class SurveyAnsweringComponent implements OnInit, OnDestroy {
     this.commentsService.getAllCommentsBySurveyId(this.currentSurvey.id).subscribe(data => this.comments = data);
   }
 
-  ifCheckboxSelected(form: NgForm) {
+  onCheck(form: NgForm) {    
     this.currentSurvey.surveyQuestions
       .filter(question => question.questionType === 'MULTIPLE_ANSWERS') //filter only 'MULTIPLE_ANSWERS' questions
       .forEach(question => {
-        this.selectedCheckboxAnswers = [];                                
+        this.selectedCheckboxAnswers = [];         
         question.surveyAnswers
         .forEach(answer => {    
           let id = answer.id.toString();
@@ -134,10 +135,12 @@ export class SurveyAnsweringComponent implements OnInit, OnDestroy {
     }
   }
 
-  ifNoCheckboxes() {
-    if (this.selectedCheckboxAnswers.length === 0) {
-      return true;
-    }
-  }
+  // ifNoCheckboxes() {
+  //   if (this.selectedCheckboxAnswers.length === 0) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
 }

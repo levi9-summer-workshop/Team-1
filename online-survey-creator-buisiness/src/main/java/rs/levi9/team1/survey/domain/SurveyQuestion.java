@@ -1,5 +1,7 @@
 package rs.levi9.team1.survey.domain;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.List;
 public class SurveyQuestion extends BaseEntity {
 
     @NotNull
+    @Type(type = "text")
     private String text;
 
     @Enumerated(EnumType.STRING)

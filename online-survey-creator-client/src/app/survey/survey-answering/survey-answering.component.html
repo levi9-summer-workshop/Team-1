@@ -28,7 +28,7 @@
                 <input id="userAnswer" class="form-check-input" [name] = "question.id" type = "radio" ngModel required [value] = "answer.id"> {{answer.text}}
             </div>
             <div *ngIf="question.questionType === 'MULTIPLE_ANSWERS'">
-                <input id="userAnswer" (change) = "ifCheckboxSelected(f)" class="form-check-input" [name] = "answer.id" type = "checkbox" ngModel > {{answer.text}}
+                <input id="userAnswer" (change) = "onCheck(f)" class="form-check-input" [name] = "answer.id" type = "checkbox" ngModel > {{answer.text}}
             </div>
           </div>
         </div>
@@ -36,8 +36,8 @@
         <hr>
       </div>         
       <div class="d-flex justify-content-center">
-        <span [attr.title] = "f.invalid ? 'You must answer all questions!' : null">
-          <button class="btn btn-primary" type="submit" [disabled] = "f.invalid || !isCheckboxSelected() || ifNoCheckboxes()">Submit</button>    
+        <span [attr.title] = "(f.invalid || !isCheckboxSelected()) ? 'You must answer all questions!' : null">
+          <button class="btn btn-primary" type="submit" [disabled] = "f.invalid || !isCheckboxSelected()">Submit</button>    
         </span>
       </div>         
     </form>
