@@ -33,14 +33,14 @@ export class ForgottenPasswordUsernameComponent implements OnInit {
   onLogin(form: NgForm, headers: HttpHeaders) {
     const email = form.value.email;
     this.emailService.sendForgottenEmail(email, this.headers).subscribe(
-      any => console.log('success'),
-      e =>{ this.message.animateIn = 'fadeIn';
+      any  => { this.message.animateIn = 'fadeIn';
       this.message.visibility = 'visible';
       setTimeout(() => {
         this.message.animateOut = 'fadeOut';
         this.message.visibility ='hidden';
         this.router.navigate(["/login"])
       }, 3000);
-      });
+      },
+    error => this.error = error);
 }
 }
