@@ -25,7 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(surveyUserService);
-    }
+    } // end configure
 
     // This method is for overriding some configuration of the WebSecurity
     // If you want to ignore some request or request patterns then you can
@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         super.configure(web);
-    }
+    } // end configure
 
     // This method is used for override HttpSecurity of the web Application.
     // We can specify our authorization criteria inside this method.
@@ -55,5 +55,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 // disabling the CSRF - Cross Site Request Forgery
                 .csrf().disable();
-    }
-}
+    } // end configure
+
+} // end class
