@@ -47,7 +47,7 @@ export class SignUpComponent implements OnInit {
               this.message.visibility = 'visible';
               setTimeout(() => {
                 this.router.navigate(["/home"]);
-              }, 5000);
+              }, 3000);
               this.emailService.sendEmail(userToSave).subscribe();
             },
             (error) => this.error = error)
